@@ -1,6 +1,4 @@
-# Sprint Challenge Instructions Template
-
-> Text like this that uses the `>` character (quoted block in Markdown) is commentary and instructions for you (the curriculum developer) to replace. They should not be left in your final result. Conversely, text not in a quote block is either a example for you to modify, or text that will usually be left as-is for most if not all sprint challenges.
+# Adding Data Persistence Sprint Challenge
 
 **Read these instructions carefully. Understand exactly what is expected _before_ starting this Sprint Challenge.**
 
@@ -15,9 +13,6 @@ _You have **three hours** to complete this challenge. Plan your time accordingly
 
 ## Introduction
 
-> In this section, introduce the challenge,  with a high level explanation of the components of the project.
-> 
-> This section should include examples in the form of screenshots, screen recording GIFs, and/or links to an example.
 
 In meeting the minimum viable product (MVP) specifications listed below, your project should look like the solution examples below:
 
