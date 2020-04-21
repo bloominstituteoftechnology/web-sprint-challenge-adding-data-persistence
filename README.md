@@ -2,7 +2,7 @@
 
 **Read these instructions carefully. Understand exactly what is expected _before_ starting this Sprint Challenge.**
 
-This challenge allows you to practice the concepts and techniques learned over the past sprint and apply them in a concrete project. This sprint explored **Data Persistence**. During this sprint, you studied **RDBMS, including SQL, multi-table queries, and data modeling**. In your challenge this week, you will demonstrate your mastery of these skills by creating **`<describe project here>`**.
+This challenge allows you to practice the concepts and techniques learned over the past sprint and apply them in a concrete project. This sprint explored **Data Persistence**. During this sprint, you studied **RDBMS, including SQL, multi-table queries, and data modeling**. In your challenge this week, you will demonstrate your mastery of these skills by creating **a database based on given specifications**.
 
 This is an individual assessment. All work must be your own. Your challenge score is a measure of your ability to work independently using the material covered through this sprint. You need to demonstrate proficiency in the concepts and objectives introduced and practiced in preceding days.
 
@@ -14,11 +14,31 @@ _You have **three hours** to complete this challenge. Plan your time accordingly
 ## Introduction
 
 
-In meeting the minimum viable product (MVP) specifications listed below, your project should look like the solution examples below:
+In this project you will be given a set of requirements and must design a database to satisfy them. As a part of this process you'll also build an API with endpoints to access the data.
 
- [Sample Screenshot](https://tk-assets.lambdaschool.com/39a49225-8ac9-43da-aa90-514fd60ae99a_sprint-challenge-ui-home-example.png)
+### Entities
 
-[Sample mobile example](https://tk-assets.lambdaschool.com/fbe7ebfc-a4c2-4a32-8929-bbd41fbc4f67_ScreenShot2020-03-25at11.03.41AM.png)
+A `project` is what needs to be done. We want to store the following data about a `project`:
+
+- [ ] a unique ID.
+- [ ] a name. This column is required.
+- [ ] a description.
+- [ ] a boolean that indicates if the project has been completed. This column cannot be NULL, the default value should be `false`.
+
+A `resource` is anything needed to complete a project, some examples are: a person, a tool, a meeting room or a software license. We want to store the following data about a `resource`:
+
+- [ ] a unique ID.
+- [ ] a name. This column is required.
+- [ ] a description.
+
+The database should not allow resources with duplicate names.
+
+A `task` one of the steps needed to complete the project. We want to store the following data about an `task`.
+
+- [ ] a unique ID.
+- [ ] a description of what needs to be done. This column is required.
+- [ ] a notes column to add additional information.
+- [ ] a boolean that indicates if the task has been completed. This column cannot be NULL, the default value should be `false`.
 
 ### Commits
 
@@ -74,30 +94,6 @@ Your finished project must include all of the following requirements:
   - [ ] retrieving a list of tasks. **The list of tasks should include the project name and project description**.
 
 In your solution, it is essential that you follow best practices and produce clean and professional results. You will be scored on your adherence to proper code style and good organization. Schedule time to review, refine, and assess your work and perform basic professional polishing including spell-checking and grammar-checking on your work. It is better to submit a challenge that meets MVP than one that attempts too much and does not.
-
-#### Entities
-
-A `project` is what needs to be done. We want to store the following data about a `project`:
-
-- [ ] a unique ID.
-- [ ] a name. This column is required.
-- [ ] a description.
-- [ ] a boolean that indicates if the project has been completed. This column cannot be NULL, the default value should be `false`.
-
-A `resource` is anything needed to complete a project, some examples are: a person, a tool, a meeting room or a software license. We want to store the following data about a `resource`:
-
-- [ ] a unique ID.
-- [ ] a name. This column is required.
-- [ ] a description.
-
-The database should not allow resources with duplicate names.
-
-A `task` one of the steps needed to complete the project. We want to store the following data about an `task`.
-
-- [ ] a unique ID.
-- [ ] a description of what needs to be done. This column is required.
-- [ ] a notes column to add additional information.
-- [ ] a boolean that indicates if the task has been completed. This column cannot be NULL, the default value should be `false`.
 
 ### Task 3: Stretch Goals 
 
