@@ -28,13 +28,13 @@ exports.up = function(knex) {
         tbl.string('name', 255).notNullable()
         tbl.string('discription')
     })
-    .createTable('tasks_resources', tbl =>{
+    .createTable('project_resources', tbl =>{
         tbl.increments()
         //foreign keys
         tbl
-        .integer('tasks_id')
+        .integer('project_id')
         .unsigned()
-        .references('tasks.id')
+        .references('project.id')
         .onDelete('RESTRICT')
         .onUpdate('CASCADE')
         tbl
@@ -52,9 +52,9 @@ exports.up = function(knex) {
 
 exports.down = function(knex) {
     return knex.schema
-    .dropTableifExists('tasks_resources')
-    .dropTableifExists('resources')
-    .dropTableifExists('tasks')
-    .dropTableifExists('project')
+    .dropTableIfExists('project_resources')
+    .dropTableIfExists('resources')
+    .dropTableIfExists('tasks')
+    .dropTableIfExists('project')
   
 };
