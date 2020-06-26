@@ -1,6 +1,7 @@
 const express = require("express")
 const helmet = require("helmet")
-// const recipeRouter = require("./routers/recipes")
+const projectRouter = require("./routers/project")
+const resourceRouter = require("./routers/resources")
 
 const server = express()
 const port = process.env.PORT || 4000
@@ -8,7 +9,7 @@ const port = process.env.PORT || 4000
 server.use(helmet())
 server.use(express.json())
 
-// server.use(recipeRouter)
+server.use(resourceRouter)
 
 server.get("/", (req, res) =>{
     res.send("Sprint DB API for Lambda")
