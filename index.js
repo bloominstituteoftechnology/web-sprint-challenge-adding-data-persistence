@@ -11,7 +11,7 @@ server.use(express.json())
 // server.use(recipeRouter)
 
 server.get("/", (req, res) =>{
-    res.send("api for recipes")
+    res.send("Sprint DB API for Lambda")
 })
 
 server.use((err, req, res, next) => {
