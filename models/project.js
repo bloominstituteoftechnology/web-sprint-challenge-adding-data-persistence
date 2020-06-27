@@ -18,8 +18,16 @@ function addProject(project) {
         });
 }
 
+function resourcesByProject(id) {
+    return db("project as p")
+        .where("p.id", id)
+        .join("resources as r", "r.project_id", "p.id")
+        .select("r.name", "r.description")
+}
+
 module.exports = {
     getProjects,
     findById,
     addProject,
+    resourcesByProject,
 }
