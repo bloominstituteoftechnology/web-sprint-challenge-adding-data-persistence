@@ -12,36 +12,16 @@ router.get("/projects", async (req, res, next) => {
     }
 })
 
-// router.get("/recipes/:id/shoppinglist", async (req, res, next) => {
-//     try {
-//         const recipes = await Recipes.getShoppingList(req.params.id)
-//         if (recipes.length) {
-//             res.json(recipes)
-//         } else {            
-//             return res.status(404).json({
-//                 message: "recipe not found",
-//             })
-//         }
-        
-//     } catch(err) {
-//         next(err)
-//     }
-// })
+router.post('/project', (req, res) => {
+    const projectData = req.body;
 
-// router.get("/recipes/:id/instructions", async (req, res, next) => {
-//     try {
-//         const recipes = await Recipes.getInstructions(req.params.id)
-//         if (recipes.length) {
-//             res.json(recipes)
-//         } else {            
-//             return res.status(404).json({
-//                 message: "recipe not found",
-//             })
-//         }
-//     } catch(err) {
-//         next(err)
-//     }
-    
-// })
+    project.addProject(projectData)
+        .then(project => {
+        res.status(201).json(project);
+    })
+        .catch (err => {
+        res.status(500).json({ message: 'Failed to create new project' });
+    });
+});
 
 module.exports = router
