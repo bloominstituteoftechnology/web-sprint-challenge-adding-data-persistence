@@ -47,12 +47,16 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. Explain the difference between `Relational Databases` and `SQL`.
+A Relational Database is data formatted by rows and columns.  Each Table may or may not be related to other tables in the database.  SQL is a query language used to get data from your database. 
 
 2. Why do tables need a `primary key`?
+Primary keys uniquely identify each row. 
 
 3. What is the name given to a table column that references the primary key on another table.
+A foreign key. 
 
 4. What do we need in order to have a _many to many_ relationship between two tables.
+A table that connects both tables together.  The table will have how a foreign key that represents a row from each table. 
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
@@ -60,12 +64,12 @@ You are expected to be able to answer questions in these areas. Your responses c
 
 ### Task 1: Project Set Up
 
-- [ ] Create a forked copy of this project
+- [✅] Create a forked copy of this project
 - [ ] Add your team lead as collaborator on Github
-- [ ] Clone your OWN version of the repository (Not Lambda's by mistake!)
-- [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
-- [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly
-- [ ] Push commits: git push origin `<firstName-lastName>`
+- [✅] Clone your OWN version of the repository (Not Lambda's by mistake!)
+- [✅] Create a new branch: git checkout -b `<firstName-lastName>`.
+- [✅] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly
+- [✅] Push commits: git push origin `<firstName-lastName>`
 
 ### Task 2: Project Requirements
 
