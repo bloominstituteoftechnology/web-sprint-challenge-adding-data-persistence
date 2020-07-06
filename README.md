@@ -46,13 +46,17 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
-1. Explain the difference between `Relational Databases` and `SQL`.
+1.A RDBMS is a Relational Database Management System. It is the database software itself, which manages storage, querying, updating, and, well, everything. Specifically, an RDBMS uses a relational model of data, as the name suggests. If you want to work on an RDBMS, you’ll need to learn its implementation language (often C), relational model theory, and a lot of nitty-gritty stuff about filesystem access, transactional logging, scalability, synchron.
 
-2. Why do tables need a `primary key`?
+SQL- the Structured Query Language -which is typically used to query the RDBMS. If you want to work with SQL, you just learn SQL and maybe a tiny bit of relational model theory for background.
 
-3. What is the name given to a table column that references the primary key on another table.
+2.A primary key is a table column that serves a special purpose. Each database table needs a primary key because it ensures row-level accessibility. If you choose an appropriate primary key, you can specify a primary key value, which lets you query each table row individually and modify each row without altering other rows in the same table. The values that compose a primary key column are unique; no two values are the same.
 
-4. What do we need in order to have a _many to many_ relationship between two tables.
+Each table has one-only one primary ky- which can consist of one or many columns. A concatenated primary key comprises two or more columns. In a single table, you might find several columns, or groups of columns, that might serve as a primary key and are called candidate keys. A table can have more than one candidate key, but only one candidate key can become the primary key for that table.
+
+3.Primary keys and foreign keys are two types of constraints that can be used to enforce data integrity in SQL Server tables. These are important database objects.
+
+4.A many-to-many relationship occurs when multiple records in a table are associated with multiple records in another table.a many-to-many relationship exists between customers and products: customers can purchase various products, and products -can be purchased by many customers.
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
