@@ -40,6 +40,23 @@ function addItem(payload){
 }
 
 
+function addTask(payload){
+    return db("tasks")
+        .insert(payload, "id")
+        .then((item_id) => {
+            const [id] = item_id
+            return findTaskById(id)
+        })
+}
+
+function addTodo(payload){
+    return db("tasks")
+        .insert(payload, "id")
+        .then((item_id) => {
+            const [id] = item_id
+            return findTaskById(id)
+        })
+}
 
 
 
@@ -51,5 +68,7 @@ module.exports = {
     findItemById,
     getTo_do,
     findTo_doById,
-    addItem
+    addItem,
+    addTask,
+    addTodo,
 }
