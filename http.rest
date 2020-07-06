@@ -1,1 +1,43 @@
-GET http://localhost:8001/api
+// Router Tester
+GET http://localhost:8001/test
+
+###
+// Get all Tasks/Projects
+GET http://localhost:8001/tasks
+
+###
+
+//Get all item/resources
+GET http://localhost:8001/items
+
+###
+
+//Get all item/resources
+GET http://localhost:8001/todo
+
+###
+
+//GET task by ID
+GET http://localhost:8001/item/1
+
+###
+
+// POST new Item/Resource
+POST http://localhost:8001/item
+Content-Type: application/json
+
+{
+    "name": "New test, validating entries",
+    "notes": "testing"
+}
+
+###
+
+// POST new Item/Resource
+POST http://localhost:8001/task
+Content-Type: application/json
+
+{
+    "name": "Test newest POST POST POST",
+    "description": "testing"
+}
