@@ -58,6 +58,12 @@ function addTodo(payload){
         })
 }
 
+const getTodoWithTask = () => {
+    return db("to_do")
+        .join("tasks", "to_do.tasks_id", "tasks.id")
+        .select("to_do.description as Task_Description", "to_do.notes as Task_Notes", "tasks.name as Project_Task", "tasks.description as Project_Description" )
+}
+
 
 
 
@@ -71,4 +77,5 @@ module.exports = {
     addItem,
     addTask,
     addTodo,
+    getTodoWithTask,
 }

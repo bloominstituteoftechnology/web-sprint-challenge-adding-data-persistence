@@ -12,13 +12,24 @@ exports.up = async function(knex) {
             table.increments("id")
             table.text("name").notNull().unique()
             table.text("notes")
+
+
         })
+        // add foreign key 
+        // Join tasks & to_do
 
         .createTable("to_do", table => {
             table.increments("id")
             table.text("description").notNull()
             table.text("notes")
             table.boolean("completed").defaultTo(false)
+
+            table
+            .integer("tasks_id")
+            .notNull()
+            .references("tasks.id")
+            .onDelete("RESTRICT")
+            .onUpdate("CASCADE")
         })
 
         .createTable("task_todo", table => {

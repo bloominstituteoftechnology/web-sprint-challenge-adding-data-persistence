@@ -91,7 +91,13 @@ Your finished project must include all of the following requirements:
   - [✅] adding projects.
   - [✅] retrieving a list of projects.
   - [✅] adding tasks.
-  - [✅ ] retrieving a list of tasks. **The list of tasks should include the project name and project description**.
+  - [✅ ] retrieving a list of tasks. **The list of to_do should include the project name and project description**.
+
+  {
+    taskName: "task 1"
+    taskDescription: "description"
+  }
+  
 
 In your solution, it is essential that you follow best practices and produce clean and professional results. You will be scored on your adherence to proper code style and good organization. Schedule time to review, refine, and assess your work and perform basic professional polishing including spell-checking and grammar-checking on your work. It is better to submit a challenge that meets MVP than one that attempts too much and does not.
 

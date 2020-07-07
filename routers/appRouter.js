@@ -118,6 +118,22 @@ server.post("/todo", (req, res) => {
       });
   });
 
+//GET To_do with Task name and Description
+server.get("/todo/tasks", async (req, res, next) => {
+  try {
+    const to_do = await appModel.getTodoWithTask();
+    if (to_do.length === 0) {
+      return res.status(404).json({
+        message: "Todo does not exist, create it?",
+      });
+    } else {
+      res.json(to_do);
+    }
+  } catch (error) {
+    next(error);
+  }
+});
+
 
 
 //export your router

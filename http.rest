@@ -22,13 +22,18 @@ GET http://localhost:8001/item/1
 
 ###
 
+//get To_do with Task name and description
+GET http://localhost:8001/todo/tasks
+
+###
+
 // POST new Item/Resource
 POST http://localhost:8001/item
 Content-Type: application/json
 
 {
-    "name": "New test, validating entries",
-    "notes": "testing"
+    "name": "Testin ID 9",
+    "notes": "ID 9"
 }
 
 ###
