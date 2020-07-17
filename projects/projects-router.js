@@ -45,4 +45,22 @@ router.get('/:id', (req, res) => {
                 res.status(500).json({ message: 'Failed to create new project' });
             });
       });
+
+
+    //get resources for a project
+    router.get('/:id/resources', (req, res) => {
+        const { id } = req.params;
+      
+        Projects.findResources(id)
+        .then(resources => {
+          if (resources.length) {
+            res.json(resources);
+          } else {
+            res.status(404).json({ message: 'Could not find resources for given project' })
+          }
+        })
+        .catch(err => {
+          res.status(500).json({ message: 'Failed to get steps' });
+        });
+      });
     module.exports = router

@@ -3,7 +3,8 @@ const db = require("../data/db-config")
 module.exports ={
     findById,
     find,
-    add
+    add,
+    findResources
 }
 
 //get a list of projects
@@ -29,4 +30,11 @@ function add(project){
     .catch(err => {
         console.log(err)
     })
+}
+
+function findResources(id){
+    return db("projects")
+        .join("resources", "projects.id", "resources.project_id")
+        .select("resources.name", "projects.name as project name")
+        .where({project_id:id})
 }
