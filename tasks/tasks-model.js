@@ -5,7 +5,10 @@ function getTasks() {
     .join("projects", "projects.id", "=", "tasks.project_id")
     .select(
       "projects.name as Project Name",
-      "tasks.description as Task Description"
+      "projects.description as Project Description",
+      "tasks.description as Task Description",
+      "tasks.notes as Task Notes",
+      "tasks.completed as Is Task Completed"
     );
 }
 
