@@ -32,4 +32,17 @@ router.get('/:id', (req, res) => {
             res.status(500).json({ message: 'Failed to get project' });
         });
     })
+
+    //post a project
+    router.post('/', (req, res) => {
+        const project = req.body;
+      
+        Projects.add(project)
+            .then(newProject => {
+                res.status(201).json(newProject)
+            })
+            .catch (err => {
+                res.status(500).json({ message: 'Failed to create new project' });
+            });
+      });
     module.exports = router
