@@ -1,25 +1,27 @@
 exports.seed = function (knex) {
   // Deletes ALL existing entries
-  return knex("resources")
+  return knex("tasks")
     .del()
     .then(function () {
       // Inserts seed entries
-      return knex("resources").insert([
+      return knex("tasks").insert([
         {
-          name: "Resource Test Name 1",
-          description: "Resource Test Description 1",
+          project_id: 1,
+          description: "Task Test Description 1",
+          notes: "Task Test Notes 1",
+          completed: 1,
         },
         {
-          name: "Resource Test Name 2",
-          description: "Resource Test Description 2",
+          project_id: 1,
+          description: "Task Test Description 2",
+          notes: "Task Test Notes 2",
+          completed: 0,
         },
         {
-          name: "Resource Test Name 3",
-          description: "Resource Test Description 3",
-        },
-        {
-          name: "Resource Test Name 4",
-          description: "Resource Test Description 4",
+          project_id: 2,
+          description: "Task Test Description 3",
+          notes: "Task Test Notes 3",
+          completed: 1,
         },
       ]);
     });
