@@ -10,6 +10,6 @@ server.use(express.json());
 
 server.use('/api/projects', ProjectsRouter);
 server.use('/api/resources', ResourcesRouter);
-// server.use('/api/tasks', TasksRouter);
+server.use('/api/tasks', TasksRouter);
 
 module.exports = server;
