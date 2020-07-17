@@ -4,6 +4,18 @@ const Projects = require('./projects-model')
 
 const router = express.Router()
 
+//get a list of projects
+router.get('/', (req, res) => (
+    Projects.find()
+        .then(projects => {
+            res.json(projects);
+        })
+        .catch(err => {
+            res.status(500).json({ message: 'Failed to get projects' });
+        }) 
+))
+
+
 //get projects by id
 router.get('/:id', (req, res) => {
     const {id} = req.params;
