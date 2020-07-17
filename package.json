@@ -4,7 +4,8 @@
   "description": "**Read these instructions carefully. Understand exactly what is expected _before_ starting this Sprint Challenge.**",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "server": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,17 @@
   "bugs": {
     "url": "https://github.com/ferror18/web-sprint-challenge-adding-data-persistence/issues"
   },
-  "homepage": "https://github.com/ferror18/web-sprint-challenge-adding-data-persistence#readme"
+  "homepage": "https://github.com/ferror18/web-sprint-challenge-adding-data-persistence#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^3.23.3",
+    "knex": "^0.21.2",
+    "morgan": "^1.10.0",
+    "sqlite3": "^5.0.0"
+  }
 }
