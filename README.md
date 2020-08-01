@@ -48,11 +48,20 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. Explain the difference between `Relational Databases` and `SQL`.
 
+  //Relational Databases is a series of tables consisting of columns of rows. Each table is somehow related to another table, through a foreign key. SQL is the code we use to pull the data from those tables.
+
 2. Why do tables need a `primary key`?
+
+  //We use a primary key so we can easily identify a record (one row) in a table. It doesn't necessarily have to be an integer, just some unique identifer.
+
 
 3. What is the name given to a table column that references the primary key on another table.
 
+  //The name that is given to a table that references a primary key is called the foreign key. These are used so we can pull information from a secondary table by calling the primary key that the foreign key represents.
+
 4. What do we need in order to have a _many to many_ relationship between two tables.
+
+  //We need some sort of bridge table in order to have a many to many relationship.
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
