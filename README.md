@@ -47,12 +47,16 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. Explain the difference between `Relational Databases` and `SQL`.
+Relational Database is a place to persistently store the data in a tabular format where each entry has a primary key and all fileds directly relate to each other. Structures Query Language is a tool to manipulate the data, may use a raw sql, but preferably to wrap the sql in knex file if using js.
 
 2. Why do tables need a `primary key`?
+It is unique identifier for each record/entry in relational database.
 
 3. What is the name given to a table column that references the primary key on another table.
+A foreign key
 
 4. What do we need in order to have a _many to many_ relationship between two tables.
+An intermediary or Join table that biulds a relationship between couple tables by storing foreighn keys as reference.
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 

@@ -3,7 +3,9 @@ exports.up = async function (knex) {
 		table.increments("id");
 		table.text("name").notNull();
 		table.text("description");
-		table.bool("completed").defaultTo(false);
+        table.bool("completed")
+        
+        .defaultTo(false);
 	});
 	await knex.schema.createTable("tasks", (table) => {
 		table.increments("id");
@@ -17,7 +19,9 @@ exports.up = async function (knex) {
 			.onDelete("CASCADE");
 		table.text("description").notNull();
 		table.text("notes");
-		table.bool("completed").defaultTo(false);
+        table.bool("completed")
+            
+            .defaultTo("false");
 	});
 	await knex.schema.createTable("resources", (table) => {
 		table.increments("id");
