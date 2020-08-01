@@ -1,0 +1,31 @@
+{
+  "name": "web-sprint-challenge-adding-data-persistence",
+  "version": "1.0.0",
+  "description": "**Read these instructions carefully. Understand exactly what is expected _before_ starting this Sprint Challenge.**",
+  "main": "knexfile.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "helmet": "^3.23.3",
+    "knex": "^0.21.2",
+    "sqlite3": "^5.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js",
+    "server": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lex-marie790/web-sprint-challenge-adding-data-persistence.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lex-marie790/web-sprint-challenge-adding-data-persistence/issues"
+  },
+  "homepage": "https://github.com/lex-marie790/web-sprint-challenge-adding-data-persistence#readme"
+}
