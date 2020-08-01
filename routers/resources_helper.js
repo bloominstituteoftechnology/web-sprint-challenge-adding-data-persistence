@@ -1,7 +1,7 @@
 const db = require("../data/db-config");
 
 function get() {
-	return db("resources");
+	return db.select("*").from("resources");
 }
 
 function getById(id) {

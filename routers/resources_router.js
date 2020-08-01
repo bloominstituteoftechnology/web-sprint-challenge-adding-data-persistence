@@ -5,8 +5,8 @@ const router = express.Router();
 
 router.get("/", async (req, res, next) => {
 	try {
-		const resources = await resources.get();
-		res.json(resources);
+		const resource = await resources.get();
+		res.json(resource);
 	} catch (err) {
 		next(err);
 	}

@@ -14,13 +14,16 @@ router.get("/", async (req, res, next) => {
 
 router.get("/:id", async (req, res, next) => {
 	try {
-		const project = await project.getById(req.params.id);
-		if (!project) {
-			return res.status(404).json({
+		const projects = await project.getById(req.params.id);
+		if (projects) {
+			return res.status(200).json(projects);
+        }
+        else {
+            return res.status(404).json({
 				message: "The project not found.",
 			});
-		}
-		res.json(project);
+        }
+		
 	} catch (err) {
 		next(err);
 	}
@@ -65,7 +68,7 @@ router.get("/:id/tasks", async (req, res, next) => {
 
 router.delete("/:id", async (req, res, next) => {
 	try {
-		const project = await project.deleteProject(req.params.id);
+		const projects = await project.deleteProject(req.params.id);
 	
 		res.json({
 			message: "The project was removed."
@@ -80,8 +83,8 @@ router.put("/:id", async (req, res, next) => {
 	try {
 		// const {id} = req.params;
 		// const changes = req.body;
-		const project = await project.updateProject(req.params.id, req.body)
-		res.json(project)
+		const projects = await project.updateProject(req.params.id, req.body)
+		res.json(projects)
 	} catch (err) {
 		next(err)
 	}

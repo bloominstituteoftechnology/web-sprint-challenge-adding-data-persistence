@@ -10,14 +10,17 @@ function getById(id) {
 
 function add(task) {
 	return db("tasks")
-		.insert(task)
+		.insert(task, 'id')
 		.then((id) => {
 			return getById(id[0]);
 		});
 }
-
+function updateTask(id, taskToUpdate) {
+	return db("tasks as t").where("t.id", id).update(taskToUpdate)
+}
 module.exports = {
 	find,
 	getById,
-	add,
+    add,
+    updateTask,
 };
