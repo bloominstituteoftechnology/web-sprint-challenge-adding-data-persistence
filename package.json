@@ -1,0 +1,26 @@
+{
+  "name": "web-sprint-challenge-adding-data-persistence",
+  "version": "1.0.0",
+  "description": "sprint",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.21.2",
+    "sqlite3": "^5.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Frytz/web-sprint-challenge-adding-data-persistence.git"
+  },
+  "author": "John",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Frytz/web-sprint-challenge-adding-data-persistence/issues"
+  },
+  "homepage": "https://github.com/Frytz/web-sprint-challenge-adding-data-persistence#readme"
+}
