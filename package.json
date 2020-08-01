@@ -1,0 +1,33 @@
+{
+  "name": "web-sprint-challenge-adding-data-persistence",
+  "version": "1.0.0",
+  "description": "Sprint Challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/melissa-24/web-sprint-challenge-adding-data-persistence.git"
+  },
+  "author": "Melissa Longenberger",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/melissa-24/web-sprint-challenge-adding-data-persistence/issues"
+  },
+  "homepage": "https://github.com/melissa-24/web-sprint-challenge-adding-data-persistence#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^3.23.3",
+    "knex": "^0.21.2",
+    "knex-cleaner": "^1.3.0",
+    "sqlite3": "^5.0.0"
+  }
+}
