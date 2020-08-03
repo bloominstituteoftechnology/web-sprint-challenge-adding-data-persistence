@@ -60,7 +60,7 @@ You are expected to be able to answer questions in these areas. Your responses c
 
 ### Task 1: Project Set Up
 
-- [x] Create a forked copy of this project
+- [ ] Create a forked copy of this project
 - [ ] Add your team lead as collaborator on Github
 - [ ] Clone your OWN version of the repository (Not Lambda's by mistake!)
 - [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
@@ -90,8 +90,6 @@ Your finished project must include all of the following requirements:
   - [ ] retrieving a list of tasks. **The list of tasks should include the project name and project description**.
 
 In your solution, it is essential that you follow best practices and produce clean and professional results. You will be scored on your adherence to proper code style and good organization. Schedule time to review, refine, and assess your work and perform basic professional polishing including spell-checking and grammar-checking on your work. It is better to submit a challenge that meets MVP than one that attempts too much and does not.
-
-<!-- https://github.com/LambdaSchool/web-sprint-challenge-adding-data-persistence/pull/17 my pull request -->
 
 ### Task 3: Stretch Goals
 
