@@ -1,14 +1,15 @@
 const express = require("express");
-
-//const projectRouter = require("./project/router")
+const helmet = require("helmet");
+const projectRouter = require("./projects/projectsRouter")
 const notFound = require("./middleware/404")
 
 const server = express();
 //custom middleware declared later in script
-server.use(logger)
+//server.use(logger)
+server.use(helmet());
 server.use(express.json());
 
-//server.use("/api/projects", projectRouter)
+server.use("/api/projects", projectRouter)
 
 
 //custom middleware
