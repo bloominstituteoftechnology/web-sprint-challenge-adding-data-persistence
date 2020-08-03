@@ -21,7 +21,13 @@ function getProjects(id) {
       });
     }
   }
+  function insert(project) {
+    return db("projects")
+      .insert(project, "id")
+      .then(([id]) => mappers.projectToBody({...project, id: id}));
+  }
 
 module.exports = {
-    getProjects
+    getProjects,
+    insert
 }
