@@ -46,6 +46,49 @@ server.get('/api/tasks', (req, res) => {
   });
 });
 
+server.get('/api/projects_resources/:id', (req, res) => {
+    // get a list of project resources
+    db('projects_resources as pr')
+      .where('pr.project_id', req.params.id)
+      .leftJoin('projects as p', 'p.id', 'pr.project_id')
+      .leftJoin('resources as r', 'r.id', 'pr.resource_id')
+      .select('p.project_name as Project_Name', 'r.resource_name as Resource_Name')
+    .then(tasks => {
+      res.status(200).json(tasks);
+    })
+    .catch(error => {
+      res.status(500).json(error);
+    });
+  });
+
+  server.get('/api/projects_tasks/:id', (req, res) => {
+    // get a list of project resources
+    db('tasks as t')
+      .where('t.project_id', req.params.id)
+      .select('t.description as Task_Description')
+    .then(tasks => {
+      res.status(200).json(tasks);
+    })
+    .catch(error => {
+      res.status(500).json(error);
+    });
+  });
+
+  server.get('/api/resources_projects/:id', (req, res) => {
+    // get a list of project resources
+    db('projects_resources as pr')
+      .where('pr.resource_id', req.params.id)
+      .leftJoin('projects as p', 'p.id', 'pr.project_id')
+      .leftJoin('resources as r', 'r.id', 'pr.resource_id')
+      .select('p.project_name as Project_Name', 'r.resource_name as Resource_Name')
+    .then(tasks => {
+      res.status(200).json(tasks);
+    })
+    .catch(error => {
+      res.status(500).json(error);
+    });
+  });
+
 // create project
 server.post('/api/projects', (req, res) => {
   db('projects').insert(req.body)
@@ -97,21 +140,5 @@ server.post('/api/tasks', (req, res) => {
     });
   });
 
-// // remove species
-// server.delete('/api/species/:id', (req, res) => {
-//   db('species')
-//     .where({ id: req.params.id })
-//     .del()
-//   .then(count => {
-//     if (count > 0) {
-//       res.status(204).end();
-//     } else {
-//       res.status(404).json({ message: 'Record not found' });
-//     }
-//   })
-//   .catch(error => {
-//     res.status(500).json(error);
-//   });
-// });
 
 module.exports = server;
