@@ -1,32 +1,33 @@
 {
-  "name": "web-sprint-challenge-adding-data-persistence",
+  "name": "web-sprint-challenge-adding-data-persistence-main",
   "version": "1.0.0",
   "description": "**Read these instructions carefully. Understand exactly what is expected _before_ starting this Sprint Challenge.**",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ChitownCoder/web-sprint-challenge-adding-data-persistence.git"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ChitownCoder/web-sprint-challenge-adding-data-persistence/issues"
-  },
-  "homepage": "https://github.com/ChitownCoder/web-sprint-challenge-adding-data-persistence#readme",
   "dependencies": {
+    "axios": "^0.19.2",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
-    "helmet": "^4.0.0",
+    "helmet": "^3.23.3",
+    "jsonwebtoken": "^8.5.1",
     "knex": "^0.21.2",
     "knex-cleaner": "^1.3.0",
     "morgan": "^1.10.0",
+    "node": "^14.5.0",
+    "pg": "^8.3.0",
     "sqlite3": "^5.0.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "cross-env": "^7.0.2",
+    "jest": "^26.2.2",
+    "nodemon": "^2.0.4",
+    "supertest": "^4.0.2"
   }
 }
