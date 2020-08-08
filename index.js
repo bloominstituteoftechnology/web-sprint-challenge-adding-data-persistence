@@ -1,6 +1,6 @@
-const server = require('./server');
+const server = require('./server.js');
 
-const PORT = process.nextTick.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 
 server.listen(PORT, () => {
     console.log(`I see you on ${PORT}...`);
