@@ -1,8 +1,8 @@
 const express = require('express');
 const morgan = require("morgan");
-const ProjectsRouter = require('./projects/projects-router.js');
-const ResourcesRouter = require('./resources/resources-router.js');
-const TasksRouter = require('./tasks/tasks-router.js');
+const projectRouter = require("./routers/project")
+const resourceRouter = require("./routers/resources")
+const taskRouter = require("./routers/task")
 
 const server = express();
 
@@ -11,15 +11,21 @@ const server = express();
 server.use(morgan("dev"));
 
 //Converts to json objects
-server.use(express.json());
-server.use('/api/projects', ProjectsRouter);
-server.use('/api/resources', ResourcesRouter);
-server.use('/api/tasks', TasksRouter);
+server.use(projectRouter)
+server.use(resourceRouter)
+server.use(taskRouter)
 
 //Root route
-server.use("/", (req, res) => {
-    res.json({message: "API is up and running..."});
-});
+server.get("/", (req, res) =>{
+    res.send({message: "APi is up and running better catch it!"})
+})
+
+server.use((err, req, res, next) => {
+	console.log(err)
+	res.status(500).json({
+		message: "Something went wrong",
+	})
+})
 
 
 module.exports = server;
