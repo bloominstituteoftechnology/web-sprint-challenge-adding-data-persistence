@@ -1,13 +1,8 @@
 
-exports.seed = function(knex) {
-  // Deletes ALL existing entries
-  return knex('table_name').del()
-    .then(function () {
-      // Inserts seed entries
-      return knex('table_name').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
-      ]);
-    });
-};
+exports.seed = async function(knex) {
+	await knex("project").insert([   
+		{ name: "Get a new career", description: "Need a new skill to have a new career", completed: true },
+    { name: "Buy a new car", description: "Need a car to get a around after I have a job", completed: false },
+    { name: "Go on vacation", description: "Who wants to work all the time ...", completed: false },
+	])
+}
