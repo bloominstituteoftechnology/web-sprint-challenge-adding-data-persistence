@@ -1,0 +1,32 @@
+Project : Task 		= 1 to many
+Task : Project 		= many to 1
+Project : Resource 	= 1 to many
+Resource : Project 	= many to 1
+
+
+PROJECT
+
+id:		        primary key
+name:		    text, required
+description:	text
+completed:	    boolean, required, 
+		        default to false
+
+
+
+RESOURCE
+
+id:		        primary key
+name:		    text, required, unique
+description:	text
+
+
+
+TASK
+
+id:		        primary key
+description:	text, required
+notes:		    text
+completed:	    boolean, cannot be null, 
+		        default to false
+project_id:	    integer (to PROJECT.id)
