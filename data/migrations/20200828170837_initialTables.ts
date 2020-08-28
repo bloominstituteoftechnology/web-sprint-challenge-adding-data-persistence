@@ -26,13 +26,15 @@ export async function up(knex: Knex): Promise<void> {
     await knex.schema.createTable("project_resources", tableBuilder => {
         tableBuilder.integer("projectId").notNullable().references("id").inTable("projects").onDelete("CASCADE").onUpdate("CASCADE");
         tableBuilder.integer("resourceId").notNullable().references("id").inTable("resources").onDelete("CASCADE").onUpdate("CASCADE");
-        tableBuilder.primary(["projectId, resourceId"]);
+
+        tableBuilder.primary(["projectId", "resourceId"]);
     });
 
     await knex.schema.createTable("project_tasks", tableBuilder => {
         tableBuilder.integer("projectId").notNullable().references("id").inTable("projects").onDelete("CASCADE").onUpdate("CASCADE");
         tableBuilder.integer("taskId").notNullable().references("id").inTable("tasks").onDelete("CASCADE").onUpdate("CASCADE");
-        tableBuilder.primary(["projectId, taskId"]);
+
+        tableBuilder.primary(["projectId", "taskId"]);
     });
 }
 
