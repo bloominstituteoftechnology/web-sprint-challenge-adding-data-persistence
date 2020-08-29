@@ -23,3 +23,7 @@ export async function createProject(project){//todo: project interface
      const [id] = await db("projects").insert(project).returning("id");//returning added for postgres
      return getProjectById(id);
 }
+
+export function getResourceById(id:string) {
+    return db("resources").where({id});
+}
