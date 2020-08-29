@@ -1,4 +1,4 @@
-module.exports = {
+export const knexfile = {
     development: {
         client: "sqlite3",
         useNullAsDefault: true,
@@ -13,7 +13,7 @@ module.exports = {
         },
         // needed when using foreign keys
         pool: {
-            afterCreate: (conn, done) => {
+            afterCreate: (conn:any, done:any) => {
                 // runs after a connection is made to the sqlite engine
                 conn.run("PRAGMA foreign_keys = ON", done) // turn on FK enforcement
             },
