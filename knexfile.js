@@ -11,7 +11,7 @@ module.exports = {
     migrations: {
       directory: './data/migrations'
     }
-  },
+  }
 
 //   staging: {
 //     client: 'postgresql',
@@ -45,4 +45,4 @@ module.exports = {
 //     }
 //   }
 
-// };
+};
