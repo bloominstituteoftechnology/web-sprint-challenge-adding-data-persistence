@@ -12,8 +12,8 @@ function add(tasks){
 
 function findTasksById(projectId){
     return db("tasks as t")
-        .innerJoin("projects_tasks as pt", "t.task_id","pt.task_id")
-        .innerJoin("projects as p", "p.project_id", "t.task_id")
+        .innerJoin("projects_tasks as pt", "t.task_id","pt.tsk_id")
+        .innerJoin("projects as p", "p.project_id", "pt.proj_id")
         .where("p.project_id", projectId)
         .first() 
 }

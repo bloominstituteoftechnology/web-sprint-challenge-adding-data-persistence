@@ -30,7 +30,8 @@ router.get("/projects/:id/tasks", (req,res) => {
     const {id} = req.params
     Tasks.findTasksById(id)
         .then(tasks =>{
-            if (tasks.length){
+            console.log("test", tasks)
+            if (tasks){
                 res.json(tasks)
             }
             else {
