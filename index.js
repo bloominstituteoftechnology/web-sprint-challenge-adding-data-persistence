@@ -1,4 +1,4 @@
-const server = require('./server')
+const server = require('./server/server')
 
 const PORT = process.env.port || 5000
 
