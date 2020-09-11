@@ -78,6 +78,19 @@
 - run 'knex seed:make 004-tasks' 
 - created tasks with query editoer instead - ALREADY RAN SEEDS, ERROR RE-RUNNING - Knex-cleaner?
 
+# Finish the projects router and model 
+- Them bitches is working 
+
+# Make a router 
+- created resources folder, with resources-model.js and resources-router.js
+- set up the resources router and import into server.js
+
+# Make a model
+- in resources-model.js make a model for find, findById, add, addToProject
+- import into resources router 
+## Sanity check: Check it all out on Postman [✅ end points are WORKING!] 
+
+
 
 
 
