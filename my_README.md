@@ -1,7 +1,6 @@
 # Set Up Directory: 
-
-* Ran 'touch .gitignore', added a proper body to file *
-* Ran 'npm init -y' for package.json generation 
+- Run 'touch .gitignore', added a proper body to file 
+- Run 'npm init -y' for package.json generation 
 
 # Initial dependencies: 
 - Express
@@ -10,7 +9,7 @@
 - nodemon (-D)
 
 # Server Set up 
-- Server.js
+- api/Server.js
 - Index.js
 ## Sanity check: res.send message appearing in Postman
 
@@ -21,6 +20,9 @@
 
 # Knex commands 
 - run knex init for knexfile.js
+
+# Create db-config
+- Create a db-config.js file in the data folder (other common names: connection.js)
 
 ## Projects table: fields: 4 names: primary key, project_name, project_details, completed
 - run knex migrate:make projects-table to generate migration
@@ -38,8 +40,8 @@
 
 # Seed these two new tables in preparation for the connected table
 - Run 'knex seed:make 001-projects' 
-- build seeds 
-- Run 'knex migreate:make 002-resources' 
+- build seeds in seed folder
+- Run 'knex seed:make 002-resources' 
 - build seeds 
 
 # Projects_resources table: fields: 3 names: primary key, resource_name, resource_details
@@ -53,6 +55,17 @@
 ## Add that seed data! Plant it baby!
 - Run 'knex seed:run'
 ## Sanity check: Refresh the database and see that the seeds have made it [✅ data appears!] 
+
+# 🎆🎆🎆 Now there's data in the database!🧨 🎆🎆🎆 # 
+
+# Make a router
+- created projects folder, with projects-model.js and projects-router.js
+- set up the projects router and import into server.js
+
+# Make a model
+- in projects-model.js make a model for find, findById
+- import into projects router 
+
 
 
 
