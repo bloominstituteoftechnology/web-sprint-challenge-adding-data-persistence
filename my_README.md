@@ -90,6 +90,14 @@
 - import into resources router 
 ## Sanity check: Check it all out on Postman [✅ end points are WORKING!] 
 
+# Make a router 
+- created tasks folder, with tasks-model.js and tasks-router.js
+- set up the tasks router and import into server.js
+
+# Make a model
+- in tasks-model.js make a model for find, findById, add, findByProject
+- import into tasks router 
+## Sanity check: Check it all out on Postman [✅ end points are WORKING!] 
 
 
 

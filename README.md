@@ -48,11 +48,19 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. Explain the difference between `Relational Databases` and `SQL`.
 
+# Relational databases are tabular data storage, and SQL is a language we use to manage data 
+
 2. Why do tables need a `primary key`?
+
+# We need a way to refer to each item in a table uniquely 
 
 3. What is the name given to a table column that references the primary key on another table.
 
+# Foreign key 
+
 4. What do we need in order to have a _many to many_ relationship between two tables.
+
+# A connecting table with a foreign key referencing the primary key of each table.
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
@@ -61,7 +69,7 @@ You are expected to be able to answer questions in these areas. Your responses c
 ### Task 1: Project Set Up
 
 -   [x] Create a forked copy of this project
--   [ ] Add your team lead as collaborator on Github
+-   [x] Add your team lead as collaborator on Github
 -   [x] Clone your OWN version of the repository (Not Lambda's by mistake!)
 -   [x] Create a new branch: git checkout -b `<firstName-lastName>`.
 -   [x] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly
@@ -81,7 +89,7 @@ Your finished project must include all of the following requirements:
     -   [x] when adding a `task` the client must provide a description, the notes are optional.
     -   [x] when adding a `task` the client must provide the `id` of an existing project.
     -   [x] for `projects` and `tasks` if no value is provided for the `completed` property, the API should provide a default value of `false`.
--   [ ] Build an API with endpoints for:
+-   [x] Build an API with endpoints for:
     -   [x] adding resources.
     -   [x] retrieving a list of resources.
     -   [x] adding projects.
@@ -96,8 +104,8 @@ In your solution, it is essential that you follow best practices and produce cle
 After finishing your required elements, you can push your work further. These goals may or may not be things you have learned in this module but they build on the material you just studied. Time allowing, stretch your limits and see if you can deliver on the following optional goals:
 
 -   [ ] Add an endpoint to get a list of project resources.
--   [ ] Add an endpoint to get a list of project tasks.
--   [ ] Add an endpoint to see all projects using a particular resource.
+-   [x] Add an endpoint to get a list of project tasks.
+-   [x] Add an endpoint to see all projects using a particular resource.
 -   [ ] Add support for assigning `resources` directly to `tasks` in addition to adding them to `projects`
 
 ## Submission format
