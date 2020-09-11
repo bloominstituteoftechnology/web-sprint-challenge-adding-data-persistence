@@ -38,6 +38,17 @@
 
 ## Seed these two new tables in preparation for the connected table
 - Run 'knex seed:make 001-projects' 
+- build seeds 
+- Run 'knex migreate:make 002-resources' 
+- build seeds 
+
+## projects_resources table: fields: 3 names: primary key, resource_name, resource_details
+- run 'knex migrate:make projects_resources-table' to generate migration
+- In the migration folder - write projects_resources table 
+
+- run knex migrate:latest
+
+
 
 
 
