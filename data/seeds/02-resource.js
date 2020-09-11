@@ -5,7 +5,7 @@ exports.seed = function(knex) {
     .then(function () {
       // Inserts seed entries
       return knex('resource').insert([
-        {id: 1, name: 'computer'},
+        {id: 1, name: 'computer', description: 'machine'},
         {id: 2, name: 'nation'},
         {id: 3, name: 'continent'}
       ]);

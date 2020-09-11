@@ -48,11 +48,16 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. Explain the difference between `Relational Databases` and `SQL`.
 
+SQL is a language that allows us to interact with Databases. A Relational Database can be written in SQL and you can use a GUI like SqliteStudio to run them. A relational Database stores data tables that can interact with one another.
+
 2. Why do tables need a `primary key`?
+Because we have to have a unique identifier for each table in order to reference it.
 
 3. What is the name given to a table column that references the primary key on another table.
+Foreign Key
 
 4. What do we need in order to have a _many to many_ relationship between two tables.
+A third table that connects them
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 

@@ -4,7 +4,7 @@ const Project = require('./project-model.js');
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
+router.get('/project', (req, res) => {
   Project.findProjects()
   .then(value => {
     res.json(value);
@@ -26,15 +26,29 @@ router.get('/:id', (req, res) => {
     });
   });
 
-router.get('/resources', (req, res) => {
-  Project.findResources()
-  .then(value => {
-   res.status(200).json(value)
-  })
-  .catch(err => {
-    res.status(500).json({ message: 'Failed to get Resources' });
+// router.get('/resource', (req, res) => {
+//   Project.get()
+//   console.log('test')
+//   .then(value => {
+//     console.log(value, 'this is the value')
+//    res.status(200).json(value)
+//   })
+//   .catch(err => {
+//     res.status(500).json({ message: 'Failed to get Resources' });
+//   });
+// });
+
+router.get('/resource', (req, res) => {
+    Project.get()
+    .then(resource => {
+      res.status(200).json(resource);
+    })
+    .catch(error => {
+      res.status(500).json({
+        error: `Unable to fetch projects ${error.message}`
+      })
+    })
   });
-});
 
 router.get('/:id/tasks', (req, res) => {
   const { id } = req.params;
