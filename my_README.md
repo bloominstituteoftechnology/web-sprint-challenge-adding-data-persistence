@@ -74,6 +74,10 @@
 - run 'knex migrate:latest'
 ## Sanity check: check out database in SQLiteStudio [✅ table appears!] 
 
+# Seed the tasks table 
+- run 'knex seed:make 004-tasks' 
+- created tasks with query editoer instead - ALREADY RAN SEEDS, ERROR RE-RUNNING - Knex-cleaner?
+
 
 
 

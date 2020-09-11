@@ -31,5 +31,17 @@ router.get('/:id', (req, res) => {
         });
 }); 
 
+//* POST a new project *// [🎠 working!]
+router.post('/', (req, res) => {
+    const newProject = req.body; 
+    db.add(newProject)
+        .then(item => {
+            res.status(201).json(item);
+        })
+        .catch(err => {
+            res.status(500).json({ message: "Error adding project" }); 
+        });
+}); 
+
 module.exports = router; 
 
