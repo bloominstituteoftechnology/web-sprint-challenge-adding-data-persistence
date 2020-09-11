@@ -66,7 +66,13 @@
 - in projects-model.js make a model for find, findById
 - import into projects router 
 
+👎 - DIDN'T MAKE A TASKS TABLE - THIS IS WHAT HAPPENS WHEN YOU DON'T READ THE README WELL ENOUGH. LEARN FROM MY MISTAKES. BE BETTER THAN ME. GO FORTH AND PROSPER 
 
+# Tasks table: fields: 5 names: primary key, task_details, task_notes, task_completed, project_id(link to the project id in the projects table)
+- run 'knex migrate:make tasks-table'
+- write tasks table 
+- run 'knex migrate:latest'
+## Sanity check: check out database in SQLiteStudio [✅ table appears!] 
 
 
 
