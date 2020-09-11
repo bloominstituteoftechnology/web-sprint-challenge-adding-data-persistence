@@ -14,6 +14,9 @@
 - Index.js
 ## Sanity check: res.send message appearing in Postman
 
-
+# Database set up
+# Dependencies: 
+- knex (local and global)
+- sqlite3 
 
 
