@@ -36,19 +36,23 @@
 - run knex migrate:latest
 ## Sanity check: check out database in SQLiteStudio [✅ table appears!] 
 
-## Seed these two new tables in preparation for the connected table
+# Seed these two new tables in preparation for the connected table
 - Run 'knex seed:make 001-projects' 
 - build seeds 
 - Run 'knex migreate:make 002-resources' 
 - build seeds 
 
-## projects_resources table: fields: 3 names: primary key, resource_name, resource_details
+# Projects_resources table: fields: 3 names: primary key, resource_name, resource_details
 - run 'knex migrate:make projects_resources-table' to generate migration
 - In the migration folder - write projects_resources table 
 
 - run knex migrate:latest
+## Sanity check: check out database in SQLiteStudio [✅ table appears!] 
 
-
+# TRIPLE CHECK THE SEED DATA FOR ACCURACY, CHECK THOSE ID NUMBERS
+## Add that seed data! Plant it baby!
+- Run 'knex seed:run'
+## Sanity check: Refresh the database and see that the seeds have made it [✅ data appears!] 
 
 
 
