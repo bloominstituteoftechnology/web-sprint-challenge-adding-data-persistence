@@ -3,7 +3,8 @@ const db = require('../data/db-config');
 module.exports = {
     find, 
     findById, 
-    add
+    add, 
+    findByProjectId
 };
 
 //* finding functions *// 
@@ -18,6 +19,12 @@ function findById(id){
     return db('tasks')
         .where({ id })
         .first();
+}; 
+
+// [🎠 working!] // 
+function findByProjectId(id){
+    return db('tasks')
+        .where({ project_id: id });
 }; 
 
 //* manipulating functions *// 

@@ -4,7 +4,7 @@ const db = require('./tasks-model');
 
 const router = express.Router(); 
 
-//* GET all projects *// [🎠 working!]
+//* GET all tasks *// [🎠 working!]
 router.get('/', (req, res) => {
     db.find()
         .then(items => {
@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
         });
 });
 
-//* GET project by ID *// [🎠 working!]
+//* GET task by ID *// [🎠 working!]
 router.get('/:id', (req, res) => {
     const { id } = req.params; 
     db.findById(id)
@@ -31,7 +31,20 @@ router.get('/:id', (req, res) => {
         });
 }); 
 
-//* POST a new project *// [🎠 working!]
+//* GET tasks by project ID *// 
+router.get('/project-tasks/:id', (req, res) => {
+    const { id } = req.params; 
+    db.findByProjectId(id)
+        .then(items => {
+           res.status(200).json(items);
+        })
+        .catch(err => {
+            console.log(err)
+            res.status(500).json({ message: "Could not find tasks for this project ID" }); 
+        });
+});
+
+//* POST a new task *// [🎠 working!]
 router.post('/', (req, res) => {
     const newProject = req.body; 
     db.add(newProject)
