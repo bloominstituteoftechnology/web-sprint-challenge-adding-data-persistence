@@ -21,7 +21,7 @@ function add(value){
 }
 
 // RESOURCES
-function findResource() {
+function findResources() {
     return db("resources");
 }
 
@@ -60,7 +60,7 @@ module.exports = {
     find,
     findById,
     add,
-    findResource,
+    findResources,
     addResource,
     findTasks,
     findTaskById,
