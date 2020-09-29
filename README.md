@@ -18,25 +18,25 @@ In this project you will be given a set of requirements and must design a databa
 
 A `project` is what needs to be done. We want to store the following data about a `project`:
 
--   [ ] a unique ID.
--   [ ] a name. This column is required.
--   [ ] a description.
--   [ ] a boolean that indicates if the project has been completed. This column is required, the default value should be `false`.
+-   [X] a unique ID.
+-   [X] a name. This column is required.
+-   [X] a description.
+-   [X] a boolean that indicates if the project has been completed. This column is required, the default value should be `false`.
 
 A `resource` is anything needed to complete a project, some examples are: a person, a tool, a meeting room or a software license. We want to store the following data about a `resource`:
 
--   [ ] a unique ID.
--   [ ] a name. This column is required.
--   [ ] a description.
+-   [X] a unique ID.
+-   [X] a name. This column is required.
+-   [X] a description.
 
 The database should not allow resources with duplicate names.
 
 A `task` is one of the steps needed to complete the project. We want to store the following data about an `task`.
 
--   [ ] a unique ID.
--   [ ] a description of what needs to be done. This column is required.
--   [ ] a notes column to add additional information.
--   [ ] a boolean that indicates if the task has been completed. This column cannot be NULL, the default value should be `false`.
+-   [X] a unique ID.
+-   [X] a description of what needs to be done. This column is required.
+-   [X] a notes column to add additional information.
+-   [X] a boolean that indicates if the task has been completed. This column cannot be NULL, the default value should be `false`.
 
 ### Commits
 
@@ -48,11 +48,19 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. Explain the difference between `Relational Databases` and `SQL`.
 
+A relational database stores and provides access to related data, while SQL is used to communicate with a database (and is the standard language for RDBMS)
+
 2. Why do tables need a `primary key`?
+
+Tables need a "primary key" to refer to each item in the table uniquely. 
 
 3. What is the name given to a table column that references the primary key on another table.
 
+The "foreign key". 
+
 4. What do we need in order to have a _many to many_ relationship between two tables.
+
+You need to break the many-to-many relationships into one-to-many relationships using a third table called a *join table*, with the foreign key referencing the primary key of each table. 
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
