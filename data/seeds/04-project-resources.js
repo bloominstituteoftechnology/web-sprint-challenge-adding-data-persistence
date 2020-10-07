@@ -1,10 +1,10 @@
 exports.seed = function (knex) {
     // Deletes ALL existing entries
-    return knex("projects-resources")
+    return knex("projects_resources")
         .del()
         .then(function () {
             // Inserts seed entries
-            return knex("projects-resources").insert([
+            return knex("projects_resources").insert([
                 {
                     id: 1,
                     project_id: 1,

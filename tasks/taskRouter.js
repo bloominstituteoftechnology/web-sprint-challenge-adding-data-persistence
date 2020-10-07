@@ -31,6 +31,7 @@ router.get("/project-tasks/:id", (req, res) => {
     const { id } = req.params;
     db.findByProjectId(id)
         .then((items) => {
+            console.log(items)
             res.status(200).json(items);
         })
         .catch((err) => {
