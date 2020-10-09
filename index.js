@@ -18,7 +18,7 @@ server.use('/api/resources', resourceRouter)
 
 server.use('/api/tasks', taskRouter)
 server.get("/", (req, res) => {
-    res.status(200).json({ hello: "RUNNING" });
+    res.status(200).json({ API: "RUNNING" });
   });
 const PORT = process.env.PORT || 5000;
 
