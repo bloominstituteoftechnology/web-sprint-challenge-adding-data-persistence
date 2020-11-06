@@ -13,7 +13,7 @@ server.use(morgan('dev'))
 server.use(cors())
 server.use(express.json())
 
-// server.use('/api/projects', projectRouter)
+server.use(projectRouter)
 
 
 module.exports = server;
