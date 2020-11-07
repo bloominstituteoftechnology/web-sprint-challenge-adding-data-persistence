@@ -1,0 +1,35 @@
+{
+  "name": "web-sprint-challenge-adding-data-persistence",
+  "version": "1.0.0",
+  "description": "**Read these instructions carefully. Understand exactly what is expected _before_ starting this Sprint Challenge.**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MelissaTanksley/web-sprint-challenge-adding-data-persistence.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MelissaTanksley/web-sprint-challenge-adding-data-persistence/issues"
+  },
+  "homepage": "https://github.com/MelissaTanksley/web-sprint-challenge-adding-data-persistence#readme",
+  "dependencies": {
+    "cleaner": "^2.0.0-alpha",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^4.2.0",
+    "index": "^0.4.0",
+    "knex": "^0.21.12",
+    "morgan": "^1.10.0",
+    "sqlite3": "^5.0.0",
+    "touch": "^3.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
