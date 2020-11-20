@@ -73,7 +73,7 @@ Your finished project must include all of the following requirements:
   - [ ] when adding a `task` the client must provide a description, the notes are optional.
   - [ ] when adding a `task` the client must provide a `project_id` that points to the `id` of an existing project.
   - [ ] for `projects` and `tasks` if no value is provided for the `completed` property, the API should provide a default value of `false`.
-- [ ] Build an API with endpoints for:
+- [ ] Build an API inside the `api` folder with endpoints for:
   1. adding a new resource - `[POST] /api/resources`
   1. retrieving all resources - `[GET] /api/resources`
   1. adding a new project - `[POST] /api/projects`
