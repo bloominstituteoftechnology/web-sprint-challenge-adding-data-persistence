@@ -3,6 +3,8 @@ const request = require('supertest')
 const server = require('./api/server')
 const db = require('./data/dbConfig')
 
+jest.setTimeout(50)
+
 const projectA = { name: 'Web API', description: 'Build APIs' }
 const projectB = { name: 'Databases', description: 'Learn SQL', completed: true }
 const projectC = { name: 'Authentication' }
