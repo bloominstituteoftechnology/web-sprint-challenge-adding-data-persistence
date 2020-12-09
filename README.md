@@ -85,7 +85,7 @@ In your solution, it is essential that you follow best practices and produce cle
 
 ### Task 3: Stretch Goals
 
-**IMPORTANT:** Work on stretch goals on a **new branch**. You can branch off `<firstName-lastName>` by executing `git checkout -b stretch`.
+**IMPORTANT:** Work on stretch goals in a **new branch**. You can branch off `<firstName-lastName>` by executing `git checkout -b stretch`.
 
 After finishing your required elements, you can push your work further. These goals may or may not be things you have learned in this module but they build on the material you just studied. Time allowing, stretch your limits and see if you can deliver on the following optional goals:
 
