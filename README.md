@@ -55,9 +55,9 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 - [ ] Create a forked copy of this project.
 - [ ] Clone your OWN version of the repository. (Not Lambda's by mistake!)
-- [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
+- [ ] Create a new branch: `git checkout -b <firstName-lastName>`.
 - [ ] Implement the project on your newly created `<firstName-lastName>` branch.
-- [ ] Push commits: git push origin `<firstName-lastName>`.
+- [ ] Push commits: `git push origin <firstName-lastName>`.
 
 ### Task 2: Project Requirements
 
@@ -85,6 +85,8 @@ In your solution, it is essential that you follow best practices and produce cle
 
 ### Task 3: Stretch Goals
 
+**IMPORTANT:** Work on stretch goals on a **new branch**. You can branch off `<firstName-lastName>` by executing `git checkout -b stretch`.
+
 After finishing your required elements, you can push your work further. These goals may or may not be things you have learned in this module but they build on the material you just studied. Time allowing, stretch your limits and see if you can deliver on the following optional goals:
 
 - [ ] Add an endpoint to get a list of project resources.
@@ -93,6 +95,7 @@ After finishing your required elements, you can push your work further. These go
 
 ## Submission format
 
-Follow these steps for completing your project.
+There are two possible ways to submit this project to Canvas. Lambda Staff will let you know which one applies:
 
-- [ ] Submit a Pull-Request to merge `<firstName-lastName>` Branch into `main` (student's Repo). **Please don't merge your own pull request**
+1. Submitting a pull request to merge `<firstName-lastName>` (or `stretch` if you finished any stretch goals) branch into `main`.
+2. Setting up your fork settings on Github to submit via Codegrade by pushing commits to your `<firstName-lastName>` branch.
