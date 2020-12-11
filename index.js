@@ -1,5 +1,5 @@
-const app = require("./api/server");
+const server = require("./api/server");
 
-app.listen(5000, () => {
+server.listen(5000, () => {
   console.log(`***Server is up on port:5000***`);
 });
