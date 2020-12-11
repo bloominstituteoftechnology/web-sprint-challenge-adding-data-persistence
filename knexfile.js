@@ -1,6 +1,6 @@
 module.exports = {
   development: {
-    // Complete
+    // Complete.
     migrations: {
       directory: "./data/migrations",
     },
