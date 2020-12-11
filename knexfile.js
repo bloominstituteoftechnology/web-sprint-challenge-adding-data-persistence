@@ -1,8 +1,19 @@
 module.exports = {
   development: {
-    // complete your knexfile
+    client: "sqlite3",
+    connection: {
+      filename: "./data/sprint.db3",
+    },
+    useNullAsDefault: true,
     migrations: {
       directory: "./data/migrations",
     },
+    seeds: {
+      directory: "./data/seeds",
+    },
   },
+
+  staging: {},
+
+  production: {},
 };
