@@ -5,7 +5,7 @@ module.exports = {
     return db("Resources");
   },
   findById(id) {
-    return db("Projects").where({ id }).first();
+    return db("Resources").where({ id }).first();
   },
 
   async addResource(resource) {
