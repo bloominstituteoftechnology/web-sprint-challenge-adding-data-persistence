@@ -7,12 +7,12 @@ exports.seed = function (knex) {
       return knex("Task").insert([
         {
           Description: "Need to pass this sprint, but there is a lot to do.",
-          Project_ID: 1,
+          Project_ID: 11,
           Completed: false,
         },
         {
           Description: "Not sure what we will talk about :{",
-          Project_ID: 2,
+          Project_ID: 10,
           Completed: false,
         },
       ]);

@@ -11,7 +11,8 @@ module.exports = {
         "t.Description",
         "t.Notes",
         "t.Completed",
-        "p.Project_ID"
+        "p.Project_ID",
+        "p.Name"
       );
   },
   findById(id) {
