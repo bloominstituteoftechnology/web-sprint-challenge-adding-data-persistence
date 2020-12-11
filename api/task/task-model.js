@@ -1,9 +1,18 @@
 // build your `Task` model here
+
 const db = require("../../data/dbConfig");
 
 module.exports = {
   getAll() {
-    return db("Task");
+    return db("Task as t")
+      .leftJoin("Projects as p", "p.Project_ID", "t.Project_ID")
+      .select(
+        "t.Task_ID",
+        "t.Description",
+        "t.Notes",
+        "t.Completed",
+        "p.Project_ID"
+      );
   },
   findById(id) {
     return db("Task").where({ id }).first();
