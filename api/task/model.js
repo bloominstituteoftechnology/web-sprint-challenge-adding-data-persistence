@@ -10,15 +10,15 @@ module.exports = {
         "t.description",
         "t.notes",
         "t.completed",
-"p.project_id",
+        "p.project_id",
         "p.project_name"
       );
   },
   findById(id) {
-    return db("task").where({ id }).first();
+    return db("tasks").where({ id }).first();
   },
   async addTask(task) {
-    const [id] = await db("task").insert(task);
+    const [id] = await db("tasks").insert(task);
     return this.findById(id);
   },
 };
