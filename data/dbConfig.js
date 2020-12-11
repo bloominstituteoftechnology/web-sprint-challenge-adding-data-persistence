@@ -1,1 +1,2 @@
-// complete your db configuration
+const environment = process.env.NODE_ENV || "development";
+// Complete your db configuration.
