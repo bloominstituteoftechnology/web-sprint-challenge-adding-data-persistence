@@ -18,23 +18,23 @@ In this project you will be given a set of requirements and must design a databa
 
 A **project** is what needs to be done and is stored in a `projects` table. We want to store the following data about a project:
 
-- [ ] `id` - unique
-- [ ] `name` - required
-- [ ] `description` - optional
-- [ ] `completed` - cannot be `NULL` and has a default value of `false`
+- [x] `id` - unique
+- [x] `name` - required
+- [x] `description` - optional
+- [x] `completed` - cannot be `NULL` and has a default value of `false`
 
 A **resource** is anything needed to complete a project and is stored in a `resources` table. We want to store the following data about a resource:
 
-- [ ] `id` - unique
-- [ ] `name` - required and unique
-- [ ] `description` - optional
+- [x] `id` - unique
+- [x] `name` - required and unique
+- [x] `description` - optional
 
 A **task** is one of the steps needed to complete a project and is stored in a `tasks` table. We want to store the following data about a task:
 
-- [ ] `id` - unique
-- [ ] `description` - required
-- [ ] `notes` - optional
-- [ ] `completed` - cannot be `NULL` and has a default value of `false`
+- [x] `id` - unique
+- [x] `description` - required
+- [x] `notes` - optional
+- [x] `completed` - cannot be `NULL` and has a default value of `false`
 
 ### Commits
 
@@ -45,35 +45,39 @@ Commit your code regularly and meaningfully.
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. Explain the difference between Relational Databases and SQL.
+   A Relation Database is a collection of data in tables with realtion to one another. While SQL is a query language we can use to retrive the data from the database.
 2. Why do tables need a Primary Key?
+   Tables need a Primary key to have a unique Identifer. This way our data can stay clean
 3. What is the name given to a table column that references the Primary Key on another table?
+   A Forigen Key
 4. What do we need in order to have a _many to many_ relationship between two tables?
+   Primary Keys/Forigen Keys that realate to one another.
 
 ## Instructions
 
 ### Task 1: Project Set Up
 
-- [ ] Create a forked copy of this project.
-- [ ] Clone your OWN version of the repository. (Not Lambda's by mistake!)
-- [ ] Create a new branch: `git checkout -b <firstName-lastName>`.
-- [ ] Implement the project on your newly created `<firstName-lastName>` branch.
-- [ ] Push commits: `git push origin <firstName-lastName>`.
+- [x] Create a forked copy of this project.
+- [x] Clone your OWN version of the repository. (Not Lambda's by mistake!)
+- [x] Create a new branch: `git checkout -b <firstName-lastName>`.
+- [x] Implement the project on your newly created `<firstName-lastName>` branch.
+- [x] Push commits: `git push origin <firstName-lastName>`.
 
 ### Task 2: Project Requirements
 
 Your finished project must include all of the following requirements:
 
-- [ ] Design the data model and use _knex migrations_ to create the database and tables needed to satisfy the following business rules:
-  - [ ] a `project` can have multiple `tasks`.
-  - [ ] a `task` belongs to only one `project`.
-  - [ ] a `project` can use multiple `resources`. Examples of `resources` are: computer, conference room, microphone, delivery van.
-  - [ ] the same `resource` can be used in multiple `projects`.
-  - [ ] when adding `projects` the client must provide a name, the description is optional.
-  - [ ] when adding `resources` the client must provide a unique name, the description is optional.
-  - [ ] when adding a `task` the client must provide a description, the notes are optional.
-  - [ ] when adding a `task` the client must provide a `project_id` that points to the `id` of an existing project.
-  - [ ] for `projects` and `tasks` if no value is provided for the `completed` property, the API should provide a default value of `false`.
-- [ ] Build an API inside the `api` folder with endpoints for:
+- [x] Design the data model and use _knex migrations_ to create the database and tables needed to satisfy the following business rules:
+  - [x] a `project` can have multiple `tasks`.
+  - [x] a `task` belongs to only one `project`.
+  - [x] a `project` can use multiple `resources`. Examples of `resources` are: computer, conference room, microphone, delivery van.
+  - [x] the same `resource` can be used in multiple `projects`.
+  - [x] when adding `projects` the client must provide a name, the description is optional.
+  - [x] when adding `resources` the client must provide a unique name, the description is optional.
+  - [x] when adding a `task` the client must provide a description, the notes are optional.
+  - [x] when adding a `task` the client must provide a `project_id` that points to the `id` of an existing project.
+  - [x] for `projects` and `tasks` if no value is provided for the `completed` property, the API should provide a default value of `false`.
+- [x] Build an API inside the `api` folder with endpoints for:
   1. adding a new resource - `[POST] /api/resources`
   2. retrieving all resources - `[GET] /api/resources`
   3. adding a new project - `[POST] /api/projects`
