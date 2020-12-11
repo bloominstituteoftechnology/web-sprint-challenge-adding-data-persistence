@@ -2,7 +2,7 @@ const db = require("../../data/dbConfig");
 
 module.exports = {
   getAll() {
-    return db("Projects");
+    return db("Projects as p").select("p.Name", "p.Description", "p.Completed");
   },
   findById(id) {
     return db("Projects").where({ id }).first();
