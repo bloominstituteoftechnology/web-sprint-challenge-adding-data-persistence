@@ -1,16 +1,26 @@
 // build your `Project` model here
-const db = require('../../data/dbConfig')
 
 module.exports = {
-    addProject(project) {
-        return db('projects')
-          .insert(project, 'id')
-          .then(([id]) => this.getProjectById(id));
-      },
-      getProjects() {
-        return db('projects').select('*');
-    },
-    getProjectById(id) {
-        return db('projects').where({ id }).first();
-      },
-}
+    findProject,
+    addProject,
+    projectById,
+  };
+const db = require('../../data/dbConfig');
+  
+  //Returns all projects
+  function findProject() {
+    return db('projects');
+  }
+  // Gets project by Id
+  function projectById(id) {
+    return db('projects').where({id});
+  }
+  // adds a project
+  function addProject(addition) {
+    return db('projects')
+      .insert(addition)
+      .then((ids) => {
+        const id = ids[0];
+        return projectById(id);
+      });
+  }

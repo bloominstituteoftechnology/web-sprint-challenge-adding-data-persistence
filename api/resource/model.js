@@ -1,13 +1,27 @@
 // build your `Resource` model here
-const db = require('../../data/dbConfig')
+
 
 module.exports = {
-    addResource(resource) {
-        return db('resources')
-          .insert(resource, 'id')
-          .then(() => this.getResource());
-      },
-    getResource() {
-        return db('resources').select('*');
-    },
-}
+    findResources,
+    addResources,
+    resourceById,
+  };
+  
+  const db = require('../../data/dbConfig')
+  // returns all the Resources
+  function findResources() {
+    return db('resources');
+  }
+  // gets resources by id 
+  function resourceById(id) {
+    return db('resources').where({ id });
+  }
+  //adds resource(s)
+  function addResources(addition) {
+    return db('resources')
+      .insert(addition)
+      .then((ids) => {
+        const id = ids[0];
+        return resourceById(id);
+      });
+  }
