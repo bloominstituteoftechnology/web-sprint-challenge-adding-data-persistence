@@ -45,9 +45,21 @@ Commit your code regularly and meaningfully.
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. Explain the difference between Relational Databases and SQL.
+
+Relational Databases: It's a type of database that stores and provides access to data points that are related to each other.
+SQL: It's a query language that is used in relation databases.
+
 2. Why do tables need a Primary Key?
+
+Tables need a primary key to ensure row-level accessibility; it ensures that no two values can be the same.
+
 3. What is the name given to a table column that references the Primary Key on another table?
+
+Foreign Key
+
 4. What do we need in order to have a _many to many_ relationship between two tables?
+
+To create a many-to-many relationship between tables, we need to create a join table(inter mediary table) between them.
 
 ## Instructions
 
