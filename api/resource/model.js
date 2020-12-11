@@ -1,27 +1,16 @@
 // build your `Resource` model here
 
-
+const db = require("../../data/dbConfig");
 module.exports = {
-    findResources,
-    addResources,
-    resourceById,
-  };
-  
-  const db = require('../../data/dbConfig')
-  // returns all the Resources
-  function findResources() {
-    return db('resources');
-  }
-  // gets resources by id 
-  function resourceById(id) {
-    return db('resources').where({ id });
-  }
-  //adds resource(s)
-  function addResources(addition) {
-    return db('resources')
-      .insert(addition)
-      .then((ids) => {
-        const id = ids[0];
-        return resourceById(id);
-      });
-  }
+  getAll() {
+    return db("resources");
+  },
+  findById(id) {
+    return db("resources").where({ id }).first();
+},
+
+async addResource(resource) {
+  const [id] = await db("resources").insert(resource);
+  return this.findById(id);
+},
+};
