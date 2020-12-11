@@ -1,21 +1,15 @@
 const db = require("../../data/dbConfig");
 
-const validateProject = (req, res, next) => {
-  const project = req.body;
-
-  if (!project.Name && !project.Completed) {
-    res.status(500).json({ message: "Missing required Fields." });
-  } else {
-    next();
-  }
-};
-
 module.exports = {
   getAll() {
     return db("Projects");
   },
-  addProject(project) {
-    return db("Projects").insert(project);
+  findById(id) {
+    return db("Projects").where({ id }).first();
+  },
+  async addProject(project) {
+    const [id] = await db("Projects").insert(project);
+    return this.findById(id);
   },
 };
 
