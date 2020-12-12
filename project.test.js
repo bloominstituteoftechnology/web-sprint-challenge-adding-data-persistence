@@ -9,7 +9,6 @@ IMPORTANT NOTES 🔥
 4- Opening the `test.db3` with SQLite Studio might prevent tests from working
 5- Manual testing with Postman or HTTPie is still necessary
 */
-// const fs = require('fs/promises')
 const request = require('supertest')
 const db = require('./data/dbConfig')
 const server = require('./api/server')
