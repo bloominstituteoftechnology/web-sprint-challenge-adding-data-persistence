@@ -34,6 +34,7 @@ afterAll(async (done) => {
   done()
 })
 beforeEach(async () => {
+  await db('project_resources').truncate()
   await db('resources').truncate()
   await db('tasks').truncate()
   await db('projects').truncate()

@@ -44,6 +44,8 @@ A **task** is one of the steps needed to complete a project and is stored in a `
 - [ ] `notes` - optional
 - [ ] `completed` - cannot be `NULL` and defaults to "not completed" (use appropriate data type and constraints)
 
+A **resource assignment** connects a resource and a project, and is stored in a `project_resources` table. You decide what columns to use.
+
 ### Requirements
 
 Your finished project must meet all of the following requirements:
