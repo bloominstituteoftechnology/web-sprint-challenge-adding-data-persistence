@@ -45,9 +45,21 @@ Commit your code regularly and meaningfully.
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. Explain the difference between Relational Databases and SQL.
+
+RDBMS is the software to manage data while SQL is the language to  navigate and implement changes to that system.
+
 2. Why do tables need a Primary Key?
+
+Tables need a primary key so that it can have a unique refence to it
+
 3. What is the name given to a table column that references the Primary Key on another table?
+
+Foreign key
+
 4. What do we need in order to have a _many to many_ relationship between two tables?
+
+An intermediary table
+
 
 ## Instructions
 
