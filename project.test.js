@@ -1,7 +1,18 @@
-// 👉 You can run these tests in your terminal by executing `npm test`
+/*
+IMPORTANT NOTES 🔥
+IMPORTANT NOTES 🔥
+IMPORTANT NOTES 🔥
+
+1- Run tests using `npm test` script (see `package.json`)
+2- Tests use their own database connection (see `knexfile.js` and `data/dbConfig.js`)
+3- Tests will fail to run until server.js and migration(s) are sufficiently fleshed out
+4- Opening the `test.db3` with SQLite Studio might prevent tests from working
+5- Manual testing with Postman or HTTPie is still necessary
+*/
+// const fs = require('fs/promises')
 const request = require('supertest')
-const server = require('./api/server')
 const db = require('./data/dbConfig')
+const server = require('./api/server')
 
 const projectA = { name: 'Web API', description: 'Build APIs' }
 const projectB = { name: 'Databases', description: 'Learn SQL', completed: true }
@@ -15,11 +26,17 @@ const taskB = { description: 'Do bar', notes: 'Use Postman!', project_id: 1 }
 const taskC = { description: 'Do baz', notes: 'Have fun!', completed: true, project_id: 2 }
 
 beforeAll(async () => {
+  await db.migrate.rollback()
   await db.migrate.latest()
 })
-afterAll(async(done) => {
+afterAll(async (done) => {
   await db.destroy()
   done()
+})
+beforeEach(async () => {
+  await db('resources').truncate()
+  await db('tasks').truncate()
+  await db('projects').truncate()
 })
 
 it('sanity check', () => {
@@ -31,17 +48,16 @@ describe('server.js', () => {
   // 👉 PROJECTS
   // 👉 PROJECTS
   describe('projects endpoints', () => {
-    beforeEach(async () => {
-      await db('projects').truncate()
-      await db('projects').insert(projectA)
-      await db('projects').insert({ ...projectB, completed: 1 })
-    })
     describe('[GET] /api/projects', () => {
       it('can get all projects that exist in the table', async () => {
+        await db('projects').insert(projectA)
+        await db('projects').insert({ ...projectB, completed: 1 })
         const res = await request(server).get('/api/projects')
         expect(res.body).toHaveLength(2)
       }, 500)
       it('each project contains name, description and completed (as a boolean)', async () => {
+        await db('projects').insert(projectA)
+        await db('projects').insert({ ...projectB, completed: 1 })
         const res = await request(server).get('/api/projects')
         expect(res.body[0]).toMatchObject({ ...projectA, completed: false })
         expect(res.body[1]).toMatchObject(projectB)
@@ -49,7 +65,6 @@ describe('server.js', () => {
     })
     describe('[POST] /api/projects', () => {
       it('can add a new project to the table', async () => {
-        await db('projects').truncate()
         await request(server).post('/api/projects').send(projectA)
         await request(server).post('/api/projects').send(projectB)
         await request(server).post('/api/projects').send(projectC)
@@ -60,7 +75,6 @@ describe('server.js', () => {
         expect(projects[2]).toMatchObject({ ...projectC, description: null })
       }, 500)
       it('can add the project to the table with its completed as an integer', async () => {
-        await db('projects').truncate()
         await request(server).post('/api/projects').send(projectA)
         await request(server).post('/api/projects').send(projectB)
         await request(server).post('/api/projects').send(projectC)
@@ -71,12 +85,10 @@ describe('server.js', () => {
         expect(projects[2]).toMatchObject({ completed: 0 })
       }, 500)
       it('responds with the newly created project with its completed as a boolean', async () => {
-        await db('projects').truncate()
         const res = await request(server).post('/api/projects').send(projectA)
         expect(res.body).toMatchObject({ ...projectA, completed: false })
       }, 500)
       it('rejects projects lacking a name with an error status code', async () => {
-        await db('projects').truncate()
         const res = await request(server).post('/api/projects').send({})
         const projects = await db('projects')
         expect(res.status + '').toMatch(/4|5/)
@@ -89,13 +101,10 @@ describe('server.js', () => {
   // 👉 RESOURCES
   // 👉 RESOURCES
   describe('resources endpoints', () => {
-    beforeEach(async () => {
-      await db('resources').truncate()
-      await db('resources').insert(resourceA)
-      await db('resources').insert(resourceB)
-    })
     describe('[GET] /api/resources', () => {
       it('can get all resources in the table', async () => {
+        await db('resources').insert(resourceA)
+        await db('resources').insert(resourceB)
         const res = await request(server).get('/api/resources')
         expect(res.body).toHaveLength(2)
         expect(res.body[0]).toMatchObject(resourceA)
@@ -104,7 +113,6 @@ describe('server.js', () => {
     })
     describe('[POST] /api/resources', () => {
       it('can add a new resource to the table', async () => {
-        await db('resources').truncate()
         await request(server).post('/api/resources').send(resourceA)
         await request(server).post('/api/resources').send(resourceB)
         const resources = await db('resources')
@@ -113,15 +121,15 @@ describe('server.js', () => {
         expect(resources[1]).toMatchObject(resourceB)
       }, 500)
       it('responds with the newly created resource', async () => {
-        await db('resources').truncate()
         const res = await request(server).post('/api/resources').send(resourceA)
         expect(res.body).toMatchObject(resourceA)
       }, 500)
       it('rejects a resource with an existing name with an error status code', async () => {
+        await db('resources').insert(resourceA)
         const res = await request(server).post('/api/resources').send(resourceA)
         const resources = await db('resources')
         expect(res.status + '').toMatch(/4|5/)
-        expect(resources).toHaveLength(2)
+        expect(resources).toHaveLength(1)
       }, 500)
     })
   })
@@ -131,10 +139,8 @@ describe('server.js', () => {
   // 👉 TASKS
   describe('tasks endpoints', () => {
     beforeEach(async () => {
-      await db('projects').truncate()
       await db('projects').insert(projectA)
       await db('projects').insert(projectB)
-      await db('tasks').truncate()
       await db('tasks').insert(taskA)
       await db('tasks').insert(taskB)
       await db('tasks').insert({ ...taskC, completed: 1 })
