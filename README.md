@@ -23,7 +23,7 @@ In this project you will be given a set of requirements and must design a databa
 
 ### Tables
 
-Some of the tables described below require additional columns to meet all requirements. Use appropriate data types and constraints.
+Use appropriate data types and constraints:
 
 A **project** is what needs to be done and is stored in a `projects` table with the following columns:
 
