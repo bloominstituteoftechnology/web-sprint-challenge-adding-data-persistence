@@ -13,6 +13,7 @@ This is an individual assessment. All work must be your own. Your challenge scor
 - [ ] Implement the project in a new branch: `git checkout -b <firstName-lastName>`.
 - [ ] Create and push commits regularly: `git push origin <firstName-lastName>`.
 - [ ] Do not move or rename any of the existing files or folders.
+- [ ] Do not remove any scripts from the `package.json` but you may add new ones.
 
 ## Project Instructions
 
@@ -22,27 +23,28 @@ In this project you will be given a set of requirements and must design a databa
 
 ### Tables
 
-Some of the tables described below require additional columns to meet all requirements.
+Some of the tables described below require additional columns to meet all requirements. Use appropriate data types and constraints.
 
 A **project** is what needs to be done and is stored in a `projects` table with the following columns:
 
-- [ ] `id` - unique
-- [ ] `name` - required
-- [ ] `description` - optional
-- [ ] `completed` - cannot be `NULL` and defaults to "not completed" (use appropriate data type and constraints)
+- [ ] `project_id` - primary key
+- [ ] `project_name` - required
+- [ ] `project_description` - optional
+- [ ] `project_completed` - required but the database defaults it to not completed if not provided
 
 A **resource** is anything needed to complete a project and is stored in a `resources` table with the following columns:
 
-- [ ] `id` - unique
-- [ ] `name` - required and unique
-- [ ] `description` - optional
+- [ ] `resource_id` - primary key
+- [ ] `resource_name` - required and unique
+- [ ] `resource_description` - optional
 
 A **task** is one of the steps needed to complete a project and is stored in a `tasks` table with the following columns:
 
-- [ ] `id` - unique
-- [ ] `description` - required
-- [ ] `notes` - optional
-- [ ] `completed` - cannot be `NULL` and defaults to "not completed" (use appropriate data type and constraints)
+- [ ] `task_id` - primary key
+- [ ] `task_description` - required
+- [ ] `task_notes` - optional
+- [ ] `task_completed` - required but the database defaults it to not completed if not provided
+- [ ] `project_id` - required and points to an actual `project_id` in the `projects` table
 
 A **resource assignment** connects a resource and a project, and is stored in a `project_resources` table. You decide what columns to use.
 
@@ -50,24 +52,31 @@ A **resource assignment** connects a resource and a project, and is stored in a 
 
 Your finished project must meet all of the following requirements:
 
-- [ ] Design the data model and use _knex migrations_ to create the database and tables needed to satisfy the following business rules:
-  - [ ] a `project` can have multiple `tasks`.
-  - [ ] a `task` belongs to only one `project`.
-  - [ ] a `project` can use multiple `resources`. Examples of `resources` are: computer, conference room, microphone, delivery van.
-  - [ ] the same `resource` can be used in multiple `projects`.
-  - [ ] when adding `projects` the client must provide a name, the description is optional.
-  - [ ] when adding `resources` the client must provide a unique name, the description is optional.
-  - [ ] when adding a `task` the client must provide a description, the notes are optional.
-  - [ ] when adding a `task` the client must provide a `project_id` that points to the `id` of an existing project.
-  - [ ] even if the `completed` values for tasks and projects are stored as integers, the client must be able to provide and obtain booleans.
-
+- [ ] Design the data model and use knex migrations to create the database and tables.
 - [ ] Build an API inside the `api` folder with endpoints for:
-  1. `[POST] /api/resources` - adding a new resource obtains the newly created resource
-  2. `[GET] /api/resources` - retrieving all resources
-  3. `[POST] /api/projects` - adding a new project obtains the newly created project
-  4. `[GET] /api/projects` - retrieving all projects
-  5. `[POST] /api/tasks` - adding a new task obtains the newly created task
-  6. `[GET] /api/tasks` - retrieving all tasks -  **Each task must include `project_name` and `project_description` so you will need to join tables**
+
+  - [ ] `[POST] /api/resources`
+    - Example of response body: `{"resource_id":1,"resource_name":"foo","resource_description":null}`
+
+  - [ ] `[GET] /api/resources`
+    - Example of response body: `[{"resource_id":1,"resource_name":"foo","resource_description":null}]`
+
+  - [ ] `[POST] /api/projects`
+    - Even though `project_completed` is stored as an integer, the API uses booleans when interacting with the client
+    - Example of response body: `{"project_id":1,"project_name":"bar","project_description":null,"project_completed":false}`
+
+  - [ ] `[GET] /api/projects`
+    - Even though `project_completed` is stored as an integer, the API uses booleans when interacting with the client
+    - Example of response body: `{"project_id":1,"project_name":"bar","project_description":null,"project_completed":false}`
+
+  - [ ] `[POST] /api/tasks`
+    - Even though `task_completed` is stored as an integer, the API uses booleans when interacting with the client
+    - Example of response body: `{"task_id":1,"task_description":"baz","task_notes":null,"task_completed":false,"project_id:1}`
+
+  - [ ] `[GET] /api/tasks`
+    - Even though `task_completed` is stored as an integer, the API uses booleans when interacting with the client
+    - Each task must include `project_name` and `project_description`
+    - Example of response body: `[{"task_id":1,"task_description":"baz","task_notes":null,"task_completed":false,"project_name:"bar","project_description":null}]`
 
 In your solution, it is essential that you follow best practices and produce clean and professional results. Schedule time to review, refine, and assess your work and perform basic professional polishing including spell-checking and grammar-checking on your work. It is better to submit a challenge that meets MVP than one that attempts too much and does not.
 
