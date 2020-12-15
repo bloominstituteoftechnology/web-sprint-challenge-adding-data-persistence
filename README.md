@@ -67,7 +67,7 @@ Your finished project must meet all of the following requirements:
 
   - [ ] `[GET] /api/projects`
     - Even though `project_completed` is stored as an integer, the API uses booleans when interacting with the client
-    - Example of response body: `{"project_id":1,"project_name":"bar","project_description":null,"project_completed":false}`
+    - Example of response body: `[{"project_id":1,"project_name":"bar","project_description":null,"project_completed":false}]`
 
   - [ ] `[POST] /api/tasks`
     - Even though `task_completed` is stored as an integer, the API uses booleans when interacting with the client
