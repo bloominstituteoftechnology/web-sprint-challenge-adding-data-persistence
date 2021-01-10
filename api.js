@@ -15,8 +15,25 @@ router.post('/resource', (req,res) => {
        .catch((err) => {
         console.log(err)
         res.status(500).json({
-            message: "could not post project"
+            message: "could not post resource"
         })
     }) 
+})
+
+router.get('/resource', (req,res) => {
+    Project.getRes()
+    .then((resource) => {
+        if(resource) {
+            res.status(200).json(resource)
+        } else {
+            res.status(404).json({
+                message: "Resource can not be found"
+            })
+        }
+    })
+    .catch((err) => {
+        console.log(err)
+        next(err)
+    })
 })
 module.exports = router
