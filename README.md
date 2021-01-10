@@ -47,13 +47,18 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. Explain the difference between `Relational Databases` and `SQL`.
+    Relational Databases manages the databases, while SQL is the language its written in.
 
 2. Why do tables need a `primary key`?
+    A primary key keeps a table more accessiable as well as organized and unique.
 
 3. What is the name given to a table column that references the primary key on another table.
+    A forgein Key.
 
 4. What do we need in order to have a _many to many_ relationship between two tables.
 
+    An intermediary Table that allows us to set multiple forgeign keys as the primary key.
+    
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
 ## Instructions
