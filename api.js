@@ -38,6 +38,25 @@ router.post('/project', (req,res) => {
  }) 
 })
 
+router.post('/task', (req,res) => {
+    if(!req.body.description) {
+        res.status(500).json({
+            message: "Name description for task"
+        })
+    }
+    Project.addTask(req.body)
+    .then((add) => {
+        res.status(201).json(add)
+    })
+    .catch((err) => {
+     console.log(err)
+     res.status(500).json({
+         message: "could not post task"
+     })
+ }) 
+})
+
+
 router.get('/resource', (req,res) => {
     Project.getRes()
     .then((resource) => {
@@ -63,6 +82,23 @@ router.get('/project', (req,res) => {
         } else {
             res.status(404).json({
                 message: "Project can not be found"
+            })
+        }
+    })
+    .catch((err) => {
+        console.log(err)
+        next(err)
+    })
+})
+
+router.get('/task', (req,res) => {
+    Project.getTask()
+    .then((task) => {
+        if(task) {
+            res.status(200).json(task)
+        } else {
+            res.status(404).json({
+                message: "Task can not be found"
             })
         }
     })
