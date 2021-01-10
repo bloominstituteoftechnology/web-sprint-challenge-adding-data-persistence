@@ -18,9 +18,9 @@ exports.up = async function(knex) {
     })
 
     await knex.schema.createTable("project_resource", (table) => {
+        table.primary(["project_id", "resource_id"])
         table.integer("project_id").notNull().references("id").inTable("project")
         table.integer("resource_id").notNull().references("id").inTable("resource")
-        table.primary(["project_id", "resource_id"])
     })
 };
 
