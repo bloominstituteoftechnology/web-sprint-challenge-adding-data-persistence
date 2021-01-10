@@ -20,6 +20,24 @@ router.post('/resource', (req,res) => {
     }) 
 })
 
+router.post('/project', (req,res) => {
+    if(!req.body.name) {
+        res.status(500).json({
+            message: "Name needed for project"
+        })
+    }
+    Project.addPro(req.body)
+    .then((add) => {
+        res.status(201).json(add)
+    })
+    .catch((err) => {
+     console.log(err)
+     res.status(500).json({
+         message: "could not post project"
+     })
+ }) 
+})
+
 router.get('/resource', (req,res) => {
     Project.getRes()
     .then((resource) => {
@@ -28,6 +46,23 @@ router.get('/resource', (req,res) => {
         } else {
             res.status(404).json({
                 message: "Resource can not be found"
+            })
+        }
+    })
+    .catch((err) => {
+        console.log(err)
+        next(err)
+    })
+})
+
+router.get('/project', (req,res) => {
+    Project.getPro()
+    .then((Project) => {
+        if(Project) {
+            res.status(200).json(Project)
+        } else {
+            res.status(404).json({
+                message: "Project can not be found"
             })
         }
     })
