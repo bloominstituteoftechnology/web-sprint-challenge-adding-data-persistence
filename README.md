@@ -27,24 +27,24 @@ Use appropriate data types and constraints:
 
 A **project** is what needs to be done and is stored in a `projects` table with the following columns:
 
-- [ ] `project_id` - primary key
-- [ ] `project_name` - required
-- [ ] `project_description` - optional
+- [x] `project_id` - primary key
+- [x] `project_name` - required
+- [x] `project_description` - optional
 - [ ] `project_completed` - required but the database defaults it to not completed if not provided
 
 A **resource** is anything needed to complete a project and is stored in a `resources` table with the following columns:
 
-- [ ] `resource_id` - primary key
-- [ ] `resource_name` - required and unique
-- [ ] `resource_description` - optional
+- [x] `resource_id` - primary key
+- [x] `resource_name` - required and unique
+- [x] `resource_description` - optional
 
 A **task** is one of the steps needed to complete a project and is stored in a `tasks` table with the following columns:
 
-- [ ] `task_id` - primary key
-- [ ] `task_description` - required
+- [x] `task_id` - primary key
+- [x] `task_description` - required
 - [ ] `task_notes` - optional
 - [ ] `task_completed` - required but the database defaults it to not completed if not provided
-- [ ] `project_id` - required and points to an actual `project_id` in the `projects` table
+- [x] `project_id` - required and points to an actual `project_id` in the `projects` table
 
 A **resource assignment** connects a resource and a project, and is stored in a `project_resources` table. You decide what columns to use.
 
@@ -52,20 +52,20 @@ A **resource assignment** connects a resource and a project, and is stored in a 
 
 Your finished project must meet all of the following requirements:
 
-- [ ] Design the data model and use knex migrations to create the database and tables.
-- [ ] Build an API inside the `api` folder with endpoints for:
+- [x] Design the data model and use knex migrations to create the database and tables.
+- [x] Build an API inside the `api` folder with endpoints for:
 
   - [ ] `[POST] /api/resources`
     - Example of response body: `{"resource_id":1,"resource_name":"foo","resource_description":null}`
 
-  - [ ] `[GET] /api/resources`
+  - [x] `[GET] /api/resources`
     - Example of response body: `[{"resource_id":1,"resource_name":"foo","resource_description":null}]`
 
   - [ ] `[POST] /api/projects`
     - Even though `project_completed` is stored as an integer, the API uses booleans when interacting with the client
     - Example of response body: `{"project_id":1,"project_name":"bar","project_description":null,"project_completed":false}`
 
-  - [ ] `[GET] /api/projects`
+  - [x] `[GET] /api/projects`
     - Even though `project_completed` is stored as an integer, the API uses booleans when interacting with the client
     - Example of response body: `[{"project_id":1,"project_name":"bar","project_description":null,"project_completed":false}]`
 
@@ -73,7 +73,7 @@ Your finished project must meet all of the following requirements:
     - Even though `task_completed` is stored as an integer, the API uses booleans when interacting with the client
     - Example of response body: `{"task_id":1,"task_description":"baz","task_notes":null,"task_completed":false,"project_id:1}`
 
-  - [ ] `[GET] /api/tasks`
+  - [x] `[GET] /api/tasks`
     - Even though `task_completed` is stored as an integer, the API uses booleans when interacting with the client
     - Each task must include `project_name` and `project_description`
     - Example of response body: `[{"task_id":1,"task_description":"baz","task_notes":null,"task_completed":false,"project_name:"bar","project_description":null}]`
@@ -102,6 +102,13 @@ There are two possible ways to submit this project to Canvas. Lambda Staff will 
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. Explain the difference between Relational Databases and SQL.
+  => RDBMS is the system, and SQL is the language used to interact with the system. In principle you could have an RDBMS that uses some other language for access, and in principle you could use SQL to interact with some other kind of database system, though in practice the two are closely coupled.
+
 2. Why do tables need a Primary Key?
+  => Primary key is nothing is nothing but Id of the table. Which is necessary to access the data by using ID and can merge the table as foreign key.
+
 3. What is the name given to a table column that references the Primary Key on another table?
+  => Foreign key column
+
 4. What do we need in order to have a _many to many_ relationship between two tables?
+  =>Primary key and forign key are the vital item need to have many to many relationship.

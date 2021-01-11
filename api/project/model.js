@@ -11,8 +11,13 @@ function findProjectById(id) {
         .first()
 }
 
+function addProject(project) {
+    const [id] = db("project").insert(project)
+    return findProjectById(id)
+}
 
 module.exports = {
     findProject,
     findProjectById,
+    addProject,
 }

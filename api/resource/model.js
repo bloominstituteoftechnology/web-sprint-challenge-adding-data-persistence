@@ -8,7 +8,8 @@ function findResource() {
 function findResourceById(id) {
     return db("resource")
         .where("id", id)
-        .first()
+        .select("*")
+        // .first()
 }
 
 module.exports = {
