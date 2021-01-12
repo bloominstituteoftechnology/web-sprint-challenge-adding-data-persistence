@@ -27,4 +27,13 @@ router.get("/:id", async (req, res, next) => {
     }  
 })
 
+router.post("/", async (req, res, next) => {
+    try {
+        const task = await Task.addTask(req.body)
+        res.json(task);
+    } catch (err) {
+        next(err);
+    }
+})
+
 module.exports = router;

@@ -12,7 +12,14 @@ function findResourceById(id) {
         // .first()
 }
 
+function addResource(resouce) {
+    return db("resource")
+        .insert(resouce)
+        .into("resource")
+}
+
 module.exports = {
     findResource,
-    findResourceById
+    findResourceById,
+    addResource
 }

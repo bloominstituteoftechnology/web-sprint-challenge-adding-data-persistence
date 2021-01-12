@@ -14,7 +14,14 @@ function findTaskById(id) {
         .select("task.id", "task.name", "project.name as project_name", "project.description")
 }
 
+function addTask(NewTask) {
+    return db("task")
+        .insert(NewTask)
+        .into("task")
+}
+
 module.exports = {
     findTask,
-    findTaskById
+    findTaskById,
+    addTask,
 }
