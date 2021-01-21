@@ -12,8 +12,6 @@ This is an individual assessment. All work must be your own. Your challenge scor
 - [ ] Clone your OWN version of the repository. (Not Lambda's by mistake!)
 - [ ] Implement the project in a new branch: `git checkout -b <firstName-lastName>`.
 - [ ] Create and push commits regularly: `git push origin <firstName-lastName>`.
-- [ ] Do not move or rename any of the existing files or folders.
-- [ ] Do not remove any scripts from the `package.json` but you may add new ones.
 
 ## Project Instructions
 
@@ -78,7 +76,13 @@ Your finished project must meet all of the following requirements:
     - Each task must include `project_name` and `project_description`
     - Example of response body: `[{"task_id":1,"task_description":"baz","task_notes":null,"task_completed":false,"project_name:"bar","project_description":null}]`
 
-In your solution, it is essential that you follow best practices and produce clean and professional results. Schedule time to review, refine, and assess your work and perform basic professional polishing including spell-checking and grammar-checking on your work. It is better to submit a challenge that meets MVP than one that attempts too much and does not.
+**Notes:**
+
+- You are welcome to create additional files for middlewares etc, but **do not move or rename existing files** or folders.
+- Do not make changes to your `package.json` except to add extra dependencies and scripts.
+- In your solution, it is essential that you follow best practices and produce clean and professional results.
+- Schedule time to review, refine, and assess your work and perform basic professional polishing including spell-checking and grammar-checking on your work.
+- It is better to submit a challenge that meets MVP than one that attempts too much and does not.
 
 ### Stretch Goals
 
