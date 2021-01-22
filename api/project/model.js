@@ -1,6 +1,5 @@
 // build your `Project` model here
 const db = require('../../data/dbConfig');
-const { map } = require('../server');
 
 const getAll = async () => {
     try {
@@ -30,9 +29,14 @@ const getById = async id => {
     }
 }
 
-const insert = record => {
-    return db('project')
-        .insert(record);
+const insert = async record => {
+    try {
+        const projectId = await db('project')
+            .insert(record);
+        return getById(projectId[0]);
+    } catch (err) {
+        return {error: `could not post project`}
+    }
 }
 
 

@@ -16,8 +16,7 @@ router.get('/', async (req, res, next) => {
 // curl -d '{"project_name":"bar","project_description":null,"project_completed":true}' -H 'Content-Type: Application/json' -X POST http://localhost:5000/api/projects
 router.post('/', async (req, res, next) => {
     try {
-        const projectId = await Project.insert(req.body);
-        const newProject = await Project.getById(projectId[0]);
+        const newProject = await Project.insert(req.body);
         res.status(201).json(newProject);
     } catch (err) {
         next(err);
