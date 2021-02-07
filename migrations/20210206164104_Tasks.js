@@ -4,6 +4,7 @@ exports.up = async function(knex) {
      tbl.increments('task_id')
      tbl.text('task_description')
      tbl.text('task_notes')
+     .defaultTo(null)
      tbl.bool('completed')
      .defaultTo(false)
 

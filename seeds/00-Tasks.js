@@ -1,11 +1,15 @@
 
 exports.seed = function(knex) {
   // Deletes ALL existing entries
-  return knex('table_name').del()
+  return knex('Tasks').del()
     .then(function () {
       // Inserts seed entries
-      return knex('table_name').insert([
-        { 'task_description':'Do something', ''}
+      return knex('Tasks').insert([
+        { 'task_description':'Do something'},
+        { 'task_description':'Do something'},
+        { 'task_description':'Do something'},
+        { 'task_description':'Do something'},
+
       ]);
     });
 };
