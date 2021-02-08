@@ -6,16 +6,8 @@ function find() {
 }
 
 function insert(newTask) {
-  return db("task")
-    .returning([
-      "id",
-      "name",
-      "description",
-      "notes",
-      "completed",
-      "project_id",
-    ])
-    .insert(newTask);
+  console.log(newTask);
+  return db("task").insert(newTask);
 }
 
 module.exports = {

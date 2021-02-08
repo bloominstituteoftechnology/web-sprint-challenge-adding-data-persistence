@@ -6,9 +6,7 @@ function find() {
 }
 
 function insert(newProject) {
-  return db("project")
-    .returning(["id", "name", "description", "completed"])
-    .insert(newProject);
+  return db("project").insert(newProject);
 }
 
 module.exports = {

@@ -12,10 +12,10 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/", async (req, post) => {
+router.post("/", async (req, res) => {
   const newTask = req.body;
   try {
-    const task = db.insert(newTask);
+    const task = await db.insert(newTask);
     res.status(201).json(resource);
   } catch {
     res.status(500).json({ messege: "Server Error" });

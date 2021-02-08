@@ -6,9 +6,7 @@ function find() {
 }
 
 function insert(newResource) {
-  return db("resource")
-    .returning(["id", "name", "description"])
-    .insert(newResource);
+  return db("resource").insert(newResource);
 }
 
 module.exports = {
