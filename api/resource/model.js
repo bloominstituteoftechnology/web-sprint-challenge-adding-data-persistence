@@ -5,11 +5,22 @@ function find() {
   return db("resources");
 }
 
-function insert(newResource) {
-  return db("resources").insert(newResource);
+async function findById(id) {
+  try {
+    const task = await db.select("*").from("resources").where({ id });
+    return task;
+  } catch (error) {
+    return error;
+  }
+}
+
+async function insert(newResource) {
+  const resourceId = await db("resources").insert(newResource);
+  return await findById(resourceId);
 }
 
 module.exports = {
   find,
+  findById,
   insert,
 };
