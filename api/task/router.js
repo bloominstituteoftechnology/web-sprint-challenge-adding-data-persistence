@@ -9,7 +9,7 @@ const taskModel = require('./model');
 router.post('/', async(req, res, next)=>{
     
     await taskModel.insert(req.body)
-    .then(resolve=>{
+    .then(response=>{
         res.status(200).json({
             message: 'Task was added successfully',
             task: req.body
