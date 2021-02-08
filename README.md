@@ -90,9 +90,9 @@ Your finished project must meet all of the following requirements:
 
 After finishing your required elements, you can push your work further. These goals may or may not be things you have learned in this module but they build on the material you just studied. Time allowing, stretch your limits and see if you can deliver on the following optional goals:
 
-- [ ] Add an endpoint to get a list of project resources.
-- [ ] Add an endpoint to get a list of project tasks.
-- [ ] Add an endpoint to see all projects using a particular resource.
+- [x] Add an endpoint to get a list of project resources.
+- [x] Add an endpoint to get a list of project tasks.
+- [x] Add an endpoint to see all projects using a particular resource.
 
 ## Submission format
 
@@ -114,3 +114,4 @@ So that way we have something to consistently reference in the table we created.
 An associative table or bridge table or 
 4. What do we need in order to have a _many to many_ relationship between two tables?
 We need to have multiple records in one table reference multiple records in another table. For example customers and products.
+
