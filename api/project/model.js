@@ -2,11 +2,11 @@
 const db = require("../../data/dbConfig");
 
 function find() {
-  return db("project");
+  return db("projects");
 }
 
 function insert(newProject) {
-  return db("project").insert(newProject);
+  return db("projects").insert(newProject);
 }
 
 module.exports = {

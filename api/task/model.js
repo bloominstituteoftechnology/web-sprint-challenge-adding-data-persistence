@@ -2,12 +2,12 @@
 const db = require("../../data/dbConfig");
 
 function find() {
-  return db("task");
+  return db("tasks");
 }
 
 function insert(newTask) {
   console.log(newTask);
-  return db("task").insert(newTask);
+  return db("tasks").insert(newTask);
 }
 
 module.exports = {
