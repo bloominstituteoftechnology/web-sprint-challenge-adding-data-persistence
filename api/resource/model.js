@@ -1,21 +1,14 @@
-// build your `Resource` model here
-const db = require('../../data/dev.db3');
-
+const db = require('../../data/dbConfig');
 
 module.exports = {
-    get, 
-    getByID
+    get,
+    insert
 }
-
-//GET - get resources
 
 async function get(){
-   return await db('Resources');
+    return await db('Resources');
 }
 
-//GET - resource by ID 
-
-async function getByID (id){
-    return await db.select('*').from('Resources').where({"resource_id":id})
-    
+async function insert(rsrc){
+    return await db.insert(rsrc).into('Resources');
 }

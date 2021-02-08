@@ -1,7 +1,11 @@
 // build your `Project` model here
-const db = '../../dev.db3';
+const db = require('../../data/dbConfig');
 
-
+module.exports = {
+    get, 
+    getProjectsByID,
+    insert
+}
 
 //GET projects
 async function get(){
@@ -10,5 +14,10 @@ async function get(){
 //GET projectsByID
 
 async function getProjectsByID(id){
-    await db.select(id).from('Projects');
+    return await db.select(id).from('Projects');
+}
+
+//POST  insert new Project
+async function insert(proj){
+    return await db.insert(proj).into('Projects')
 }

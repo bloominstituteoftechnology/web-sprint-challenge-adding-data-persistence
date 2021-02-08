@@ -7,8 +7,13 @@ exports.up = async function(knex) {
      .defaultTo(null)
      tbl.bool('completed')
      .defaultTo(false)
-
- }) 
+     tbl
+     .integer('project_id')
+     .references('id')
+     .inTable('projects')
+     .onDelete('CASCADE')
+     .onUpdate('CASCADE')
+ })
 };
 
 exports.down = async function(knex) {
