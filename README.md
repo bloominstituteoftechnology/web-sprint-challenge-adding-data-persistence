@@ -90,9 +90,9 @@ Your finished project must meet all of the following requirements:
 
 After finishing your required elements, you can push your work further. These goals may or may not be things you have learned in this module but they build on the material you just studied. Time allowing, stretch your limits and see if you can deliver on the following optional goals:
 
-- [ ] Add an endpoint to get a list of project resources.
-- [ ] Add an endpoint to get a list of project tasks.
-- [ ] Add an endpoint to see all projects using a particular resource.
+- [x] Add an endpoint to get a list of project resources.
+- [x] Add an endpoint to get a list of project tasks.
+- [x] Add an endpoint to see all projects using a particular resource.
 
 ## Submission format
 
@@ -106,6 +106,12 @@ There are two possible ways to submit this project to Canvas. Lambda Staff will 
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. Explain the difference between Relational Databases and SQL.
+Relation databases are the databases themselves that store all the data that we need when building apps. SQL is the language that we use to query the database.
 2. Why do tables need a Primary Key?
+So that way we have something to consistently reference in the table we created. Other facets of the table may change but we can ensure that the primary key will be unique to the specific piece of data we want to reference.
+
 3. What is the name given to a table column that references the Primary Key on another table?
+An associative table or bridge table or 
 4. What do we need in order to have a _many to many_ relationship between two tables?
+We need to have multiple records in one table reference multiple records in another table. For example customers and products.
+
