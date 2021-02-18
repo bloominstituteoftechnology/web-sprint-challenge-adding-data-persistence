@@ -4,14 +4,21 @@
 
 This challenge allows you to practice the concepts and techniques learned over the past sprint and apply them in a concrete project. This sprint explored **Data Persistence**. During this sprint, you studied **RDBMS, including SQL, multi-table queries, and data modeling**. In your challenge this week, you will demonstrate your mastery of these skills by creating **a database based on given specifications**.
 
-This is an individual assessment. All work must be your own. Your challenge score is a measure of your ability to work independently using the material covered through this sprint. You need to demonstrate proficiency in the concepts and objectives introduced and practiced in preceding days.
+This is an individual assessment. All work must be your own. All projects will be submitted to Codegrade for automated review. You will also be given feedback by code reviewers on Monday following the challenge submission. For more information on the review process [click here.](https://www.notion.so/lambdaschool/How-to-View-Feedback-in-CodeGrade-c5147cee220c4044a25de28bcb6bb54a)
+
+You are not allowed to collaborate during the sprint challenge. However, you are encouraged to follow the twenty-minute rule and seek support by dropping a :wave: in your help channel should a blocker arise.
+
+_Sprint challenges open at Midnight PST on Thursday and close at 5pm PST on Friday. You will receive feedback on what you have submitted by 5pm. No retakes will be accepted._
 
 ## Project Set Up
 
-- [ ] Create a forked copy of this project.
-- [ ] Clone your OWN version of the repository. (Not Lambda's by mistake!)
-- [ ] Implement the project in a new branch: `git checkout -b <firstName-lastName>`.
-- [ ] Create and push commits regularly: `git push origin <firstName-lastName>`.
+- [ ] Fork and clone the repo. Delete your old fork from Github first if you are repeating this Unit.
+- [ ] Open the assignment in Canvas and click on the "Set up git" option.
+- [ ] Follow instructions to set up Codegrade's Webhook and Deploy Key.
+- [ ] Push your first commit: `git commit --allow-empty -m "first commit" && git push`.
+- [ ] Check to see that Codegrade has accepted your git submission.
+
+For a step-by-step on setting up Codegrade see [this guide.](https://www.notion.so/lambdaschool/Submitting-an-assignment-via-Code-Grade-A-Step-by-Step-Walkthrough-07bd65f5f8364e709ecb5064735ce374)
 
 ## Project Instructions
 
@@ -19,9 +26,9 @@ This is an individual assessment. All work must be your own. Your challenge scor
 
 In this project you will be given a set of requirements and must design a database to satisfy them. As a part of this process you'll also build an API with endpoints to access the data.
 
-### Tables
+### Required Tables
 
-Use appropriate data types and constraints:
+Build the migration(s) in Knex inside the `data/migrations` folder using appropriate data types and constraints. You must use the table names and the column names described below. To give a primary key a name different than `id`, do `table.increments("project_id")` instead of `table.increments()`.
 
 A **project** is what needs to be done and is stored in a `projects` table with the following columns:
 
@@ -46,35 +53,32 @@ A **task** is one of the steps needed to complete a project and is stored in a `
 
 A **resource assignment** connects a resource and a project, and is stored in a `project_resources` table. You decide what columns to use.
 
-### Requirements
+### Required Endpoints
 
-Your finished project must meet all of the following requirements:
+Build an API inside the `api` folder with endpoints for:
 
-- [ ] Design the data model and use knex migrations to create the database and tables.
-- [ ] Build an API inside the `api` folder with endpoints for:
+- [ ] `[POST] /api/resources`
+  - Example of response body: `{"resource_id":1,"resource_name":"foo","resource_description":null}`
 
-  - [ ] `[POST] /api/resources`
-    - Example of response body: `{"resource_id":1,"resource_name":"foo","resource_description":null}`
+- [ ] `[GET] /api/resources`
+  - Example of response body: `[{"resource_id":1,"resource_name":"foo","resource_description":null}]`
 
-  - [ ] `[GET] /api/resources`
-    - Example of response body: `[{"resource_id":1,"resource_name":"foo","resource_description":null}]`
+- [ ] `[POST] /api/projects`
+  - Even though `project_completed` is stored as an integer, the API uses booleans when interacting with the client
+  - Example of response body: `{"project_id":1,"project_name":"bar","project_description":null,"project_completed":false}`
 
-  - [ ] `[POST] /api/projects`
-    - Even though `project_completed` is stored as an integer, the API uses booleans when interacting with the client
-    - Example of response body: `{"project_id":1,"project_name":"bar","project_description":null,"project_completed":false}`
+- [ ] `[GET] /api/projects`
+  - Even though `project_completed` is stored as an integer, the API uses booleans when interacting with the client
+  - Example of response body: `[{"project_id":1,"project_name":"bar","project_description":null,"project_completed":false}]`
 
-  - [ ] `[GET] /api/projects`
-    - Even though `project_completed` is stored as an integer, the API uses booleans when interacting with the client
-    - Example of response body: `[{"project_id":1,"project_name":"bar","project_description":null,"project_completed":false}]`
+- [ ] `[POST] /api/tasks`
+  - Even though `task_completed` is stored as an integer, the API uses booleans when interacting with the client
+  - Example of response body: `{"task_id":1,"task_description":"baz","task_notes":null,"task_completed":false,"project_id:1}`
 
-  - [ ] `[POST] /api/tasks`
-    - Even though `task_completed` is stored as an integer, the API uses booleans when interacting with the client
-    - Example of response body: `{"task_id":1,"task_description":"baz","task_notes":null,"task_completed":false,"project_id:1}`
-
-  - [ ] `[GET] /api/tasks`
-    - Even though `task_completed` is stored as an integer, the API uses booleans when interacting with the client
-    - Each task must include `project_name` and `project_description`
-    - Example of response body: `[{"task_id":1,"task_description":"baz","task_notes":null,"task_completed":false,"project_name:"bar","project_description":null}]`
+- [ ] `[GET] /api/tasks`
+  - Even though `task_completed` is stored as an integer, the API uses booleans when interacting with the client
+  - Each task must include `project_name` and `project_description`
+  - Example of response body: `[{"task_id":1,"task_description":"baz","task_notes":null,"task_completed":false,"project_name:"bar","project_description":null}]`
 
 **Notes:**
 
@@ -96,10 +100,12 @@ After finishing your required elements, you can push your work further. These go
 
 ## Submission format
 
-There are two possible ways to submit this project to Canvas. Lambda Staff will let you know which one applies:
-
-1. Submitting a pull request to merge `<firstName-lastName>` (or `stretch` if you finished any stretch goals) branch into `main`.
-2. Setting up your fork settings on Github to submit via Codegrade by pushing commits to your `<firstName-lastName>` branch.
+- [ ] Submit via Codegrade by committing and pushing any new changes.
+- [ ] Create a pull request to merge `<firstName-lastName>` branch into `main`.
+- [ ] Please don't merge your own pull request and make sure **you are on your own repo**.
+- [ ] Check Codegrade for automated feedback.
+- [ ] Check Codegrade on Monday following the Sprint Challenge for reviewer feedback.
+- [ ] Any changes pushed after the deadline will not receive any feedback.
 
 ## Interview Questions
 
