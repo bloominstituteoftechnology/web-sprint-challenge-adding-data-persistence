@@ -13,9 +13,16 @@ router.get("/", async (req, res, next) => {
 
 //post a task
 router.post("/", async (req, res, next) => {
+  const { task_description, task_completed, project_id } = req.body;
   try {
-    const data = await Task.postATask(req.body);
-    res.status(201).json(data);
+    if (!task_description || !task_completed || !project_id) {
+      res.status(404).json({
+        message: "Task description , completed and project ID required",
+      });
+    } else {
+      const data = await Task.postATask(req.body);
+      res.status(201).json(data);
+    }
   } catch (e) {
     next();
   }

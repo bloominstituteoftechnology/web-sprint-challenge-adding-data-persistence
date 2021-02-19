@@ -13,9 +13,14 @@ router.get("/", async (req, res, next) => {
 
 //post a resource
 router.post("/", async (req, res, next) => {
+  const { resource_name } = req.body;
   try {
-    const data = await Resource.postResouce(req.body);
-    res.status(201).json(data);
+    if (!resource_name) {
+      res.status(404).json({ message: "Resource name required" });
+    } else {
+      const data = await Resource.postResouce(req.body);
+      res.status(201).json(data);
+    }
   } catch (e) {
     next(e);
   }
