@@ -1,17 +1,17 @@
 
 exports.up = function(knex) {
-  return knex.schema.createTable("Project", tbl => {
+  return knex.schema.createTable("projects", tbl => {
       tbl.increments("project_id")
       tbl.text("project_name").notNullable()
       tbl.text("project_description")
       tbl.boolean("project_completed")
   })
-  .createTable("Recource", tbl => {
-    tbl.increments("recource_id")
-    tbl.text("recource_name").unique().notNullable()
-    tbl.text("recource_description")  
+  .createTable("resources", tbl => {
+    tbl.increments("resource_id")
+    tbl.text("resource_name").unique().notNullable()
+    tbl.text("resource_description")  
   })
-  .createTable("Task", tbl => {
+  .createTable("tasks", tbl => {
       tbl.increments("task_id")
       tbl.text("task_description").notNullable()
       tbl.text("task_notes")
@@ -21,7 +21,7 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  return knex.schema.dropTableIfExists("Task")
-    .dropTableIfExists("Recource")
-    .dropTableIfExists("Project")
+  return knex.schema.dropTableIfExists("tasks")
+    .dropTableIfExists("resources")
+    .dropTableIfExists("projects")
 };

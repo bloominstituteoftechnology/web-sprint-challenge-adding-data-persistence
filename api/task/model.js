@@ -3,7 +3,7 @@ const db = require("../../data/dbConfig")
 
 function getTasks() {
     return db("task_id", "task_description", "task_notes", "task_completed", "project_name", "project_description")
-    .from("Task").join("Project", "Task.project_id", "Project.project_id").orderBy("task_id")
+    .from("tasks").join("projects", "tasks.project_id", "projects.project_id").orderBy("task_id")
 }
 
 async function addTask(task) {
@@ -13,8 +13,8 @@ async function addTask(task) {
     } else if(task[0].task_completed === 0) {
         task[0].task_completed = false
     }
-    const [task_id] = await db("Task").insert(task)
-    return db("*").from("Task").where({task_id}).first()
+    const [task_id] = await db("tasks").insert(task)
+    return db("*").from("tasks").where({task_id}).first()
 }
 
 module.exports = {

@@ -11,7 +11,7 @@ const db = require("../../data/dbConfig")
 // retrieving the project_completed field
 
 function getProjects() {
-    return db("*").from("Project").orderBy("project_id")
+    return db("*").from("projects").orderBy("project_id")
 }
 
 async function addProject(project) {
@@ -23,8 +23,8 @@ async function addProject(project) {
     } else if(project[0].project_completed === 0) {
         project[0].project_completed = false;
     }
-    const [project_id] = await db("Project").insert(project)
-    return db("*").from("Project").where({project_id}).first()
+    const [project_id] = await db("projects").insert(project)
+    return db("*").from("projects").where({project_id}).first()
 }
 
 
