@@ -12,11 +12,11 @@ _Sprint challenges open at Midnight PST on Thursday and close at 5pm PST on Frid
 
 ## Project Set Up
 
-- [ ] Fork and clone the repo. Delete your old fork from Github first if you are repeating this Unit.
-- [ ] Open the assignment in Canvas and click on the "Set up git" option.
-- [ ] Follow instructions to set up Codegrade's Webhook and Deploy Key.
-- [ ] Push your first commit: `git commit --allow-empty -m "first commit" && git push`.
-- [ ] Check to see that Codegrade has accepted your git submission.
+- [X] Fork and clone the repo. Delete your old fork from Github first if you are repeating this Unit.
+- [X] Open the assignment in Canvas and click on the "Set up git" option.
+- [X] Follow instructions to set up Codegrade's Webhook and Deploy Key.
+- [X] Push your first commit: `git commit --allow-empty -m "first commit" && git push`.
+- [X] Check to see that Codegrade has accepted your git submission.
 
 For a step-by-step on setting up Codegrade see [this guide.](https://www.notion.so/lambdaschool/Submitting-an-assignment-via-Code-Grade-A-Step-by-Step-Walkthrough-07bd65f5f8364e709ecb5064735ce374)
 
@@ -30,52 +30,52 @@ In this project you will be given a set of requirements and must design a databa
 
 Build the migration(s) in Knex inside the `data/migrations` folder using appropriate data types and constraints. **You must use the table names and the column names described below.** To give a primary key a name different than `id`, do `table.increments("project_id")` instead of `table.increments()`.
 
-- [ ] A **project** is what needs to be done and is stored in a `projects` table with the following columns:
+- [X] A **project** is what needs to be done and is stored in a `projects` table with the following columns:
 
-  - [ ] `project_id` - primary key
-  - [ ] `project_name` - required
-  - [ ] `project_description` - optional
-  - [ ] `project_completed` - the database defaults it to `false` (integer 0) if not provided
+  - [X] `project_id` - primary key
+  - [X] `project_name` - required
+  - [X] `project_description` - optional
+  - [X] `project_completed` - the database defaults it to `false` (integer 0) if not provided
 
-- [ ] A **resource** is anything needed to complete a project and is stored in a `resources` table with the following columns:
+- [X] A **resource** is anything needed to complete a project and is stored in a `resources` table with the following columns:
 
-  - [ ] `resource_id` - primary key
-  - [ ] `resource_name` - required and unique
-  - [ ] `resource_description` - optional
+  - [X] `resource_id` - primary key
+  - [X] `resource_name` - required and unique
+  - [X] `resource_description` - optional
 
-- [ ] A **task** is one of the steps needed to complete a project and is stored in a `tasks` table with the following columns:
+- [X] A **task** is one of the steps needed to complete a project and is stored in a `tasks` table with the following columns:
 
-  - [ ] `task_id` - primary key
-  - [ ] `task_description` - required
-  - [ ] `task_notes` - optional
-  - [ ] `task_completed` - the database defaults it to `false` (integer 0) if not provided
-  - [ ] `project_id` - required and points to an actual `project_id` in the `projects` table
+  - [X] `task_id` - primary key
+  - [X] `task_description` - required
+  - [X] `task_notes` - optional
+  - [X] `task_completed` - the database defaults it to `false` (integer 0) if not provided
+  - [X] `project_id` - required and points to an actual `project_id` in the `projects` table
 
-- [ ] A **resource assignment** connects a resource and a project, and is stored in a `project_resources` table. You decide what columns to use.
+- [X] A **resource assignment** connects a resource and a project, and is stored in a `project_resources` table. You decide what columns to use.
 
 ### Required Endpoints
 
 Build an API inside the `api` folder with endpoints for:
 
-- [ ] `[POST] /api/resources`
+- [X] `[POST] /api/resources`
   - Example of response body: `{"resource_id":1,"resource_name":"foo","resource_description":null}`
 
-- [ ] `[GET] /api/resources`
+- [X] `[GET] /api/resources`
   - Example of response body: `[{"resource_id":1,"resource_name":"foo","resource_description":null}]`
 
-- [ ] `[POST] /api/projects`
+- [X] `[POST] /api/projects`
   - Even though `project_completed` is stored as an integer, the API uses booleans when interacting with the client
   - Example of response body: `{"project_id":1,"project_name":"bar","project_description":null,"project_completed":false}`
 
-- [ ] `[GET] /api/projects`
+- [X] `[GET] /api/projects`
   - Even though `project_completed` is stored as an integer, the API uses booleans when interacting with the client
   - Example of response body: `[{"project_id":1,"project_name":"bar","project_description":null,"project_completed":false}]`
 
-- [ ] `[POST] /api/tasks`
+- [X] `[POST] /api/tasks`
   - Even though `task_completed` is stored as an integer, the API uses booleans when interacting with the client
   - Example of response body: `{"task_id":1,"task_description":"baz","task_notes":null,"task_completed":false,"project_id:1}`
 
-- [ ] `[GET] /api/tasks`
+- [X] `[GET] /api/tasks`
   - Even though `task_completed` is stored as an integer, the API uses booleans when interacting with the client
   - Each task must include `project_name` and `project_description`
   - Example of response body: `[{"task_id":1,"task_description":"baz","task_notes":null,"task_completed":false,"project_name:"bar","project_description":null}]`
