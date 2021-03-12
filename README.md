@@ -82,6 +82,7 @@ Build an API inside the `api` folder with endpoints for:
 
 **Notes:**
 
+- Run tests locally by executing `npm run test`.
 - You are welcome to create additional files for middlewares etc, but **do not move or rename existing files** or folders.
 - Do not make changes to your `package.json` except to add extra dependencies and scripts.
 - In your solution, it is essential that you follow best practices and produce clean and professional results.
@@ -90,7 +91,7 @@ Build an API inside the `api` folder with endpoints for:
 
 ### Stretch Goals
 
-**IMPORTANT:** Work on stretch goals in a **new branch**. You can branch off `<firstName-lastName>` by executing `git checkout -b stretch`.
+**IMPORTANT:** Do not break any MPV functionality by adding "stretch" code! Keep an eye on those tests!
 
 After finishing your required elements, you can push your work further. These goals may or may not be things you have learned in this module but they build on the material you just studied. Time allowing, stretch your limits and see if you can deliver on the following optional goals:
 
