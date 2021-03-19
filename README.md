@@ -28,30 +28,30 @@ In this project you will be given a set of requirements and must design a databa
 
 ### Required Tables
 
-Build the migration(s) in Knex inside the `data/migrations` folder using appropriate data types and constraints. **You must use the table names and the column names described below.** To give a primary key a name different than `id`, do `table.increments("project_id")` instead of `table.increments()`.
+Build the migration(s) in Knex inside the `data/migrations` folder using appropriate data types and constraints. You must use the table names and the column names described below. To give a primary key a name different than `id`, do `table.increments("project_id")` instead of `table.increments()`.
 
-- [ ] A **project** is what needs to be done and is stored in a `projects` table with the following columns:
+A **project** is what needs to be done and is stored in a `projects` table with the following columns:
 
-  - [ ] `project_id` - primary key
-  - [ ] `project_name` - required
-  - [ ] `project_description` - optional
-  - [ ] `project_completed` - the database defaults it to `false` (integer 0) if not provided
+- [ ] `project_id` - primary key
+- [ ] `project_name` - required
+- [ ] `project_description` - optional
+- [ ] `project_completed` - required but the database defaults it to not completed if not provided
 
-- [ ] A **resource** is anything needed to complete a project and is stored in a `resources` table with the following columns:
+A **resource** is anything needed to complete a project and is stored in a `resources` table with the following columns:
 
-  - [ ] `resource_id` - primary key
-  - [ ] `resource_name` - required and unique
-  - [ ] `resource_description` - optional
+- [ ] `resource_id` - primary key
+- [ ] `resource_name` - required and unique
+- [ ] `resource_description` - optional
 
-- [ ] A **task** is one of the steps needed to complete a project and is stored in a `tasks` table with the following columns:
+A **task** is one of the steps needed to complete a project and is stored in a `tasks` table with the following columns:
 
-  - [ ] `task_id` - primary key
-  - [ ] `task_description` - required
-  - [ ] `task_notes` - optional
-  - [ ] `task_completed` - the database defaults it to `false` (integer 0) if not provided
-  - [ ] `project_id` - required and points to an actual `project_id` in the `projects` table
+- [ ] `task_id` - primary key
+- [ ] `task_description` - required
+- [ ] `task_notes` - optional
+- [ ] `task_completed` - required but the database defaults it to not completed if not provided
+- [ ] `project_id` - required and points to an actual `project_id` in the `projects` table
 
-- [ ] A **resource assignment** connects a resource and a project, and is stored in a `project_resources` table. You decide what columns to use.
+A **resource assignment** connects a resource and a project, and is stored in a `project_resources` table. You decide what columns to use.
 
 ### Required Endpoints
 
@@ -82,7 +82,6 @@ Build an API inside the `api` folder with endpoints for:
 
 **Notes:**
 
-- Run tests locally by executing `npm run test`.
 - You are welcome to create additional files for middlewares etc, but **do not move or rename existing files** or folders.
 - Do not make changes to your `package.json` except to add extra dependencies and scripts.
 - In your solution, it is essential that you follow best practices and produce clean and professional results.
@@ -91,7 +90,7 @@ Build an API inside the `api` folder with endpoints for:
 
 ### Stretch Goals
 
-**IMPORTANT:** Do not break any MPV functionality by adding "stretch" code! Keep an eye on those tests!
+**IMPORTANT:** Work on stretch goals in a **new branch**. You can branch off `<firstName-lastName>` by executing `git checkout -b stretch`.
 
 After finishing your required elements, you can push your work further. These goals may or may not be things you have learned in this module but they build on the material you just studied. Time allowing, stretch your limits and see if you can deliver on the following optional goals:
 
