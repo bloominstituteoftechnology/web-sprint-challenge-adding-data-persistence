@@ -3,7 +3,7 @@ const db = require('../../data/dbConfig.js');
 
 const getAll = () => {
   //return db.select().table('projects');
-  return db('projects');
+  return db('projects')
 }
 
 const getById = id => {

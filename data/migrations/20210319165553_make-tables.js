@@ -15,7 +15,7 @@ exports.up = function(knex) {
             tbl.increments('task_id')
             tbl.string('task_description', 128).notNullable()
             tbl.string('task_notes', 128)
-            tbl.boolean('task_completed')
+            tbl.integer('task_completed')
             //foreign key
             tbl.integer('project_id')
                 .unsigned() // no negative id's
