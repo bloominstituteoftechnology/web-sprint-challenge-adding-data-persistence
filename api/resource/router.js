@@ -11,7 +11,7 @@ router.get('/', async (req, res, next) => {
   } catch(err) { next(err) }
 })
 
-router.post('/', checkResourceId, checkResourcesPayload, async (req, res, next) => {
+router.post('/', checkResourcesPayload, async (req, res, next) => {
   try {
     const newResource = await Resources.create(req.body)
     res.status(201).json(newResource);

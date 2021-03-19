@@ -12,44 +12,6 @@ const logger  = (req, res, next) => {
     next();
 }
 
-/////////// Check Id Middleware ////////////////////////
-
-const checkProjectId = async (req, res, next) => {
-    try {
-      const verifiedId = await Projects.getById(req.params.id);
-      if(!verifiedId) {
-        res.status(404).json({ message: "project not found" })
-      } else {
-        req.verifiedId =  verifiedId;
-        next();
-      }
-    } catch(err) { next(err) }
-}
-
-const checkResourceId = async (req, res, next) => {
-    try {
-      const verifiedId = await Resources.getById(req.params.id);
-      if(!verifiedId) {
-        res.status(404).json({ message: "resource not found" })
-      } else {
-        req.verifiedId =  verifiedId;
-        next();
-      }
-    } catch(err) { next(err) }
-}
-
-const checkTaskId = async (req, res, next) => {
-    try {
-      const verifiedId = await Tasks.getById(req.params.id);
-      if(!verifiedId) {
-        res.status(404).json({ message: "task not found" })
-      } else {
-        req.verifiedId =  verifiedId;
-        next();
-      }
-    } catch(err) { next(err) }
-}
-
 /////////// Check Payload Middleware //////////////////////////
 
 const checkProjectsPayload = (req, res, next) => {
@@ -87,9 +49,6 @@ const checkTasksPayload = (req, res, next) => {
 
 module.exports = {
     logger,
-    checkProjectId,
-    checkResourceId,
-    checkTaskId,
     checkProjectsPayload,
     checkResourcesPayload,
     checkTasksPayload

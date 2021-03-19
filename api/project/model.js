@@ -7,7 +7,7 @@ const getAll = () => {
 }
 
 const getById = id => {
-  return db('projects').where('id', id).first();
+  return db('projects').where('project_id', id).first();
 }
 
 const create = async project => {

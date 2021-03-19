@@ -11,7 +11,7 @@ router.get('/', async (req, res, next) => {
   } catch(err) { next(err) }
 })
 
-router.post('/', checkTaskId, checkTasksPayload, async (req, res, next) => {
+router.post('/', checkTasksPayload, async (req, res, next) => {
   try {
     const newTask = await Tasks.create(req.body)
     res.status(201).json(newTask);

@@ -7,7 +7,7 @@ const getAll = () => {
 }
 
 const getById = id => {
-  return db('tasks').where('id', id).first();
+  return db('tasks').where('task_id', id).first();
 }
 
 const create = async task => {

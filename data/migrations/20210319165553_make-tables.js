@@ -9,7 +9,7 @@ exports.up = function(knex) {
             tbl.increments('project_id').notNullable()
             tbl.string('project_name', 128).notNullable()
             tbl.string('project_description', 128)
-            tbl.boolean('project_completed')
+            tbl.integer('project_completed')
         })
         .createTable('tasks', tbl => {
             tbl.increments('task_id').notNullable()
