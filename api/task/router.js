@@ -1,5 +1,22 @@
 // build your `/api/tasks` router here
 const router = require('express').Router()
+const Tasks = require('./model');
+const { checkTaskId, checkTasksPayload } = require("../middleware");
+
+
+router.get('/', async (req, res, next) => {
+  try {
+    const allTasks = await Tasks.getAll();
+    res.json(allTasks);
+  } catch(err) { next(err) }
+})
+
+router.post('/', checkTaskId, checkTasksPayload, async (req, res, next) => {
+  try {
+    const newTask = await Tasks.create(req.body)
+    res.status(201).json(newTask);
+  } catch(err) { next(err) }
+})
 
 router.use((err, req, res, next) => { // eslint-disable-line
     res.status(500).json({

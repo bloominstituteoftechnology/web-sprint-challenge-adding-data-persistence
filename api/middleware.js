@@ -73,7 +73,6 @@ const checkResourcesPayload = (req, res, next) => {
     }
 }
 
-
 const checkTasksPayload = (req, res, next) => {
     const description = req.body.task_description;
     const notes = req.body.task_notes;

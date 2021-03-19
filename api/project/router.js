@@ -1,6 +1,22 @@
 // build your `/api/projects` router here
 const router = require('express').Router()
-//const Projects = require('./model');
+const Projects = require('./model');
+const { checkProjectId, checkProjectsPayload } = require("../middleware");
+
+
+router.get('/', async (req, res, next) => {
+  try {
+    const allProjects = await Projects.getAll();
+    res.json(allProjects);
+  } catch(err) { next(err) }
+})
+
+router.post('/', checkProjectId, checkProjectsPayload, async (req, res, next) => {
+  try {
+    const newProject = await Projects.create(req.body)
+    res.status(201).json(newProject);
+  } catch(err) { next(err) }
+})
 
 router.use((err, req, res, next) => { // eslint-disable-line
     res.status(500).json({
