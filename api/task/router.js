@@ -1,7 +1,7 @@
 // build your `/api/tasks` router here
 const router = require('express').Router()
 const Tasks = require('./model');
-const { checkTaskId, checkTasksPayload } = require("../middleware");
+const { checkTasksPayload } = require("../middleware");
 
 
 router.get('/', async (req, res, next) => {

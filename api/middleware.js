@@ -39,8 +39,8 @@ const checkTasksPayload = (req, res, next) => {
     const description = req.body.task_description;
     const notes = req.body.task_notes;
     const completed = req.body.task_completed;
-    const projectName = req.body.project_name;
-    if(!description || !completed || !notes || !projectName) {
+    const projectId = req.body.project_id;
+    if(!description || !completed || !notes || !projectId) {
       res.status(400).json({ message: "missing required fields" })
     } else {
       next();

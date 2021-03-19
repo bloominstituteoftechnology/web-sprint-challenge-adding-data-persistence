@@ -1,7 +1,7 @@
 // build your `/api/projects` router here
 const router = require('express').Router()
 const Projects = require('./model');
-const { checkProjectId, checkProjectsPayload } = require("../middleware");
+const { checkProjectsPayload } = require("../middleware");
 
 
 router.get('/', async (req, res, next) => {

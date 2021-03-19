@@ -1,18 +1,18 @@
 exports.up = function(knex) {
     return knex.schema
         .createTable('resources', tbl => {
-            tbl.increments('resource_id').notNullable()
+            tbl.increments('resource_id')
             tbl.string('resource_name', 128).notNullable().unique()
             tbl.string('resource_description', 128)
         })
         .createTable('projects', tbl => {
-            tbl.increments('project_id').notNullable()
+            tbl.increments('project_id')
             tbl.string('project_name', 128).notNullable()
             tbl.string('project_description', 128)
             tbl.integer('project_completed')
         })
         .createTable('tasks', tbl => {
-            tbl.increments('task_id').notNullable()
+            tbl.increments('task_id')
             tbl.string('task_description', 128).notNullable()
             tbl.string('task_notes', 128)
             tbl.boolean('task_completed')
