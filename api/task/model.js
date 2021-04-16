@@ -24,6 +24,22 @@ const get = async () => {
     return result;
 };
 
+const getById = async (id) => {
+    const task = await db('tasks')
+        .where('task_id', id)
+        .first()
+        .select('task_completed', 'task_description', 'task_notes')
+
+        if(task.task_completed === 0){
+            task.task_completed = false
+        }else{
+            task.task_completed = true
+        }
+
+        return task;
+}
+
 module.exports = {
-    get
+    get,
+    getById
 }

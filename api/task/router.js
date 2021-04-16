@@ -13,4 +13,14 @@ router.get('/', (req, res, next) => {
         })
 })
 
+router.get('/:id', (req, res, next) => {
+    Task.getById(req.params.id)
+        .then(task => {
+            res.status(200).json(task);
+        })
+        .catch(err => {
+            next(err)
+        })
+})
+
 module.exports = router;
