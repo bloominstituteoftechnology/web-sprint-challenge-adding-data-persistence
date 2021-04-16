@@ -13,4 +13,14 @@ router.get('/', (req, res, next) => {
         })
 })
 
+router.get('/:id', (req, res, next) => {
+    Project.getById(req.params.id)
+        .then(project => {
+            res.status(200).json(project)
+        })
+        .catch(err => {
+            next(err)
+        })
+})
+
 module.exports = router;

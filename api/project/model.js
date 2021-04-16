@@ -20,4 +20,20 @@ const get = async () => {
     return result;
 }
 
-module.exports = {get}
+const getById = async (id) => {
+    const project = await db('projects')
+        .where('project_id', id).first()
+
+    if(project.project_completed === 0){
+        project.project_completed = false;
+    }else{
+        project.project_completed = true;
+    }
+
+    return project;
+}
+
+module.exports = {
+    get, 
+    getById
+}
