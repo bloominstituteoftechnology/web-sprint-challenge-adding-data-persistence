@@ -34,6 +34,26 @@ router.post('/', (req, res, next) => {
         })
 })
 
+router.put('/:id', (req, res, next) => {
+    Resource.update(req.params.id, res.body)
+        .then(updatedResource => {
+            res.status(200).json(updatedResource)
+        })
+        .catch(err => {
+            next(err)
+        })
+})
+
+router.delete('/:id', (req, res, next) => {
+    Resource.remove(req.params.id)
+        .then(deletedResource => {
+            res.status(200).json({message: 'resource is deleted sucessfully.'})
+        })
+        .catch(err => {
+            next(err)
+        })
+})
+
 router.use((err, req, res, next) => {
     res.status(500).json({
         message: err.message,

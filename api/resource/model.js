@@ -19,8 +19,22 @@ const db = require('../../data/dbConfig');
         })
 }
 
+const update = (id, changes) => {
+    return db('resources')
+        .where('resource_id', id)
+        .update(changes)
+}
+
+const remove = (id) => {
+    return db('resources')
+        .where('resource_id', id)
+        .delete();
+}
+
  module.exports = {
      get,
      getById, 
-     post
+     post,
+     update,
+     remove
  }
