@@ -44,7 +44,7 @@ router.put('/:id', (req, res, next) => {
 })
 
 router.delete('/:id', (req, res, next) => {
-    Project.delete(req.params.id)
+    Project.remove(req.params.id)
         .then(deletedProject => {
             res.status(200).json({message: 'project is deleted sucessfully.'})
         })
