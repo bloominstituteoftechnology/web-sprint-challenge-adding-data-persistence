@@ -40,7 +40,7 @@ const getById = async (id) => {
 }
 
 const post = (newTask) => {
-    return('tasks')
+    return db('tasks')
         .insert(newTask)
         .then(id => {
             return getById(id);
