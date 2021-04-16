@@ -24,6 +24,16 @@ router.get('/:id', (req, res, next) => {
         })
 })
 
+router.post('/', (req, res, next) => {
+    Resource.post(req.body)
+        .then(newResource => {
+            res.status(201).json(newResource);
+        })
+        .catch(err => {
+            next(err)
+        })
+})
+
 router.use((err, req, res, next) => {
     res.status(500).json({
         message: err.message,

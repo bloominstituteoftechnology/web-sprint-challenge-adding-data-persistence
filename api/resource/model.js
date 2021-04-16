@@ -11,7 +11,16 @@ const db = require('../../data/dbConfig');
         .first();
  };
 
+ const post = (resource) => {
+    return db('resources')
+        .insert(resource)
+        .then(id => {
+            return getById(id[0]);
+        })
+}
+
  module.exports = {
      get,
-     getById
+     getById, 
+     post
  }
