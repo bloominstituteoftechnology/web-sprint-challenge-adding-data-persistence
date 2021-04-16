@@ -33,7 +33,16 @@ const getById = async (id) => {
     return project;
 }
 
+const post = (project) => {
+    return db('projects')
+        .insert(project)
+        .then(id => {
+            return getById(id[0]);
+        })
+}
+
 module.exports = {
     get, 
-    getById
+    getById,
+    post
 }
