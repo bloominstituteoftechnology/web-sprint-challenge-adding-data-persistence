@@ -39,7 +39,30 @@ const getById = async (id) => {
         return task;
 }
 
+const post = (newTask) => {
+    return('tasks')
+        .insert(newTask)
+        .then(id => {
+            return getById(id);
+        });
+};
+
+const update = (id, changes) => {
+    return db('tasks')
+        .where('task_id', id)
+        .update(changes);
+};
+
+const remove = (id) => {
+    return db('tasks')
+        .where('task_id', id)
+        .delete();
+}
+
 module.exports = {
     get,
-    getById
+    getById,
+    post,
+    update,
+    remove
 }

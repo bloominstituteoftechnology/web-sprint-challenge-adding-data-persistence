@@ -23,4 +23,42 @@ router.get('/:id', (req, res, next) => {
         })
 })
 
+router.post('/', (req, res, next) => {
+    Task.post(req.body)
+        .then(newTask => {
+            res.status(201).json(newTask)
+        })
+        .catch(err => {
+            next(err)
+        })
+});
+
+router.put('/:id', (req, res, next) => {
+    Task.update(req.params.id, req.body) 
+        .then (updatedTask => {
+            res.status(200).json(updatedTask);
+        })
+        .catch(err => {
+            next(err)
+        })
+});
+
+router.delete('/:id', (req, res, next) => {
+    Task.remove(req.params.id)
+        .then(deletedTask => {
+            res.status(200).json({message: "task is deleted."})
+        })
+        .catch(err => {
+            next(err)
+        })
+})
+
+router.use((err, req, res, next) => {
+    res.status(500).json({
+        message: err.message,
+        stack: err.stack
+    })
+
+    next();
+})
 module.exports = router;
