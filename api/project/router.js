@@ -33,4 +33,31 @@ router.post('/', (req, res, next) => {
         })
 })
 
+router.put('/:id', (req, res, next) => {
+    Project.update(req.params.id, res.body)
+        .then(updatedProject => {
+            res.status(200).json(updatedProject)
+        })
+        .catch(err => {
+            next(err)
+        })
+})
+
+router.delete('/:id', (req, res, next) => {
+    Project.delete(req.params.id)
+        .then(deletedProject => {
+            res.status(200).json({message: 'project is deleted sucessfully.'})
+        })
+        .catch(err => {
+            next(err)
+        })
+})
+
+router.use((err, req, res, next) => {
+    res.status(500).json({
+        message: err.message,
+        stack: err.stack
+    })
+    next();
+})
 module.exports = router;
