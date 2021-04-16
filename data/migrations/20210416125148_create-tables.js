@@ -41,7 +41,7 @@ exports.up = function(knex) {
                 .inTable('projects')
                 .onDelete('RESTRICT')
                 .onUpdate('CASCADE');
-        tbl.string('resaurce_use', 128);
+        tbl.string('res_pro_desc', 128);
     })
 };
 
