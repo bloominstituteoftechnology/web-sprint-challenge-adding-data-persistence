@@ -8,10 +8,12 @@ function getAll() {
 function getByID(id) {
   return db("projects")
     .where("project_id", id)
-    .first()
+    .then(foo => {
+      return foo[0]
+  })
 }
 
-function create (project) {
+function create(project) {
   return db("projects")
     .insert(project)
     .then(foo => {
