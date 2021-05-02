@@ -10,8 +10,8 @@ const checkResourceId = async (req, res, next) => {
 }}
 
 const checkResourcePayload =  (req, res, next) => {
-  if (!req.body.resource_description) {
-    res.status(400).json({message: "resource description is required"})
+  if (!req.body.resource_name) {
+    res.status(400).json({message: "resource name is required"})
   } else {
     next()
   }
