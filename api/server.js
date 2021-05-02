@@ -2,9 +2,11 @@
 const express = require("express")
 const server = express()
 const projectRouter = require("./project/router")
+const resoureRouter = require("./resource/router")
 
 server.use(express.json())
 server.use(projectRouter)
+server.use(resoureRouter)
 
 
 

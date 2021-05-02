@@ -24,7 +24,7 @@ router.get("/api/projects/:id", checkProjectId, async (req, res, next) => {
   }
 })
   
-router.post("/api/project", checkProjectPayload, async (req, res, next) => {
+router.post("/api/projects", checkProjectPayload, async (req, res, next) => {
   try {
 		const newProject = await db.create(req.body)
 		res.json(newProject)
