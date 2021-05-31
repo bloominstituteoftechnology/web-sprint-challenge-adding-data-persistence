@@ -6,7 +6,7 @@ This challenge allows you to practice the concepts and techniques learned over t
 
 This is an individual assessment. All work must be your own. All projects will be submitted to Codegrade for automated review. You will also be given feedback by code reviewers on Monday following the challenge submission. For more information on the review process [click here.](https://www.notion.so/lambdaschool/How-to-View-Feedback-in-CodeGrade-c5147cee220c4044a25de28bcb6bb54a)
 
-You are not allowed to collaborate during the sprint challenge.
+You are not allowed to collaborate during the sprint challenge.?
 
 ## Project Set Up
 
@@ -56,20 +56,25 @@ Build the migration(s) in Knex inside the `data/migrations` folder using appropr
 Build an API inside the `api` folder with endpoints for:
 
 - [ ] `[POST] /api/resources`
+
   - Example of response body: `{"resource_id":1,"resource_name":"foo","resource_description":null}`
 
 - [ ] `[GET] /api/resources`
+
   - Example of response body: `[{"resource_id":1,"resource_name":"foo","resource_description":null}]`
 
 - [ ] `[POST] /api/projects`
+
   - Even though `project_completed` is stored as an integer, the API uses booleans when interacting with the client
   - Example of response body: `{"project_id":1,"project_name":"bar","project_description":null,"project_completed":false}`
 
 - [ ] `[GET] /api/projects`
+
   - Even though `project_completed` is stored as an integer, the API uses booleans when interacting with the client
   - Example of response body: `[{"project_id":1,"project_name":"bar","project_description":null,"project_completed":false}]`
 
 - [ ] `[POST] /api/tasks`
+
   - Even though `task_completed` is stored as an integer, the API uses booleans when interacting with the client
   - Example of response body: `{"task_id":1,"task_description":"baz","task_notes":null,"task_completed":false,"project_id:1}`
 
