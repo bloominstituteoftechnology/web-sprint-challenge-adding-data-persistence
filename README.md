@@ -24,6 +24,15 @@ For a step-by-step on setting up Codegrade see [this guide.](https://www.notion.
 
 In this project you will be given a set of requirements and must design a database to satisfy them. As a part of this process you'll also build an API with endpoints to access the data.
 
+### Files to Complete
+
+1. `index.js`
+2. `api/server.js`
+3. `model.js` inside `api/project`, `api/resource` and `api/task`
+4. `router.js` inside `api/project`, `api/resource` and `api/task`
+5. migration file(s)
+6. seed file(s) **optional**
+
 ### Required Dependencies
 
 The project needs some additional NPM dependencies in order to work.
