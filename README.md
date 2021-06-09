@@ -24,13 +24,13 @@ For a step-by-step on setting up Codegrade see [this guide.](https://www.notion.
 
 In this project you will be given a set of requirements and must design a database to satisfy them. As a part of this process you'll also build an API with endpoints to access the data.
 
-### Required Scripts
-
-Add `"start"`. `"server"`, `"migrate"` and `"rollback"` scripts to the `package.json` file.
-
 ### Required Dependencies
 
 The project needs some additional NPM dependencies in order to work.
+
+### Required Scripts
+
+Add `"start"`. `"server"`, `"migrate"` and `"rollback"` scripts to the `package.json` file.
 
 ### Required Tables
 
