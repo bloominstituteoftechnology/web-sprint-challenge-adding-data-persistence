@@ -25,9 +25,8 @@ const taskA = { task_description: 'Do foo', project_id: 1 }
 const taskB = { task_description: 'Do bar', task_notes: 'Use Postman!', project_id: 1 }
 const taskC = { task_description: 'Do baz', task_notes: 'Have fun!', task_completed: 1, project_id: 2 }
 
-afterAll(async (done) => {
+afterAll(async () => {
   await db.destroy()
-  done()
 })
 beforeEach(async () => {
   await db.migrate.rollback()

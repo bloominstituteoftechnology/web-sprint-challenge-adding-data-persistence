@@ -24,6 +24,14 @@ For a step-by-step on setting up Codegrade see [this guide.](https://www.notion.
 
 In this project you will be given a set of requirements and must design a database to satisfy them. As a part of this process you'll also build an API with endpoints to access the data.
 
+### Required Scripts
+
+Add `"start"`. `"server"`, `"migrate"` and `"rollback"` scripts to the `package.json` file.
+
+### Required Dependencies
+
+The project needs some additional NPM dependencies in order to work.
+
 ### Required Tables
 
 Build the migration(s) in Knex inside the `data/migrations` folder using appropriate data types and constraints. **You must use the table names and the column names described below.** To give a primary key a name different than `id`, do `table.increments("project_id")` instead of `table.increments()`.
@@ -87,23 +95,13 @@ Build an API inside the `api` folder with endpoints for:
 - Schedule time to review, refine, and assess your work and perform basic professional polishing including spell-checking and grammar-checking on your work.
 - It is better to submit a challenge that meets MVP than one that attempts too much and does not.
 
-### Stretch Goals
-
-**IMPORTANT:** Do not break any MPV functionality by adding "stretch" code! Keep an eye on those tests!
-
-After finishing your required elements, you can push your work further. These goals may or may not be things you have learned in this module but they build on the material you just studied. Time allowing, stretch your limits and see if you can deliver on the following optional goals:
-
-- [ ] Add an endpoint to get a list of project resources.
-- [ ] Add an endpoint to get a list of project tasks.
-- [ ] Add an endpoint to see all projects using a particular resource.
-
 ## Submission format
 
 - [ ] Submit via Codegrade by committing and pushing any new changes.
 - [ ] Create a pull request to merge `<firstName-lastName>` branch into `main`.
 - [ ] Please don't merge your own pull request and make sure **you are on your own repo**.
 - [ ] Check Codegrade for automated feedback.
-- [ ] Check Codegrade on Monday following the Sprint Challenge for reviewer feedback.
+- [ ] Check Codegrade on the days following the Sprint Challenge for reviewer feedback.
 - [ ] Any changes pushed after the deadline will not receive any feedback.
 
 ## Interview Questions
