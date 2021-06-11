@@ -16,15 +16,24 @@ const checkName = (req, res, next) => {
     }
 }
 
-router.post('/', checkName, (req, res, next) => {
-    const newProject = req.body
-    Projects.create(newProject)
-    .then((project) => {
-        res.json(project)
-    })
-    .catch((err) => {
+router.post('/', checkName, async (req, res, next) => {
+    try {
+        const newProject = await Projects.create(req.body)
+        res.json(newProject)
+    }
+    catch(err) {
         next(err)
-    })
+    }
+})
+
+router.get('/', async (req, res, next) => {
+    try {
+        const project = await Projects.getProjects
+        res.json(project)
+    }
+    catch(err) {
+        next(err)
+    }
 })
 
 module.exports = router
