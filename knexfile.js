@@ -19,5 +19,3 @@ module.exports = {
 		connection: { filename: "./data/test.db3" },
 	},
 };
-
-// fixing git issues
