@@ -20,12 +20,11 @@ server.use("/api/tasks", taskRouter);
 // error handling middleware
 server.use((err, req, res, next) => {
 	// eslint-disable-line
-	res
-		.status(500)
-		.json({
-			error: err.message,
-			message: "Something unexpected happened with the server",
-		});
+	res.status(500).json({
+		error: err.message,
+		message: "Something unexpected happened with the server",
+	});
 });
 
 module.exports = server;
+// fixing git issues

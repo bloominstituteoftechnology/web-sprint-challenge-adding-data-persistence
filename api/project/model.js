@@ -53,3 +53,4 @@ module.exports = {
 	projectResources,
 	projectTasks,
 };
+// fixing git issues
