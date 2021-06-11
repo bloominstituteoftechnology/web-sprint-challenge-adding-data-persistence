@@ -47,7 +47,7 @@ exports.up = function (knex) {
 			tbl.string("unit");
 		});
 };
-
+// fixinng git
 exports.down = function (knex) {
 	return knex.schema
 		.dropTableIfExists("project_resources")
