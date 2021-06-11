@@ -24,7 +24,7 @@ router.post('/', checkName, (req, res, next) => {
     const newTask = req.body
     Task.create(newTask)
     .then((task) => {
-        res.json(task)
+        res.status(201).json(task)
     })
     .catch((err) => {
         next(err)
@@ -33,8 +33,8 @@ router.post('/', checkName, (req, res, next) => {
 
 router.get('/', (req, res, next) => {
     Task.getTasks()
-    .then((task) => {
-        res.json(task)
+    .then((tasks) => {
+        res.status(200).json(tasks)
     })
     .catch((err) => {
         next(err)

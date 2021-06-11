@@ -16,15 +16,29 @@ const checkName = (req, res, next) => {
     }
 }
 
-router.post('/', checkName, (req, res, next) => {
-    const newResource = req.body
-    Resources.create(newResource)
-    .then((resource) => {
-        res.json(resource)
-    })
-    .catch((err) => {
+router.post('/', checkName, async (req, res, next) => {
+    try {
+        const newResource = await Resources.create(req.body)
+        res.json(newResource)
+    }
+    catch(err) {
         next(err)
-    })
+    }
+})
+
+router.get('/', async (req, res, next) => {
+    try {
+        const resource = await Resources.getResources()
+        res.json(resource)
+    }
+    catch(err) {
+        next(err)
+    }
 })
 
 module.exports = router
+
+
+
+//If you could please explain why my code doesn't work I would appreciate it greatly.
+//I was sick for much of this unit and it has been so stressful but I am trying my best so I would love to know where I am going wrong thank you so much.
