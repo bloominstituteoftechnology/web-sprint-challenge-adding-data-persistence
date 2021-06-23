@@ -1,7 +1,6 @@
 {
   "name": "adding-data-persistence",
   "version": "0.0.1",
-  "description": "Data Persistence Challenge",
   "main": "index.js",
   "scripts": {
     "test": "cross-env NODE_ENV=testing jest --watchAll --verbose --runInBand --silent"
