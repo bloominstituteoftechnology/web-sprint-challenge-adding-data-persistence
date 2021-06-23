@@ -97,9 +97,9 @@ Build an API inside the `api` folder with endpoints for:
 
 **Notes:**
 
-- Run tests locally by executing `npm run test`.
+- Run tests locally by executing `npm run test`. Tests will be very broken until you flesh out the project sufficiently.
 - You are welcome to create additional files for middlewares etc, but **do not move or rename existing files** or folders.
-- Do not make changes to your `package.json` except to add extra dependencies and scripts.
+- Do not make changes to your `package.json` except to add **additional** dependencies and scripts. Do not update existing packages.
 - In your solution, it is essential that you follow best practices and produce clean and professional results.
 - Schedule time to review, refine, and assess your work and perform basic professional polishing including spell-checking and grammar-checking on your work.
 - It is better to submit a challenge that meets MVP than one that attempts too much and does not.
