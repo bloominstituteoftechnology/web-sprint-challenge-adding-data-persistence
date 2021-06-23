@@ -50,12 +50,12 @@ describe('server.js', () => {
       test('[1] can get all projects that exist in the table', async () => {
         const res = await request(server).get('/api/projects')
         expect(res.body).toHaveLength(2)
-      }, 500)
+      }, 750)
       test('[2] each project contains project_name, project_description and project_completed (as a boolean)', async () => {
         const res = await request(server).get('/api/projects')
         expect(res.body[0]).toMatchObject({ ...projectA, project_completed: false })
         expect(res.body[1]).toMatchObject({ ...projectB, project_completed: true })
-      }, 500)
+      }, 750)
     })
     describe('[POST] /api/projects', () => {
       test('[3] can add a new project to the table', async () => {
@@ -67,7 +67,7 @@ describe('server.js', () => {
         expect(projects[0]).toMatchObject(projectA)
         expect(projects[1]).toMatchObject({ project_name: 'Databases', project_description: 'Learn SQL' })
         expect(projects[2]).toMatchObject({ ...projectC, project_description: null })
-      }, 500)
+      }, 750)
       test('[4] responds with the newly created project with its project_completed as a boolean', async () => {
         let res = await request(server).post('/api/projects').send(projectA)
         expect(res.body).toMatchObject({ ...projectA, project_completed: false })
@@ -75,13 +75,13 @@ describe('server.js', () => {
         expect(res.body).toMatchObject({ ...projectB, project_completed: true })
         res = await request(server).post('/api/projects').send(projectC)
         expect(res.body).toMatchObject({ ...projectC, project_completed: false })
-      }, 500)
+      }, 750)
       test('[5] rejects projects lacking a project_name with an error status code', async () => {
         const res = await request(server).post('/api/projects').send({})
         const projects = await db('projects')
         expect(res.status + '').toMatch(/4|5/)
         expect(projects).toHaveLength(0)
-      }, 500)
+      }, 750)
     })
   })
 
@@ -97,7 +97,7 @@ describe('server.js', () => {
         expect(res.body).toHaveLength(2)
         expect(res.body[0]).toMatchObject(resourceA)
         expect(res.body[1]).toMatchObject(resourceB)
-      }, 500)
+      }, 750)
     })
     describe('[POST] /api/resources', () => {
       test('[7] can add a new resource to the table', async () => {
@@ -107,18 +107,18 @@ describe('server.js', () => {
         expect(resources).toHaveLength(2)
         expect(resources[0]).toMatchObject(resourceA)
         expect(resources[1]).toMatchObject(resourceB)
-      }, 500)
+      }, 750)
       test('[8] responds with the newly created resource', async () => {
         const res = await request(server).post('/api/resources').send(resourceA)
         expect(res.body).toMatchObject(resourceA)
-      }, 500)
+      }, 750)
       test('[9] rejects a resource with an existing resource_name with an error status code', async () => {
         await db('resources').insert(resourceA)
         const res = await request(server).post('/api/resources').send(resourceA)
         const resources = await db('resources')
         expect(res.status + '').toMatch(/4|5/)
         expect(resources).toHaveLength(1)
-      }, 500)
+      }, 750)
     })
   })
 
@@ -137,7 +137,7 @@ describe('server.js', () => {
       test('[10] can get all tasks in the table', async () => {
         const res = await request(server).get('/api/tasks')
         expect(res.body).toHaveLength(3)
-      }, 500)
+      }, 750)
       test('[11] each task contains task_notes and task_description and task_completed (as a boolean)', async () => {
         const res = await request(server).get('/api/tasks')
         expect(res.body[0]).toMatchObject({
@@ -155,7 +155,7 @@ describe('server.js', () => {
           task_notes: 'Have fun!',
           task_completed: true,
         })
-      }, 500)
+      }, 750)
       test('[12] each task contains the project_name and the project_description', async () => {
         const res = await request(server).get('/api/tasks')
         expect(res.body[0]).toMatchObject({
@@ -170,7 +170,7 @@ describe('server.js', () => {
           project_name: 'Databases',
           project_description: 'Learn SQL',
         })
-      }, 500)
+      }, 750)
     })
     describe('[POST] /api/tasks', () => {
       test('[13] can add a new task to the db', async () => {
@@ -180,7 +180,7 @@ describe('server.js', () => {
         await request(server).post('/api/tasks').send(taskC)
         const tasks = await db('tasks')
         expect(tasks).toHaveLength(3)
-      }, 500)
+      }, 750)
       test('[14] responds with the newly created task with the task_completed as a boolean', async () => {
         await db('tasks').truncate()
         const res = await request(server).post('/api/tasks').send(taskA)
@@ -189,28 +189,28 @@ describe('server.js', () => {
           task_notes: null,
           task_completed: false,
         })
-      }, 500)
+      }, 750)
       test('[15] rejects a task lacking a task_description with an error status code', async () => {
         await db('tasks').truncate()
         const res = await request(server).post('/api/tasks').send({ project_id: 1 })
         const tasks = await db('tasks')
         expect(res.status + '').toMatch(/4|5/)
         expect(tasks).toHaveLength(0)
-      }, 500)
+      }, 750)
       test('[16] rejects a task lacking a project_id with an error status code', async () => {
         await db('tasks').truncate()
         const res = await request(server).post('/api/tasks').send({ task_description: 'Execute order 66' })
         const tasks = await db('tasks')
         expect(res.status + '').toMatch(/4|5/)
         expect(tasks).toHaveLength(0)
-      }, 500)
+      }, 750)
       test('[17] rejects a task containing an invalid project_id with an error status code', async () => {
         await db('tasks').truncate()
         const res = await request(server).post('/api/tasks').send({ ...taskA, project_id: 66 })
         const tasks = await db('tasks')
         expect(res.status + '').toMatch(/4|5/)
         expect(tasks).toHaveLength(0)
-      }, 500)
+      }, 750)
     })
   })
 })
