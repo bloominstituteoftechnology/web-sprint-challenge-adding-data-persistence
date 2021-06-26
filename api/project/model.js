@@ -1,52 +1,59 @@
 const db = require('../../data/dbConfig.js');
 
-// const getAll = () => {
-//     console.log("in the project model getAll")
-//     return db("projects")
-//   }
 
 
-const getAll = () => {
-    const projects = db("projects")
-    projects.forEach((project) => {
-        convertBooleansFromSQLite(project)
-    })
-    return projects
-  }
+// Helper Functions
+const convertBooleansFromSQLite = (project) => {
 
-  /*
-
-    Boolean(Number("0")); // false
-    Boolean(Number("1")); // true
-  */
-
-  const convertBooleansToSQLite = (project) => {
-
-
-    return convertedProject
-    }
-
-  const convertBooleansFromSQLite = (project) => {
-
-    project.project_completed = (!!parseInt(project.project_completed) ? true : false)
-    // if (project.project_completed === 
+    project.project_completed = (project.project_completed ? true : false)
+    console.log("in the helper: ", project)
     return project
-    }
-
-  const getById = (id) => {
-    // return db("projects").where("project_id", id).first()
-    // .first() gives us just the object ... not in an array [{}]
-    const project = db("projects").where("project_id", id).first()
-    return convertBooleansFromSQLite(project)
-  }
-
-const create = async (newProject) => {
-    const [id] = await db("projects").insert(newProject);
-    return getById(id)
 }
 
-  module.exports = {
+const convertBooleansToSQLite = (project) => {
+
+    project.project_completed = (project.project_completed ? 1 : 0)
+    console.log("in the helper: ", project)
+    return project
+
+}
+
+const getAll = () => {
+    const projects = db("projects") // projects is a PROMISE of an array of objects, KNEX initiates the promist, that's how it works
+    return projects.then((projects) => {
+        projects.forEach(project =>
+        convertBooleansFromSQLite(project)
+        )
+        return projects
+    })
+}
+
+const getById = (id) => {
+    // .first() gives us just the object ... not in an array [{}]
+    const project = db("projects").where("project_id", id).first()
+
+    return project.then((project) => {
+
+        return convertBooleansFromSQLite(project)
+        
+        return projects
+    })
+
+
+
+   
+}
+
+const create = async (newProject) => {
+    newProject = convertBooleansToSQLite(newProject);
+    console.log("in create, newProject after converted: ", newProject)
+    const [id] = await db("projects").insert(newProject);
+    return getById(id)
+
+}
+
+module.exports = {
     getAll,
     getById,
     create
-  };
+};

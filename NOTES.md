@@ -40,12 +40,31 @@ add:
 ## make migration file
 [x] npx knex migrate:make first-migration
 
-## Create db (?)
-[] npx knex migrate:up  
+## run migration file to build the db
+[x] npx knex migrate:up  
 - builds the migration
 
-// TRY THIS
-[] npx knex migrate:latest
+// OR THIS, THIS IS MORE COMMON
+[x] npx knex migrate:latest
+
+## make the seed
+[x] knex seed:make 00-cleanup
+
+    knex seed:make 01-projects
+    knex seed:make 02-resources
+    knex seed:make 03-tasks
+    knex seed:make 04-project-resources
+
+> Code for Cleanup.js
+
+        const cleaner = require('knex-cleaner');
+
+        exports.seed = function(knex) {
+        return cleaner.clean(knex, {
+            mode: 'truncate', // resets ids
+            ignoreTables: ['knex_migrations', 'knex_migrations_lock'], // don't empty migration tables
+        });
+        };
 
 ## seed the migration
 [] npx knex seed:run
