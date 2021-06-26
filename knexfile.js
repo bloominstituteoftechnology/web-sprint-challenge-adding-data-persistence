@@ -1,3 +1,50 @@
+// Update with your config settings.
+
+module.exports = {
+
+  testing: {
+    client: 'sqlite3',
+    useNullAsDefault: true,
+    connection: {
+      filename: './dev.sqlite3'
+    }
+  },
+
+  staging: {
+    client: 'postgresql',
+    connection: {
+      database: 'my_db',
+      user:     'username',
+      password: 'password'
+    },
+    pool: {
+      min: 2,
+      max: 10
+    },
+    migrations: {
+      tableName: 'knex_migrations'
+    }
+  },
+
+  production: {
+    client: 'postgresql',
+    connection: {
+      database: 'my_db',
+      user:     'username',
+      password: 'password'
+    },
+    pool: {
+      min: 2,
+      max: 10
+    },
+    migrations: {
+      tableName: 'knex_migrations'
+    }
+  }
+
+};
+
+/*
 // do not make changes to this file
 const sharedConfig = {
   client: 'sqlite3',
@@ -6,15 +53,23 @@ const sharedConfig = {
   pool: { afterCreate: (conn, done) => conn.run('PRAGMA foreign_keys = ON', done) },
 }
 
-module.exports = {
-  development: {
-    ...sharedConfig,
-    connection: { filename: './data/lambda.db3' },
-    seeds: { directory: './data/seeds' },
-  },
-  testing: {
-    ...sharedConfig,
-    connection: { filename: './data/test.db3' },
-  },
-};
+// module.exports = {
+//   development: {
+//     ...sharedConfig,
+//     connection: { filename: './data/lambda.db3' },
+//     seeds: { directory: './data/seeds' },
+//   },
+//   testing: {
+//     ...sharedConfig,
+//     connection: { filename: './data/test.db3' },
+//   },
+  
+  module.exports = {
+    testing: {
+      client: 'sqlite3',
+      connection: {
+        filename: './dev.sqlite3'
+      },
 
+
+*/
