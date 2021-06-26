@@ -5,7 +5,12 @@
   "scripts": {
     "server": "nodemon index.js",
     "start": "node index.js",
-    "test": "cross-env NODE_ENV=testing jest --watchAll --verbose --runInBand --silent"
+    "test": "cross-env NODE_ENV=testing jest --watchAll --verbose --runInBand --silent",
+    "seed": "knex seed:run",
+    "mup": "knex migrate:up",
+    "mdown": "knex migrate:down",
+    "mlatest": "knex migrate:latest",
+    "mrollback": "knex migrate:rollback"
   },
   "repository": {
     "type": "git",
