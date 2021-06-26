@@ -18,19 +18,27 @@ router.get('/', async (req, res, next) => {
       }
 });
 
-  // add middleware
-// router.post('/', async (req, res, next) => {
-//     const resourceData = req.resource;
-//     console.log("resourceData: ", resourceData);
-//     try {
-//         const postedResource = await Resource.create(resourceData)
-//         console.log("postedResource: ", postedResource);
-//         res.status(201).json(postedResource);
-//       } catch (err) {
-//         console.log("Error in create: ", err)
-//         next(err)
-//       }
-// });
+/* Received: 
+    [{"resource_id":1,"resource_name":"keyboard","resource_description":null},{"resource_id":2,"resource_name":"computer","resource_description":"Windows PC"}] */
+
+
+router.post('/', checkResourceNameUnique, async (req, res, next) => {
+    // const resourceData = req.resource;
+    const resourceData = req.body;
+
+    console.log("resourceData: ", resourceData);
+    try {
+        const postedResource = await Resource.create(resourceData)
+        console.log("postedResource: ", postedResource);
+        res.status(201).json(postedResource);
+      } catch (err) {
+        console.log("Error in create: ", err)
+        next(err)
+      }
+});
+
+/* Received:
+  {"resource_id":4,"resource_name":"phone1","resource_description":null} */
 
 
 

@@ -27,5 +27,8 @@ const checkResourceNameUnique = (req, res, next) => {
     checkResourceNameUnique
   }
 /*
+
   `[{"resource_id":1,"resource_name":"foo","resource_description":null}]`
+
+
   */

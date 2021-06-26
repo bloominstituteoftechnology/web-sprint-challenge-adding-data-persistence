@@ -65,13 +65,13 @@ const sharedConfig = {
 module.exports = {
   development: {
     ...sharedConfig,
-    connection: { filename: '../dev.sqlite3' },
-    seeds: { directory: '../data/seeds'},
+    connection: { filename: '/Users/mochi/Desktop/lambda-code/lambda-unit-four/web-sprint-challenge-adding-data-persistence/data/dev.sqlite3' }, 
+    seeds: { directory: './data/seeds'},
   },
   testing: {
     ...sharedConfig,
-    connection: { filename: '../dev.sqlite3' },
-  },
+    connection: { filename: './data/dev.sqlite3' },
+  }
 }
 
 
