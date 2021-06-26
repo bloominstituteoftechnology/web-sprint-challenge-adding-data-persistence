@@ -4,46 +4,49 @@ exports.up = function(knex) {
     .createTable("projects", tbl=>{
         tbl.increments("project_id")
         tbl.string("project_name",128).notNullable()
-        tbl.string("project_description")
-        tbl.integer("project_completed")
+        tbl.string("project_description").nullable()
+        tbl.integer("project_completed").defaultTo(0);
         //   - [ ] `project_completed` - the database defaults it to `false` (integer 0) if not provided
     })
     .createTable("resources", tbl=>{
         tbl.increments("resource_id")
         tbl.string("resource_name",128).notNullable().unique()
-        tbl.string("resource_description")
+        tbl.string("resource_description").nullable()
     })
     .createTable("tasks", tbl=>{
         tbl.increments("task_id")
-        tbl.string("animal_name",128).notNullable()
-        tbl.integer("species_id")
+        tbl.string("task_description").notNullable()
+        tbl.string("task_notes").nullable()
+        tbl.integer("task_completed").defaultTo(0);
+        // - [ ] `task_completed` - the database defaults it to `false` (integer 0) if not provided
+        tbl.integer("project_id")
             .unsigned()
             .notNullable()
-            .references("species_id")
-            .inTable("species")
+            .references("project_id")
+            .inTable("projects")
             .onDelete("RESTRICT")
     })
-    .createTable("zoo_animals", tbl=>{
-        tbl.increments("zoo_animals_id")
-        tbl.integer("zoo_id")
+    .createTable("project_resources", tbl=>{
+        tbl.increments("project_resources_id")
+        tbl.integer("project_id")
             .unsigned()
             .notNullable()
-            .references("zoo_id")
-            .inTable("zoos")
+            .references("project_id")
+            .inTable("projects")
             .onDelete("RESTRICT")
-        tbl.integer("animal_id")
+        tbl.integer("resource_id")
             .unsigned()
             .notNullable()
-            .references("animal_id")
-            .inTable("animals")
+            .references("resource_id")
+            .inTable("resources")
             .onDelete("RESTRICT")
     })
 };
 
 exports.down = function(knex) {
     return knex.schema
-    .dropTableIfExists("zoo_animals")
-    .dropTableIfExists("animals")
-    .dropTableIfExists("species")
-    .dropTableIfExists("zoos")
+    .dropTableIfExists("project_resources")
+    .dropTableIfExists("tasks")
+    .dropTableIfExists("resources")
+    .dropTableIfExists("projects")
 };
