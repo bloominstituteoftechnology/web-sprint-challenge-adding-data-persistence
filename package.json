@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon index.js"
+    "server": "nodemon index.js",
+    "mup": "npx knex migrate:up",
+    "mdown": "npx knex migrate:down"
   },
   "repository": {
     "type": "git",
