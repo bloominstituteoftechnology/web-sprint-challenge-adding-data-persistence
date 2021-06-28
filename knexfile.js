@@ -7,7 +7,7 @@ const sharedConfig = {
 }
 
 module.exports = {
-  testing: {
+  development: {
     ...sharedConfig,
     connection: { filename: './data/lambda.db3' },
     seeds: { directory: './data/seeds' },
