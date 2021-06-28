@@ -5,7 +5,7 @@ const tasks = require('./model');
 const router = express.Router()
 
 router.post('/tasks', (req, res, next) => {
-    tasks.createResources()
+    tasks.createTask()
     .then(task => {
         res.status(201).json(task)
     })
@@ -15,7 +15,7 @@ router.post('/tasks', (req, res, next) => {
 
 
 router.get('/tasks', (req, res, next) => {
-    tasks.getResouces()
+    tasks.getTask()
     .then(task => {
         res.status(200).json(task)
     })
