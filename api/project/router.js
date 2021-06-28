@@ -5,11 +5,11 @@ const projects = require('./model');
 const router = express.Router()
 
 router.post('/project', (req, res, next) => {
-    projects.createProject()
+    projects.createProject(req.project)
     .then(project => {
         res.status(201).json(project)
     })
-    .catProject
+    .catch(next)
 })
 
 router.get('/project', (req, res, next) => {

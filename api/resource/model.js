@@ -7,12 +7,12 @@ module.exports = {
 }
 
 async function createResources(resource){ 
-    return await db('resources')
+    return await db('resource')
                 .insert(resource)
 }
 
 
 
 function getResources() { 
-    return db('resources')
+    return db('resource')
 }

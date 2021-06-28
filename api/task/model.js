@@ -3,15 +3,17 @@ const db = require('../../data/dbConfig')
 module.exports = {
     createTask,
     getTask,
+    
 
 }
 
+
 async function createTask(tasks){ 
-    return await db('resources')
+    return await db('task')
                 .insert(tasks)
 
 }
 
 function getTask() { 
-    return db('resources')
+    return db('task')
 }
