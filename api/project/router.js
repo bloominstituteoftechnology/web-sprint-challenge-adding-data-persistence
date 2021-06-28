@@ -4,7 +4,7 @@ const projects = require('./model');
 
 const router = express.Router()
 
-router.post('/projects', (req, res, next) => {
+router.post('/project', (req, res, next) => {
     projects.createProject()
     .then(project => {
         res.status(201).json(project)
@@ -12,7 +12,7 @@ router.post('/projects', (req, res, next) => {
     .catProject
 })
 
-router.get('/projects', (req, res, next) => {
+router.get('/project', (req, res, next) => {
     projects.getProject()
     .then(project => {
         res.status(200).json(project)

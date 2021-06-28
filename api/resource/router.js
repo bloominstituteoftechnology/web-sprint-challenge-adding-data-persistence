@@ -4,7 +4,7 @@ const resources = require('./model')
 
 const router = express.Router()
 
-router.post('/resources', (req, res, next) => {
+router.post('/resource', (req, res, next) => {
     resources.createResources()
     .then(resource => {
         res.status(201).json(resource)
@@ -12,8 +12,8 @@ router.post('/resources', (req, res, next) => {
     .catch(next)
 })
 
-router.get('/resources', (req, res, next) => {
-    resources.getResouces()
+router.get('/resource', (req, res, next) => {
+    resources.getResources()
     .then(resource => {
         res.status(200).json(resource)
     })
