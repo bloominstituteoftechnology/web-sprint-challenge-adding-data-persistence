@@ -4,7 +4,7 @@ const helpers = require('./model');
 const router = express.Router();
 
 router.get('/resource', (req, res, next) => {
-  helpers.getresource() //INCLUDING SPECIES NAME
+  helpers.getresource() 
     .then(resource => {
       res.status(200).json(resource);
     })

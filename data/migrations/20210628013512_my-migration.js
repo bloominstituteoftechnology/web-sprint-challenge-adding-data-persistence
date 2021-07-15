@@ -4,6 +4,8 @@ exports.up = async function(knex) {
     .createTable('projects', tbl => {
         tbl.increments('project_id')
         tbl.string('project_name', 128).notNullable().unique()
+        tbl.string('project_description', 256)
+        tbl.string('project_completed',Boolean===false).notNullable()
     })
     .createTable('resources', tbl => {
         tbl.increments('resource_id')
@@ -28,6 +30,13 @@ exports.up = async function(knex) {
           .notNullable()
           .references('project_id')
           .inTable('projects')
+          .onDelete('RESTRICT')
+          .onUpdate('RESTRICT')
+          tbl.integer('resource_id')
+          .unsigned()
+          .notNullable()
+          .references('resource_id')
+          .inTable('resource')
           .onDelete('RESTRICT')
           .onUpdate('RESTRICT')
     })
