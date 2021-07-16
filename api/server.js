@@ -1,12 +1,15 @@
-const express = require('express');
+const express = require('express')
+const projectsRouter = require('./project/router')
+const resourcesRouter = require('./resource/router')
+const tasksRouter = require('./task/router')
 
-// import router(s)
+const server = express()
 
-const server = express();
+server.use(express.json())
 
-server.use(express.json());
-// plug in appropriate router
-// server.use('/api/schemes', SchemeRouter);
+server.use('/api/projects', projectsRouter);
+server.use('/api/resources', resourcesRouter);
+server.use('/api/tasks', tasksRouter);
 
 server.use('*', (req, res, next) => {
     next({status: 404,
