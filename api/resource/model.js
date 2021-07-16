@@ -1,31 +1,28 @@
 const db = require('../../data/dbConfig')
 
-async function getResources() {
-    // select * from resources
-    // const resourceResults = await db('resources as r')
-    //     .select('r.resource_id', 'r.resource_name', 'r.resource_description')
-
-    // const resources = {
-    //     resource_id: resourceResults.resource_id,
-    //     resource_name: resourceResults.resource_name,
-    //     resource_description: resourceResults.resource_description,
-    // }
-
-    // return resources
+function getResources() {
     return db('resources')
 }
 
-async function addResource(post) {
-    const addedResource = await db('r').insert(post)
-        .select('r.*')
+async function addResource(resource) {
 
-    const newResource = {
-        resource_id: addedResource.resource_id,
-        resource_name: addedResource.resource_name,
-        resource_description: addedResource.resource_description,
-    }
+    return db('resources').insert(resource)
+        .then(() => {
+            return db('resources')
+                .select('resources.resource_name')
+                .first()
+        })
 
-    return newResource
+    // const addedResource = await db('r').insert(post)
+    //     .select('r.*')
+
+    // const newResource = {
+    //     resource_id: addedResource.resource_id,
+    //     resource_name: addedResource.resource_name,
+    //     resource_description: addedResource.resource_description,
+    // }
+
+    // return newResource
 
     // return db('resources as r').insert({
     //     post
