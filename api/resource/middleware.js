@@ -1,53 +1,26 @@
+const Project = require("./model")
 
-const express = require("express")
-const Resource = require("./model")
-const {resourcePayload } = require("./middleware")
-
-const router = express.Router()
-
-router.get("/", (req, res, next) => {
-   Resource.getAll()
-    .then(res => { 
-        res.status(200).json(res)
- })
-    .catch(next)
-})
+const resourcePayload = (req, res, next) => {
+    const {resource_name} = req.body
+    if(resource_name === undefined){
+        next({
+            message: "resource does not exists" 
+     })
+    }
+    else{
+        next()
+    }
+}
 
 
-router.post("/",resourcePayload, (req,res,next) => {
-    Resource.create(req.body)
-    .then(res =>{
-        res.status(201).json(res)
-    })
-    .catch(next) 
-} )
-
-module.exports = router
+module.exports = {
+    resourcePayload, 
 
 
 
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// build your `/api/resources` router here
-// export modules
 
 
 

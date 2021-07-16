@@ -4,11 +4,12 @@
   "main": "index.js",
   "scripts": {
     "server": "nodemon index.js",
-    "test": "cross-env NODE_ENV=tsting jest --watchAll --verbose --runInBand --silent",
+    "test": "cross-env NODE_ENV=testing jest --watchAll --verbose --runInBand --silent",
     "start": "node index.js",
     "seed": "knex seed:run",
     "migrate": "knex migrate:latest"
   },
+  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LambdaSchool/web-sprint-challenge-adding-data-persistence.git"
