@@ -8,7 +8,12 @@ const router = express.Router()
 //   - Each task must include `project_name` and `project_description`
 //   - Example of response body: `[{"task_id":1,"task_description":"baz","task_notes":null,"task_completed":false,"project_name:"bar","project_description":null}]`
 router.get('/', (req, res, next) => {
-    console.log("GET tasks endpoint connected")
+    // console.log("GET tasks endpoint connected")
+    Tasks.getTasks()
+        .then(tasks => {
+            res.json(tasks)
+        })
+        .catch(next)
 })
 
 // - [ ] `[POST] /api/tasks`

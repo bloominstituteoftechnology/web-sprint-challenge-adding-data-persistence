@@ -7,7 +7,12 @@ const router = express.Router()
 //   - Even though `project_completed` is stored as an integer, the API uses booleans when interacting with the client
 //   - Example of response body: `[{"project_id":1,"project_name":"bar","project_description":null,"project_completed":false}]`
 router.get('/', (req, res, next) => {
-    console.log("GET projects endpoint connected")
+    // console.log("GET projects endpoint connected")
+    Projects.getProjects()
+        .then(projects => {
+            res.json(projects)
+        })
+        .catch(next)
 })
 
 // - [ ] `[POST] /api/projects`
