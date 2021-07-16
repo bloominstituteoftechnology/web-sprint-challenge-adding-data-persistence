@@ -1,34 +1,9 @@
-# Adding Data Persistence Sprint Challenge
-
-**Read these instructions carefully. Understand exactly what is expected _before_ starting this Sprint Challenge.**
-
-This challenge allows you to practice the concepts and techniques learned over the past sprint and apply them in a concrete project. This sprint explored **Data Persistence**. During this sprint, you studied **RDBMS, including SQL, multi-table queries, and data modeling**. In your challenge this week, you will demonstrate your mastery of these skills by creating **a database based on given specifications**.
-
-This is an individual assessment. All work must be your own. All projects will be submitted to Codegrade for automated review. You will also be given feedback by code reviewers a few days after the challenge submission. For more information on the review process [click here.](https://www.notion.so/lambdaschool/How-to-View-Feedback-in-CodeGrade-c5147cee220c4044a25de28bcb6bb54a)
-
-You are not allowed to collaborate during the sprint challenge.
-
-## Project Set Up
-
-- [ ] Fork and clone the repo. Delete your old fork from Github first if you are repeating this Unit.
-- [ ] Open the assignment in Canvas and click on the "Set up git" option.
-- [ ] Follow instructions to set up Codegrade's Webhook and Deploy Key.
-- [ ] Make a commit and push it to Github.
-- [ ] Check to see that Codegrade has accepted your git submission.
-
-For a step-by-step on setting up Codegrade see [this guide.](https://www.notion.so/lambdaschool/Submitting-an-assignment-via-Code-Grade-A-Step-by-Step-Walkthrough-07bd65f5f8364e709ecb5064735ce374)
-
-## Project Instructions
-
-### Introduction
-
-In this project you will be given a set of requirements and must design a database to satisfy them. As a part of this process you'll also build an API with endpoints to access the data.
 
 ### Files to Complete
 
-1. `index.js`
-2. `api/server.js`
-3. `model.js` inside `api/project`, `api/resource` and `api/task`
+1. `index.js` // {1}
+2. `api/server.js` {2}
+3. `model.js` inside `api/project`, `api/resource` and `api/task` {
 4. `router.js` inside `api/project`, `api/resource` and `api/task`
 5. migration file(s)
 6. seed file(s) **optional**
