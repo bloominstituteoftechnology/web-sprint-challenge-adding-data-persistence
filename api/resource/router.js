@@ -11,7 +11,7 @@ router.get('/resource', (req, res, next) => {
     .catch(next);
 });
 
-router.post('/resource', (req, res, next) => { // it would be nice to have resource validation midd
+router.post('/resource', (req, res, next) => { // be nice to have resource validation midd
   helpers.createResource(req.body)
     .then(resource => {
       res.status(201).json(resource);

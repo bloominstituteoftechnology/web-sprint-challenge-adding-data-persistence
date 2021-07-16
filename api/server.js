@@ -8,7 +8,7 @@ const server = express();
 
 server.use(helmet());
 server.use(express.json());
-server.use('/api', routerP);
+server.use('/api/projects', routerP);
 server.use('/api', routerT);
 server.use('/api', routerR);
 

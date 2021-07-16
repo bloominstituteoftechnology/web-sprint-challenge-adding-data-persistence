@@ -14,7 +14,7 @@ router.get('/tasks', (req, res, next) => {
   });
 
 
-router.post('/task', (req, res, next) => { // it would be nice to have task validation midd
+router.post('/task', (req, res, next) => { // be nice to have task validation midd
   helpers.createTask(req.body)
     .then(task => {
       res.status(201).json(task);
