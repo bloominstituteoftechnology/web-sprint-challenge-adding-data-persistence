@@ -11,6 +11,7 @@ async function getTasks() {
             'p.project_name', 
             'p.project_description'
             )
+
     return tasks
 }
 
