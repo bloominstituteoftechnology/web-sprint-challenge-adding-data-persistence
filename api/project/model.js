@@ -1,24 +1,21 @@
 const db = require('../../data/dbConfig')
 
 async function getProjects() {
-    // return db('projects')
-    const result = await db('projects as p')
+    const results = await db('projects as p')
         .select('p.project_id', 'p.project_name', 'p.project_description', 'p.project_completed')
-        // Boolean flag2 = (intValue == 1)? true : false
-        // const flag = (p.project_completed)? 1 : 0;
-        // const completed = Boolean(result.project_completed)
+        
+    const projects = []
 
-    return result
-    // const projects = {
-    //     project_id: result.project_id,
-    //     project_name: result.project_name,
-    //     project_description: result.project_description,
-    //     // project_completed: completed
-    //     project_completed: Boolean(result.project_completed)
+    results.forEach(result => {
+        projects.push({
+            project_id: result.project_id,
+            project_name: result.project_name,
+            project_description: result.project_description,
+            project_completed: Boolean(result.project_completed)
+        })
+    });
     
-    // }
-
-    // return projects
+    return projects
 
 }
 
