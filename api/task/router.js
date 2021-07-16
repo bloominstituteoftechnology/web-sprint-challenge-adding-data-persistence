@@ -20,7 +20,14 @@ router.get('/', (req, res, next) => {
 //   - Even though `task_completed` is stored as an integer, the API uses booleans when interacting with the client
 //   - Example of response body: `{"task_id":1,"task_description":"baz","task_notes":null,"task_completed":false,"project_id:1}`
 router.post('/', (req, res, next) => {
-    console.log("POST tasks endpoint connected")
+    // console.log("POST tasks endpoint connected")
+    const task = req.body
+
+    Tasks.addTask(task)
+        .then(task => {
+            res.status(201).json(task)
+        })
+        .catch(next)
 })
 
 module.exports = router;

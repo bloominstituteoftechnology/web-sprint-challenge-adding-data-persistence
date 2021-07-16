@@ -4,8 +4,9 @@ function getTasks() {
     return db('tasks')
 }
 
-function addTask() {
-
+function addTask(task) {
+    return db('tasks').insert(task)
+        
 }
 
 module.exports = {
