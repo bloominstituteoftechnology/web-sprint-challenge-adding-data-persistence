@@ -4,7 +4,7 @@ const projects = require('./model');
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
-  projects.get()
+  projects.getProjects()
      .then(projects => {
        res.status(200).json(projects)
      })
@@ -14,13 +14,13 @@ router.get('/', (req, res, next) => {
 router.post('/', (req, res, next ) => {
   const project = req.body
   if (project.project_name) {
-    projects.insert(project)
+    projects.insertProject(project)
     .then(newProject => {
       res.status(201).json(newProject)
     })
     .catch(next) 
   }else {
-    next({message:"no info", status:400})
+    next({message:"project_name required", status:400})
   }
 })
 

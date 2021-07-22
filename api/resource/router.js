@@ -1,22 +1,27 @@
 const express = require('express');
-const helpers = require('./model');
+const Resources = require('./model');
 
 const router = express.Router();
 
-router.get('/resource', (req, res, next) => {
-  helpers.getresource() 
-    .then(resource => {
-      res.status(200).json(resource);
+router.get('/', (req, res, next) => {
+  Resources.getResources() 
+    .then(resources => {
+      res.status(200).json(resources);
     })
     .catch(next);
 });
 
-router.post('/resource', (req, res, next) => { // be nice to have resource validation midd
-  helpers.createResource(req.body)
-    .then(resource => {
-      res.status(201).json(resource);
-    })
-    .catch(next);
+router.post('/', (req, res, next) => { // be nice to have resource validation midd
+  const resource = req.body
+  if (resource.resource_name) {
+    Resources.createResource(resource)
+      .then(newResource => {
+        res.status(201).json(newResource)
+      })
+      .catch(next)
+  }else {
+    next({message:"resource_name required", status:400})
+  }
 });
 
 
