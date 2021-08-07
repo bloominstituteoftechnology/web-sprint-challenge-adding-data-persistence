@@ -1,4 +1,3 @@
-
 exports.seed = function(knex, Promice) {
   return knex('projects').insert([
     {

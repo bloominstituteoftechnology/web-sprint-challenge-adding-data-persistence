@@ -20,7 +20,6 @@ const get = async () => {
             };
         }
     })
-
     return result;
 };
 
@@ -35,7 +34,6 @@ const getById = async (id) => {
         }else{
             task.task_completed = true
         }
-
         return task;
 }
 
