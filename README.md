@@ -12,7 +12,6 @@ You are not allowed to collaborate during the sprint challenge.
 
 - [ ] Run `npm install` to install your dependencies.
 - [ ] Run tests locally executing `npm test`.
-- [ ] Add any missing dependencies and scripts to your `package.json`.
 
 ## Project Instructions
 
@@ -22,12 +21,13 @@ In this project you will be given a set of requirements and must design a databa
 
 ### Files to Complete
 
-1. `index.js`
-2. `api/server.js`
-3. `model.js` inside `api/project`, `api/resource` and `api/task`
-4. `router.js` inside `api/project`, `api/resource` and `api/task`
-5. migration file(s)
-6. seed file(s) **optional**
+1. `package.json`
+2. `index.js`
+3. `api/server.js`
+4. `model.js` inside `api/project`, `api/resource` and `api/task`
+5. `router.js` inside `api/project`, `api/resource` and `api/task`
+6. migration file(s)
+7. seed file(s) **optional**
 
 ### Required Dependencies
 
