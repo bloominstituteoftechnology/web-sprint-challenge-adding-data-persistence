@@ -102,7 +102,7 @@ Build an API inside the `api` folder with endpoints for:
 
 ## Submission format
 
-- [ ] Submit via Codegrade by pushing commits to your `<firstName-lastName>` branch on Github.
+- [ ] Submit via Codegrade by pushing commits to your `main` branch on Github.
 - [ ] Check Codegrade before the deadline to compare its results against your local tests.
 - [ ] Check Codegrade on the days following the Sprint Challenge for reviewer feedback.
 - [ ] New commits will be evaluated by Codegrade if pushed _before_ the sprint challenge deadline.
