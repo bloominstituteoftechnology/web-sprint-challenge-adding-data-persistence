@@ -12,7 +12,12 @@ async function get() {
         "p.project_description"
       );
   
-    return response;
+      return response.map((task) => {
+        return {
+          ...task,
+          task_completed: !!task.task_completed,
+        };
+      });
   }
 
 
