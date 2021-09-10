@@ -1,19 +1,21 @@
-const router = require('express').Router()
+const express = require('express')
+const router = express.Router()
 const Task = require('./model')
+
 
 
 router.post('/', (req, res, next)=>{
     Task.insert(req.body)
-        .then((r)=>{
-            res.status(201).json(r)
+        .then((task)=>{
+            res.status(201).json({ ...task, task_completed: !! task.task_completed })
         })
         .catch(next)
 })
 
 router.get('/', (req, res, next)=>{
     Task.get()
-        .then((r)=>{
-            res.status(200).json(r)
+        .then((tasks)=>{
+            res.status(200).json(tasks)
         })
         .catch(next)
     })      

@@ -1,6 +1,6 @@
-const router = require('express').Router()
+const express = require('express')
+const router = express.Router()
 const Resource = require('./model')
-
 
 router.post('/', (req, res, next)=>{
     Resource.insert(req.body)

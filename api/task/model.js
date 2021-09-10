@@ -15,7 +15,7 @@ async function get() {
       return response.map((task) => {
         return {
           ...task,
-          task_completed: !!task.task_completed,
+          task_completed: !! task.task_completed,
         };
       });
   }

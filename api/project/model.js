@@ -1,7 +1,13 @@
 const db = require('../../data/dbConfig')
 
-function get(){
-    return db('projects')
+async function get(){
+    const response= await db('projects')
+
+    return response.map((project)=>{
+        return { 
+            ...project, 
+            project_completed: !! project.project_completed }
+    })
 }
 
 
