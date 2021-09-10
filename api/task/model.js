@@ -1,8 +1,19 @@
 const db = require('../../data/dbConfig')
 
-function get(){
-    return db('tasks')
-}
+async function get() {
+    const response = await db("tasks as t")
+      .join("projects as p", "t.project_id", "=", "p.project_id")
+      .select(
+        "t.task_id",
+        "t.task_description",
+        "t.task_notes",
+        "t.task_completed",
+        "p.project_name",
+        "p.project_description"
+      );
+  
+    return response;
+  }
 
 
 function getById(task_id){
