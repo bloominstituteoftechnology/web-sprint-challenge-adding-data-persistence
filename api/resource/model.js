@@ -6,7 +6,7 @@ const find = () => {
 }
 
 const findById = async (resource_id) => {
-    const resource = await db('projects').where({ resource_id }).first()
+    const resource = await db('resources').where({ resource_id }).first()
 
     return resource
 }

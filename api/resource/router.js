@@ -13,7 +13,13 @@ router.get('/', (req, res, next) => {
 })
 
 router.post('/', (req, res, next) => {
+    console.log(next)
     Resources.create(req.body)
+        .then(resource => {
+            res.json(resource)
+        })
+        .catch(next)
+        
 })
 
 module.exports = router;
