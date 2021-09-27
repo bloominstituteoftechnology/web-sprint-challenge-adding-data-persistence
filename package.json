@@ -1,19 +1,31 @@
 {
-  "name": "adding-data-persistence",
-  "version": "0.0.1",
-  "main": "index.js",
-  "scripts": {
-    "test": "cross-env NODE_ENV=testing jest --watchAll --verbose --runInBand --silent"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/LambdaSchool/web-sprint-challenge-adding-data-persistence.git"
-  },
-  "license": "ISC",
-  "devDependencies": {
-    "cross-env": "7.0.3",
-    "eslint": "7.32.0",
-    "jest": "26.6.3",
-    "supertest": "6.1.6"
-  }
+	"name": "adding-data-persistence",
+	"version": "0.0.1",
+	"main": "index.js",
+	"scripts": {
+		"test": "cross-env NODE_ENV=testing jest --watchAll --verbose --runInBand --silent",
+		"server": "nodemon index.js",
+		"start": "node index.js",
+		"migrate": "npx knex migrate:latest",
+		"rollback": "npx knex migrate:rollback"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/LambdaSchool/web-sprint-challenge-adding-data-persistence.git"
+	},
+	"license": "ISC",
+	"devDependencies": {
+		"cross-env": "7.0.3",
+		"eslint": "7.32.0",
+		"jest": "26.6.3",
+		"nodemon": "^2.0.13",
+		"supertest": "6.1.6"
+	},
+	"dependencies": {
+		"dotenv": "^10.0.0",
+		"express": "^4.17.1",
+		"helmet": "^4.6.0",
+		"knex": "^0.95.11",
+		"sqlite3": "^5.0.2"
+	}
 }
