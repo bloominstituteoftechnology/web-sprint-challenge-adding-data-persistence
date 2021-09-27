@@ -2,7 +2,9 @@
 const db = require("../../data/dbConfig");
 
 const get = async () => {
-	const tasks = await db("tasks as T").leftJoin("projects as P", "P.project_id", "T.project_id").select("T.*", "P.project_name", "P.project_description");
+	const tasks = await db("tasks as T")
+		.leftJoin("projects as P", "P.project_id", "T.project_id")
+		.select("T.*", "P.project_name", "P.project_description");
 
 	const taskObject = tasks.map((task) => {
 		return {
@@ -19,7 +21,10 @@ const get = async () => {
 };
 
 const insert = async (task) => {
-	const [task_id] = await db("tasks as T").leftJoin("projects as P", "P.project_id", "T.project_id").select("T.*", "P.project_id").insert(task);
+	const [task_id] = await db("tasks as T")
+		.leftJoin("projects as P", "P.project_id", "T.project_id")
+		.select("T.*", "P.project_id")
+		.insert(task);
 
 	return {
 		task_id: task_id,

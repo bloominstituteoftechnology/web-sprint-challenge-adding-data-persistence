@@ -1,29 +1,19 @@
-// build your `/api/tasks` router here
+// build your server here and require it from index.js
 const express = require("express");
-const Tasks = require("./model");
+const projectRouter = require("./project/router");
+const resourceRouter = require("./resource/router");
+const taskRouter = require("./task/router");
 
-const router = express.Router();
+const server = express();
 
-router.get("/", async (req, res) => {
-	await Tasks.getTasks()
-		.then((tasks) => {
-			res.status(200).json(tasks);
-		})
-		.catch((err) => {
-			console.log(err);
-			res.status(500).json({ message: "There was an error retrieving tasks" });
-		});
+server.use(express.json());
+
+server.use("/api/projects", projectRouter);
+server.use("/api/resources", resourceRouter);
+server.use("/api/tasks", taskRouter);
+
+server.get("/", (req, res) => {
+	res.send(`<h1>Welcome to the Unit 4.2 Sprint Challenge API</h1>`);
 });
 
-router.post("/", (req, res) => {
-	Tasks.addTask(req.body)
-		.then((task) => {
-			res.status(201).json(task);
-		})
-		.catch((err) => {
-			console.log(err);
-			res.status(500).json({ message: "Error adding task" });
-		});
-});
-
-module.exports = router;
+module.exports = server;
