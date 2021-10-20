@@ -9,7 +9,7 @@ const sharedConfig = {
 module.exports = {
   development: {
     ...sharedConfig,
-    connection: { filename: './data/lambda.db3' },
+    connection: { filename: './data/database.db3' },
     seeds: { directory: './data/seeds' },
   },
   testing: {
@@ -17,4 +17,3 @@ module.exports = {
     connection: { filename: './data/test.db3' },
   },
 };
-
