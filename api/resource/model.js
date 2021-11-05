@@ -1,5 +1,6 @@
 const db = require('../../data/dbConfig')
 
+
 const getAll = () => {
     return db('resources')
 }
