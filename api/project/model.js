@@ -2,7 +2,6 @@ const db = require("../../data/dbConfig")
 
 const getAll = async () => {
     const projects = await db("projects")
-
     const results = []
 
     for (let i = 0; i < projects.length; i++) {
@@ -16,7 +15,6 @@ const getAll = async () => {
     }
     return results
 };
-
 const create = async (project) => {
     const [id] = await db("projects").insert(project)
     return db("projects").where("project_id", id).first()
