@@ -1,3 +1,5 @@
+const Project = require("../project/model");
+
 const validateBody = (req, res, next) => {
   const { task_description, project_id, task_completed } = req.body;
   if (
@@ -16,6 +18,20 @@ const validateBody = (req, res, next) => {
   next();
 };
 
+const validateProjectID = (req, res, next) => {
+  Project.getById(req.body.project_id).then((project) => {
+    if (project !== undefined) {
+      next();
+    } else {
+      next({
+        status: 404,
+        message: `id:${req.body.project_id} not found`,
+      });
+    }
+  });
+  next();
+};
 module.exports = {
   validateBody,
+  validateProjectID,
 };

@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
   });
 });
 
-router.post("/", validateBody, checkResourceNameUnique, (req, res) => {
+router.post("/", validateBody, checkResourceNameUnique, (req, res, next) => {
   Resource.postResource(req.body)
     .then((resp) => {
       res.status(201).json(resp);
