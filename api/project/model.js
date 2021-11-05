@@ -2,6 +2,11 @@ const db = require("../../data/dbConfig.js");
 
 async function findAll() {
   const projects = await db("projects");
+  projects.map((project) => {
+    if (project.project_completed === 1) {
+      project.project_completed = true;
+    } else project.project_completed = false;
+  });
   return projects;
 }
 
@@ -16,7 +21,6 @@ async function postProject(project) {
 
 async function getById(project_id) {
   const [project] = await db("projects").where("project_id", project_id);
-  console.log(project);
   return await project;
 }
 

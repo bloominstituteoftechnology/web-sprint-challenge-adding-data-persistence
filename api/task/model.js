@@ -11,6 +11,11 @@ async function findAll() {
       "p.project_name",
       "p.project_description"
     );
+  tasks.map((task) => {
+    if (task.task_completed === 1) {
+      tasks.task_completed = true;
+    } else task.task_completed = false;
+  });
   return tasks;
 }
 
