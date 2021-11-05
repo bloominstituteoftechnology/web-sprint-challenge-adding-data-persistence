@@ -13,7 +13,7 @@ async function findAll() {
     );
   tasks.map((task) => {
     if (task.task_completed === 1) {
-      tasks.task_completed = true;
+      task.task_completed = true;
     } else task.task_completed = false;
   });
   return tasks;
