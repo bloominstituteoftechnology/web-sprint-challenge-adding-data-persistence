@@ -4,9 +4,6 @@ const Resource = require("./model");
 //hook up middleware
 const router = express.Router();
 
-//endpoints
-//post
-//get
 router.get("/", (req, res) => {
   Resource.findAll().then((resp) => {
     res.status(200).json(resp);
