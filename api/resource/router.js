@@ -1,7 +1,6 @@
 const express = require("express");
 const { validateBody, checkResourceNameUnique } = require("./middleware");
 const Resource = require("./model");
-//hook up middleware
 const router = express.Router();
 
 router.get("/", (req, res) => {

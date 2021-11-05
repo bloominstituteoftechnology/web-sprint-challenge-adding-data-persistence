@@ -3,9 +3,6 @@ const Project = require("./model");
 const { validateBody } = require("./middleware");
 const router = express.Router();
 
-//endpoints
-//post
-
 router.get("/", (req, res) => {
   Project.findAll().then((resp) => {
     res.status(200).json(resp);
