@@ -14,4 +14,8 @@ async function findAll() {
   return tasks;
 }
 
+async function postTask(task, projectId) {
+  console.log("sanity");
+}
+
 module.exports = { findAll };

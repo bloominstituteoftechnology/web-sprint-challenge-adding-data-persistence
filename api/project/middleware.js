@@ -1,5 +1,3 @@
-//const Project = require("./model");
-
 const validateBody = (req, res, next) => {
   const { project_name, project_completed } = req.body;
   if (
