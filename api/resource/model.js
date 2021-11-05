@@ -7,7 +7,7 @@ async function findAll() {
 
 async function postResource(resource) {
   const [resource_id] = await db("resources").insert(resource);
-  const newResource = await getByID(resource_id);
+  const [newResource] = await getByID(resource_id);
   return await newResource;
 }
 
@@ -21,4 +21,5 @@ async function getByID(resource_id) {
 module.exports = {
   findAll,
   postResource,
+  getByID,
 };

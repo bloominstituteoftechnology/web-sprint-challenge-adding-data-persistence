@@ -34,7 +34,7 @@ const checkResourceNameUnique = async (req, res, next) => {
   if (filteredResources.length >= 1) {
     next({
       status: 400,
-      message: `resource, ${req.body.resource_name}, already exists`,
+      message: `resource, '${req.body.resource_name}', already exists`,
     });
   }
   next();
