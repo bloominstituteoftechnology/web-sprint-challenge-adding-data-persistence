@@ -8,7 +8,7 @@ exports.up = function(knex, Promise) {
             table.boolean('project_completed')
         })
         .createTable('resources', table => {
-            table.increments('resource_key')
+            table.increments('resource_id')
             table.string('resource_name', 128)
                 .notNullable()
                 .unique()
