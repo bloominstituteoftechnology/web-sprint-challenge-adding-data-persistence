@@ -5,7 +5,9 @@ exports.up = function(knex, Promise) {
             table.string('project_name', 128)
                 .notNullable()
             table.string('project_description', 128)
-            table.boolean('project_completed')
+            table.integer("project_completed")
+                .defaultTo(0)
+                .unsigned()
         })
         .createTable('resources', table => {
             table.increments('resource_id')
