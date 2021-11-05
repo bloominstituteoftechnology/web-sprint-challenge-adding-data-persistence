@@ -7,7 +7,7 @@ async function findAll() {
 
 async function postProject(project) {
   const [project_id] = await db("projects").insert(project);
-  const [newProject] = await getById(project_id);
+  const newProject = await getById(project_id);
   (await newProject.project_completed) === 0
     ? (newProject.project_completed = false)
     : (newProject.project_completed = true);
@@ -15,7 +15,8 @@ async function postProject(project) {
 }
 
 async function getById(project_id) {
-  const project = await db("projects").where("project_id", project_id);
+  const [project] = await db("projects").where("project_id", project_id);
+  console.log(project);
   return await project;
 }
 

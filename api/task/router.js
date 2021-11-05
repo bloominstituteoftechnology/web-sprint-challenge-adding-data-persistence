@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
   });
 });
 
-router.post("/", validateBody, (req, res) => {
+router.post("/", validateProjectID, validateBody, (req, res) => {
   Task.postTask(req.body)
     .then((resp) => {
       res.status(201).json(resp);

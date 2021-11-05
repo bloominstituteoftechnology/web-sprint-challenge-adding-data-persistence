@@ -18,19 +18,22 @@ const validateBody = (req, res, next) => {
   next();
 };
 
-const validateProjectID = (req, res, next) => {
-  Project.getById(req.body.project_id).then((project) => {
-    if (project !== undefined) {
-      next();
-    } else {
+const validateProjectID = async (req, res, next) => {
+  try {
+    const project = await Project.getById(req.body.project_id);
+    if (project === undefined || !project) {
       next({
         status: 404,
-        message: `id:${req.body.project_id} not found`,
+        message: `project ${req.body.project_id} not found`,
       });
+    } else {
+      next();
     }
-  });
-  next();
+  } catch {
+    next();
+  }
 };
+
 module.exports = {
   validateBody,
   validateProjectID,
