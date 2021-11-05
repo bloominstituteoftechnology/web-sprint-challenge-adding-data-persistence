@@ -18,6 +18,18 @@ exports.up = async function(knex) {
         })
         .createTable('tasks', (table) => {
             table.increments('task_id')
+            table.string('task_description', 255)
+                .notNullable()
+            table.string('task_notes', 255)
+            table.boolean('task_completed')
+                .defaultTo(false)
+            table.integer('project_id')
+                .unsigned()
+                .notNullable()
+                .references('project_id')
+                .inTable('projects')
+                .onDelete('RESTRICT')
+                .onUpdate('RESTRICT')
         })
         .createTable('project_resources', (table) => {
             table.increments('project_resource_id')
