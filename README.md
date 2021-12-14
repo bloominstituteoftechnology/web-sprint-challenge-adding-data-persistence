@@ -96,7 +96,7 @@ Build an API inside the `api` folder with endpoints for:
 - Run tests locally by executing `npm run test`. Tests will be very broken until you flesh out the project sufficiently.
 - You are welcome to create additional files for middlewares etc, but **do not move or rename existing files** or folders.
 - Do not make changes to your `package.json` except to add **additional** dependencies and scripts. Do not update existing packages.
-- Delete `test.db3` and `database.db3` and re-run the migration(s) if you suspect half-finished code left your databases in a broken state.
+- Delete `test.db3` and `database.db3` and re-run migrations and tests, if you suspect half-finished code left your databases in a broken state.
 - In your solution, it is essential that you follow best practices and produce clean and professional results.
 
 ## Submission format
