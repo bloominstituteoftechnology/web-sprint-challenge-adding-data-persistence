@@ -6,8 +6,8 @@ const getAllResources = () => {
 }
 
 const createResources = async (materials) => {
-    const addNewMaterials = await db('resources').insert(materials, 'id')
-      return db('resources').where('resource_id', addNewMaterials).first()
+    const id = await db('resources').insert(materials, 'id')
+      return db('resources').where('resource_id', id).first()
 }
 
 module.exports = {

@@ -17,7 +17,7 @@ const getAllProjects = async () => {
 };
 
 const create = async (proj) => {
-    const [id] = await db("projects").insert(proj)
+    const id = await db("projects").insert(proj)
     return db("projects").where("project_id", id).first()
 };
 

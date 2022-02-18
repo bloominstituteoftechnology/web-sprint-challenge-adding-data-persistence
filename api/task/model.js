@@ -22,10 +22,10 @@ const getAllTasks = async () => {
 }
 
 const createTasks = async (task) => {
-    const addNewTask = await db('tasks').insert(task, 'id')
+    const id = await db('tasks').insert(task, 'id')
       return db ('tasks as t')
         .leftJoin('projects as p', 't.project_id', '=', 'p.project_id')
-        .where('t.task_id', addNewTask)
+        .where('t.task_id', id)
         .select('task_id', 'task_description', 'task_notes', 'task_completed', 'p.project_id')
 }
 
