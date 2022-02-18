@@ -2,31 +2,34 @@
 const db = require('../../data/dbConfig')
 
 const getAllTasks = async () => {
-    const outcome = await db('tasks as t')
-        .join('projects as p', 't.project_id', 'p.project_id')
-        .select('t*', 'p.project_name', 'p.project_description' )
+    const tasks = await db('tasks as t')
+        .join('projects as p', 't.project_id', '=', 'p.project_id')
+        .select('t.*', 'p.project_name', 'p.project_description')
+        
+        const outcome = []
 
-        const solution = []
-        for(let i = 0; i < outcome.length; i++) {
-            let results = {
-                task_id: outcome[i].task_id,
-                task_description:outcome[i].task_description,
-                task_notes: outcome[i].task_notes,
-                task_completed: outcome[i].task_completed === 0 ? false : true,
-                project_name: outcome[i].project_name,
-                project_description: outcome[i].project_description
+        for (let i = 0; i < tasks.length; i++) {
+            let result = {
+                task_id: tasks[i].task_id,
+                task_description:tasks[i].task_description,
+                task_notes: tasks[i].task_notes,
+                task_completed: tasks[i].task_completed === 0 ? false : true,
+                project_name: tasks[i].project_name,
+                project_description: tasks[i].project_description
             }
-            solution.push(results)
+            outcome.push(result)
         }
-        return solution
+        return outcome
 }
 
 const createTasks = async (task) => {
-    const id = await db('tasks').insert(task, 'id')
-      return db ('tasks as t')
-        .leftJoin('projects as p', 't.project_id', '=', 'p.project_id')
-        .where('t.task_id', id)
-        .select('task_id', 'task_description', 'task_notes', 'task_completed', 'p.project_id')
+    const addTask = await db('tasks').insert(task, 'id')
+    return db ('tasks as tk')
+        .leftJoin('projects as p', 'tk.project_id', '=', 'p.project_id')
+        .where('tk.task_id', addTask)
+        .select(
+            'task_id', 'task_description', 'task_notes', 'task_completed', 'p.project_id'
+        ) 
 }
 
 module.exports = {

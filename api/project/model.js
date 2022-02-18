@@ -16,12 +16,12 @@ const getAllProjects = async () => {
     return solution
 };
 
-const create = async (proj) => {
-    const id = await db("projects").insert(proj)
-    return db("projects").where("project_id", id).first()
+const createProject = async (proj) => {
+    const addNewProject = await db("projects").insert(proj)
+    return db("projects").where("project_id", addNewProject).first()
 };
 
 module.exports = {
     getAllProjects,
-    create
+    createProject
 }
