@@ -1,0 +1,19 @@
+{
+  "name": "adding-data-persistence",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "test": "cross-env NODE_ENV=testing jest --verbose --runInBand --silent"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BloomInstituteOfTechnology/web-sprint-challenge-adding-data-persistence.git"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "cross-env": "7.0.3",
+    "eslint": "8.10.0",
+    "jest": "27.5.1",
+    "supertest": "6.2.2"
+  }
+}
