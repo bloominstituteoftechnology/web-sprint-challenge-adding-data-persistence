@@ -1,22 +1,22 @@
-const projects = [
-    {}
-]
+// const projects = [
+//     {}
+// ]
 
-const resources = [
-    {}
-]
+// const resources = [
+//     {}
+// ]
 
-const tasks = [
-    {}
-]
+// const tasks = [
+//     {}
+// ]
 
-const project_resources = [
-    {}
-]
+// const project_resources = [
+//     {}
+// ]
 
-exports.seed = async function (knex) {
-    await knex("projects").insert(projects)
-    await knex("resources").insert(resources)
-    await knex("tasks").insert(tasks)
-    await knex("project_resources").insert(project_resources)
-}
+// exports.seed = async function (knex) {
+//     await knex("projects").insert(projects)
+//     await knex("resources").insert(resources)
+//     await knex("tasks").insert(tasks)
+//     await knex("project_resources").insert(project_resources)
+// }
