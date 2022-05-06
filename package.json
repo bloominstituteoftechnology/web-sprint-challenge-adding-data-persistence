@@ -12,8 +12,11 @@
   "license": "ISC",
   "devDependencies": {
     "cross-env": "7.0.3",
-    "eslint": "8.10.0",
-    "jest": "27.5.1",
-    "supertest": "6.2.2"
+    "eslint": "8.14.0",
+    "jest": "28.1.0",
+    "supertest": "6.2.3"
+  },
+  "dependencies": {
+    "sqlite3": "^5.0.8"
   }
 }
