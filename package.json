@@ -3,7 +3,10 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=testing jest --verbose --runInBand --silent"
+    "test": "cross-env NODE_ENV=testing jest --verbose --watch --runInBand --silent",
+    "start": "node index.js",
+    "server": "nodemon index.js"
+
   },
   "repository": {
     "type": "git",
@@ -17,6 +20,10 @@
     "supertest": "6.2.3"
   },
   "dependencies": {
+    "dotenv": "^16.0.1",
+    "env": "^0.0.2",
+    "knex": "^2.2.0",
+    "nodemon": "^2.0.19",
     "sqlite3": "^5.0.8"
   }
 }
