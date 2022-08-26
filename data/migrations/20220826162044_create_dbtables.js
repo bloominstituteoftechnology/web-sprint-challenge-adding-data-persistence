@@ -21,6 +21,11 @@ exports.up = function (knex) {
             tbl.integer('project_id').notNullable().references('project_id').inTable('projects');
         })
 
+        .createTable('project_resources', tbl => {
+            tbl.increments('joined_id');
+            tbl.integer('project_id').references('project_id').inTable('projects');
+            tbl.integer('resource_id').references('resource_id').inTable('resources');
+        })
 
 
 
