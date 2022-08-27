@@ -5,8 +5,8 @@
  server.use(express.json());
 
 
-//  const projectRouter = require('./project/router');
-//  server.use('/api/project', projectRouter)
+ const projectRouter = require('./project/router');
+ server.use('/api/projects', projectRouter)
 // const resourceRouter = require('./resource/router');
 // server.use('/api/resource', resourceRouter);
 
