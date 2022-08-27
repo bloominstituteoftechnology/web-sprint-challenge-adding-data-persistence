@@ -8,9 +8,7 @@ function find() {
     return db('projects');
 }
 
-const findById = id => {
-return db('projects').where({id}).first()
-}
+
 
 
 
@@ -24,4 +22,4 @@ function insert(project) {
 //     return findById(id)
 //   }
 
-module.exports = { find, insert, findById }
+module.exports = { find, insert }
