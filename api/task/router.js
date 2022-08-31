@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
         const tasks = await taskModel.find()
         res.status(200).json(tasks)
     } catch (error) {
-        
+
     }
 })
 

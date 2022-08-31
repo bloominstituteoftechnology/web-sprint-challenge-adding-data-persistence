@@ -4,7 +4,7 @@ const db = require('../../data/dbConfig');
 
 
 function find() {
-    return db('tasks')
+  return db('tasks')
 }
 
 
@@ -13,9 +13,9 @@ function find() {
 //     }
 
 function insert(task) {
-    return db("tasks")
-      .insert(task)
-      .then(([id]) => get(id));
-  }
+  return db("tasks")
+    .insert(task)
+    .then(([id]) => get(id));
+}
 
-module.exports = { find, insert,};
+module.exports = { find, insert, };

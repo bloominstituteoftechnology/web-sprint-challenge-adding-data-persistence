@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 
 })
 
-router.post('/', (req, res) => {
+router.post('/', (req, res, next) => {
     projectsModel.insert(req.body)
         .then(project => {
             if (!project.name || !project.description) {
@@ -24,9 +24,7 @@ router.post('/', (req, res) => {
                 res.status(201).json(project)
             }
         })
-        .catch(() => {
-            res.status(400).json({ message: "Please provide a name and a description" })
-        })
+        .catch(next)
 });
 
 
