@@ -2,7 +2,7 @@
 const express = require('express');
 const projectsModel = require('./model.js')
 const router = express.Router();
-// const validateProject = require('./middleware');
+const projectValidation = require('./middleware');
 
 
 router.get('/', async (req, res) => {
@@ -15,14 +15,25 @@ router.get('/', async (req, res) => {
 
 })
 
-router.post('/', (req, res, next) => {
+// router.post('/', projectValidation, (req, res, next) => {
+//     projectsModel.insert(req.body)
+//         .then(project => {
+//             res.status(201).json(project)
+//         })
+//         .catch(next)
+// });
+
+
+
+
+router.post('/',  (req, res, next) => {
     projectsModel.insert(req.body)
         .then(project => {
-            if (!project.name || !project.description) {
-                res.status(400).json({ message: "Please provide a name and a description" });
-            } else {
+            // if (!project.name || !project.description) {
+            //     res.status(400).json({ message: "Please provide a name and a description" });
+            // } else {
                 res.status(201).json(project)
-            }
+            // }
         })
         .catch(next)
 });

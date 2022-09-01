@@ -11,9 +11,24 @@ router.get('/', (req, res, next) => {
 })
 
 router.post('/', (req, res, next) => {
-    resModel.create(req.body)
-        .then(obj => res.json(obj))
-        .catch(next);
+    const resource = req.body
+    if (resource.resource_name) {
+        resModel.create(resource)
+            .then(newResource => res.status(201).json(newResource))
+            .catch(err => {
+                res.status(500).json(err)
+            })
+    } else {
+        return res.status(400).json({ message: "provide name, please" })
+    }
+
+
+
+
+
+    // resModel.create(resource)
+    //     .then(obj => res.status(201).json(obj))
+    //     .catch(next);
 })
 
 

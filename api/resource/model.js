@@ -13,8 +13,10 @@ const find = (id) => {
 
 const create = (resource) => {
     return db('resources')
-        .insert(resource)
-        .then(resId => find(resId[0]))
+        .insert(resource,"resource_id")
+        .then(([resource_id])=> db('resources')
+        .where({resource_id})
+        .first())
 }
 
 module.exports = {
