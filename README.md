@@ -1,17 +1,15 @@
 # Adding Data Persistence Sprint Challenge
 
-**Read these instructions carefully. Understand exactly what is expected _before_ starting this Sprint Challenge.**
+## Tools
 
-This challenge allows you to practice the concepts and techniques learned over the past sprint and apply them in a concrete project. This sprint explored **Data Persistence**. During this sprint, you studied **RDBMS, including SQL, multi-table queries, and data modeling**. In your challenge this week, you will demonstrate your mastery of these skills by creating **a database based on given specifications**.
-
-This is an individual assessment. All work must be your own. All projects will be submitted to Codegrade for automated review. You will also be given feedback by code reviewers a few days after the challenge submission. For more information on the review process [click here.](https://www.notion.so/bloomtech/How-to-View-Feedback-in-CodeGrade-c5147cee220c4044a25de28bcb6bb54a)
-
-You are not allowed to collaborate during the sprint challenge.
+- Node >= 16.x
+- NPM >= 8.x (update NPM executing `npm i -g npm`)
+- Unix-like shell (Gitbash/bash/zsh)
 
 ## Project Set Up
 
-- [ ] Run `npm install` to install your dependencies.
-- [ ] Run tests locally executing `npm test`.
+- Fork, clone, and `npm install`.
+- Run tests locally executing `npm test`.
 
 ## Project Instructions
 
@@ -91,26 +89,11 @@ Build an API inside the `api` folder with endpoints for:
   - Each task must include `project_name` and `project_description`
   - Example of response body: `[{"task_id":1,"task_description":"baz","task_notes":null,"task_completed":false,"project_name:"bar","project_description":null}]`
 
-**Important Notes (READ!)**
+**Important Notes:**
 
 - Run tests locally by executing `npm run test`. Tests will be very broken until you flesh out the project sufficiently.
 - You are welcome to create additional files for middlewares etc, but **do not move or rename existing files** or folders.
 - Do not make changes to your `package.json` except to add **additional** dependencies and scripts. Do not update existing packages.
 - Delete `test.db3` and `database.db3` and re-run migrations and tests, if you suspect half-finished code left your databases in a broken state.
 - In your solution, it is essential that you follow best practices and produce clean and professional results.
-
-## Submission format
-
-- [ ] Submit via Codegrade by pushing commits to your `main` branch on Github.
-- [ ] Check Codegrade before the deadline to compare its results against your local tests.
-- [ ] Check Codegrade on the days following the Sprint Challenge for reviewer feedback.
-- [ ] New commits will be evaluated by Codegrade if pushed _before_ the sprint challenge deadline.
-
-## Interview Questions
-
-Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
-
-1. Explain the difference between Relational Databases and SQL.
-2. Why do tables need a Primary Key?
-3. What is the name given to a table column that references the Primary Key on another table?
-4. What do we need in order to have a _many to many_ relationship between two tables?
+- Schedule time to review, refine, and assess your work and perform basic professional polishing.
